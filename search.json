@@ -177,7 +177,7 @@
     "href": "PB/PB-Front.html#overview",
     "title": "Basics with Python Programming",
     "section": "",
-    "text": "Getting Started\n\nPython\nSetting Python Development Environment\n\nPython Basics 1\n\nBasic concepts and syntax\nData in Python",
+    "text": "Getting Started\n\nPython\nSetting Python Development Environment\n\nConcepts and Syntax\n\nExpression and Operators\nStatements and Variables\nIndentation\nComments\n\nData Types\n\nBuilt-in Data Types\nNumbers\nStrings\nBoolean Values\nLists\nDictionaries",
     "crumbs": [
       "Basics with Python Programming"
     ]
@@ -476,6 +476,171 @@
     "crumbs": [
       "Basics with Python Programming",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Getting Started</span>"
+    ]
+  },
+  {
+    "objectID": "PB/PB-Basics.html",
+    "href": "PB/PB-Basics.html",
+    "title": "3  Concepts and Syntax",
+    "section": "",
+    "text": "3.1 Expressions and Operators\nThis section introduces fundamental concepts and syntax in python, including basic programming concepts and syntax, operators, and data types.\nAn expression is a piece of syntax which can be evaluated to some value. The detailed definitions are available in 6. Expressions (ver. 3.11).\nThe following expression is a simple expression for mathematical operation with the “addition” operator +:\n1 + 1\n\n2\nBy using a combination of multiple operators, an expression for complex computation can be computed.\n8**2 - 5%7\n\n59\nAs shown in this example, many different operators can be used in Python. Here are operators for arthmatic operations:\nSee more operators from https://www.w3schools.com/python/python_operators.asp\nWhen you run (i.e., evaluate) an expression, the operations in the expression are evaluated in the “PEMDAS” order:\nIn the previous example, if some elements and operations were in parentheses, the result becomes different:\n(8**2 - 5) % 7\n\n3",
+    "crumbs": [
+      "Basics with Python Programming",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Concepts and Syntax</span>"
+    ]
+  },
+  {
+    "objectID": "PB/PB-Basics.html#expressions-and-operators",
+    "href": "PB/PB-Basics.html#expressions-and-operators",
+    "title": "3  Concepts and Syntax",
+    "section": "",
+    "text": "Operator\nOperation\nExample\nEvaluation\n\n\n\n\n+\nAddition\n4 + 3\n7\n\n\n-\nSubtraction\n18 - 4\n14\n\n\n*\nMultiplication\n7 * 8\n56\n\n\n/\nDivision\n30 / 6\n5\n\n\n%\nModulus/Remainder\n34 % 6\n4\n\n\n**\nExponent/Power\n3 ** 3\n27\n\n\n\n\n\n\nParentheses\nExponents\nMultiplication and Division (from left to right)\nAddition and Subtraction (from left to right)",
+    "crumbs": [
+      "Basics with Python Programming",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Concepts and Syntax</span>"
+    ]
+  },
+  {
+    "objectID": "PB/PB-Basics.html#statements-and-variables",
+    "href": "PB/PB-Basics.html#statements-and-variables",
+    "title": "3  Concepts and Syntax",
+    "section": "3.2 Statements and Variables",
+    "text": "3.2 Statements and Variables\nA statement is part of a suite (a “block” of code) as a syntactic unit the interpreter executes.\nLet’s start with a simple statement for assignment. In Python terms, an assignment (re)binds a name to a value. In other words, we assign a value to a variable to bind a name to an object, where variables are containers for storing objects (e.g., data values).\nFor example, the following statement is about the assignment of a value (computed from an expression) to a variable result:\n\nresult = (8**2 - 5) % 7\n\nBy doing so, we can refer to the stored value later, reuse it, update program state, pass information between parts of a program, and make code clearer to humans.\nFor example, the stored value can be called by using print() function, which display the output, and can be reused:\n\nprint( result )\nprint( result + 4 )\n\n3\n7\n\n\nTo be specific, Python divides statements into - simple statements (single logical line, e.g., expression statements and assignment) - compound statements (control flow or definition blocks that contain other statements, e.g., if, for, while, try, with, and def) that contain (groups of) other statements.\nLater, we will revisit some of those that are helpful for our tasks. The detailed definitions are available in 7. Simple statements and 8. Compound statements (ver. 3.11).\n\n3.2.1 Output versus printing\nIn the examples above, the output was displayed below the cell either from the excution or through print(). When you run a code line by line in the interactive environment (e.g., the interactive interpreter and Jupyter notebook), the output will be displayed. But, it will not work when you have more lines.\nIn the example below we run two lines after two assignments. When not using the print(), only the output of the last operation in the cell is printed.\n\nfirst_value = 111\nsecond_value = 222\nfirst_value\nsecond_value\n\n222\n\n\nFurther, if the last operation is for some other (e.g., the assignment of a variable) rather than referring to a value, nothing will be printed.\n\nfirst_value\nsecond_value\nsomething_else = \"abc\"\n\nIn such situation, print() is used to print output to the screen.\n\nprint( first_value )\nprint( second_value )\nsomething_else = \"abc\"\n\n111\n222\n\n\nRule of thumb: - use the normal output for quick checking the output of an operation while developing in an interactive environment. - use print() for controling what is printed when, while developing more complicated codes (often in long codes or scripts).",
+    "crumbs": [
+      "Basics with Python Programming",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Concepts and Syntax</span>"
+    ]
+  },
+  {
+    "objectID": "PB/PB-Basics.html#indentation",
+    "href": "PB/PB-Basics.html#indentation",
+    "title": "3  Concepts and Syntax",
+    "section": "3.3 Indentation",
+    "text": "3.3 Indentation\nIndentation refers to the spaces at the beginning of a code line. The indentation in Python is very important, while the indentation in code in other programming languages is for readability only.\nPython uses indentation to indicate a block of code. For example, the following is if statement (a compound statement) that contains a condition and a suite of two simple statements (excution of print() on two lines). This statement will return the result of the print() only if the condition is met.\n\nif 5 &gt; 2:\n    print(\"Is five greater than two?\")\n    print(\"Yes!\")\n\nIs five greater than two?\nYes!\n\n\nBased on the identation, your code may lead to a different result, as the suite for the statement is differently defined and interpreted by Python.\n\nif -7 &gt; 3:\n    print(\"Is five greater than two?\")\nprint(\"Yes!\")\n\nOn the other hand, Python will give you an error if the indentation is either omitted in a statemet that expects an indented suite:\n\nif 5 &gt; 2:\nprint(\"Is five greater than two?\")\nprint(\"Yes!\")\n\nAlso, you have to use the same level (number of spaces) in the same block of code, otherwise Python will give you an error:\n\nif 5 &gt; 2:\n    print(\"Is five greater than two?\")\n  print(\"Yes!\")",
+    "crumbs": [
+      "Basics with Python Programming",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Concepts and Syntax</span>"
+    ]
+  },
+  {
+    "objectID": "PB/PB-Basics.html#comments",
+    "href": "PB/PB-Basics.html#comments",
+    "title": "3  Concepts and Syntax",
+    "section": "3.4 Comments",
+    "text": "3.4 Comments\nPython has commenting capability for the purpose of in-code documentation. Comments start with a sharp #, and Python will render the rest of the line, ignoring the rest of the line.\nComments can be added to your code in two typical ways. - a single-line comment can be placed for a one-liner note to explain the following lines:\n\n# This is a single-line comment. 1 + 1 will be NOT calculated by Python.\nprint(\"Hello, World!\")\n\nHello, World!\n\n\n\na inline comment can be placed right next to an expression to explain it:\n\n\nprint( 3 + 2 ) # addition\nprint( 3 - 2 ) # substraction\nprint( 3 * 2 ) # multiplication\nprint( 3 / 2 ) # division\n\n5\n1\n6\n1.5\n\n\nMany developers use comments for various purpose. You can check some best practices discussed in many online posts including How to Use Python Comments Effectively?.",
+    "crumbs": [
+      "Basics with Python Programming",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Concepts and Syntax</span>"
+    ]
+  },
+  {
+    "objectID": "PB/PB-Basics.html#reference",
+    "href": "PB/PB-Basics.html#reference",
+    "title": "3  Concepts and Syntax",
+    "section": "3.5 Reference",
+    "text": "3.5 Reference\n\nhttps://uofsclibraries-drs.github.io\nhttps://www.w3schools.com/python-",
+    "crumbs": [
+      "Basics with Python Programming",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Concepts and Syntax</span>"
+    ]
+  },
+  {
+    "objectID": "PB/PB-Data.html",
+    "href": "PB/PB-Data.html",
+    "title": "4  Data Types",
+    "section": "",
+    "text": "4.1 Built-in Data Types in Python\nThis section introduces built-in data types in Python.\nPython has various built-in data types, categorized as follows:\nAll expression evaluate to a single value. In the above examples, the expression evaluated to single numerical value. Numerical values come in two basic forms:",
+    "crumbs": [
+      "Basics with Python Programming",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Data Types</span>"
+    ]
+  },
+  {
+    "objectID": "PB/PB-Data.html#data-types",
+    "href": "PB/PB-Data.html#data-types",
+    "title": "4  Python Basics - Data Type",
+    "section": "",
+    "text": "Category\nData Type\nExample\n\n\n\n\nNumeric\nint\n20\n\n\nNumeric\nfloat\n20.5\n\n\nNumeric\ncomplex\n1j\n\n\nText\nstr\n\"Hello World\"\n\n\nSequence\nlist\n[\"apple\", \"banana\", \"cherry\"]\n\n\nSequence\ntuple\n(\"apple\", \"banana\", \"cherry\")\n\n\nSequence\nrange\nrange(6)\n\n\nMapping\ndict\n{\"name\": \"John\", \"age\": 36}\n\n\nSet\nset\n{\"apple\", \"banana\", \"cherry\"}\n\n\nSet\nfrozenset\nfrozenset({\"apple\", \"banana\", \"cherry\"})\n\n\nBoolean\nbool\nTrue\n\n\nBinary\nbytes\nb\"Hello\"\n\n\nBinary\nbytearray\nbytearray(5)\n\n\nBinary\nmemoryview\nmemoryview(bytes(5))\n\n\nNone\nNoneType\nNone",
+    "crumbs": [
+      "Basics with Python Programming",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Python Basics - Data Type</span>"
+    ]
+  },
+  {
+    "objectID": "PB/PB-Data.html#numbers",
+    "href": "PB/PB-Data.html#numbers",
+    "title": "4  Data Types",
+    "section": "4.2 Numbers",
+    "text": "4.2 Numbers\nThere are three numeric types in Python. Let’s enter each type in Python and check it by using the type() that returns the type of the specified object.\n\nint: Int, or integer, is a whole number, positive or negative, without decimals, of unlimited length.\n\n\n# int\nprint( 123 ) \nprint( type( 123 ) )\n\n123\n&lt;class 'int'&gt;\n\n\n\nfloat: Float, or “floating point number” is a number, positive or negative, containing one or more decimals.\n\n\nprint( 3.14 )\nprint( type( 3.14 ) )\n\n3.14\n&lt;class 'float'&gt;\n\n\n- Float can also be scientific numbers with an \"e\" to indicate the power of 10.\n\nprint( 987e5 )\nprint( 1.23e-3 )\n\n98700000.0\n0.00123\n\n\n\ncomplex: Complex numbers are written with a real number + a j as the imaginary part:\n\n\nprint( 1.5+4j )\nprint( type( 1.5+4j ) )\n\n(1.5+4j)\n&lt;class 'complex'&gt;\n\n\n\nint( 3.14 )\n\n3",
+    "crumbs": [
+      "Basics with Python Programming",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Data Types</span>"
+    ]
+  },
+  {
+    "objectID": "PB/PB-Data.html#strings",
+    "href": "PB/PB-Data.html#strings",
+    "title": "4  Data Types",
+    "section": "4.3 Strings",
+    "text": "4.3 Strings\nA snippet of text in Python is called a string. Strings in python are surrounded by either single quotation marks ', or double quotation marks \".\nFor example, 'hello' is the same as \"hello\". To evaluate whether two values are equal, we can use two equals signs == between them. The expression will evaluate to either True or False (see below for Boolean value).\n\n'hello' == \"hello\"\n\nTrue\n\n\nA string can contain letters, spaces, line breaks, and numbers. When a non-text value is embraced by quotation marks, it becomes a string, and Python treats it differently. For example, an integer 5 is converted to a string with quotation marks.\n\nprint( type(\"5\") )\n\n&lt;class 'str'&gt;\n\n\n\n# Compare an integer with the same meaning in other types\nprint( 5 == 5.0 )    # integer vs float\nprint( 5 == '5' )    # integer vs string \n\nTrue\nFalse\n\n\nThe distinction between each of these data types may seem unimportant, but it is. This is because an operator performs different operations, depending on the data type.\nFor example, the addition + for strings conbine two strings, called concatenation, exactly as they are in the order of the strings in the expression:\n\n# Combine the strings 'Hello' and 'World'\n'hello' + ' world'\n\n'hello world'\n\n\nHowever, using such operators may cause an error when the operators are applied to different types (e.g., numeric and non-numeric).\n\n# Try adding a string to an integer\n'5' + 7",
+    "crumbs": [
+      "Basics with Python Programming",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Data Types</span>"
+    ]
+  },
+  {
+    "objectID": "PB/PB-Data.html#boolean-values",
+    "href": "PB/PB-Data.html#boolean-values",
+    "title": "4  Data Types",
+    "section": "4.4 Boolean Values",
+    "text": "4.4 Boolean Values\nIn programming, you often need to know whether an expression is true or not. Booleans is a way to represent one of two possible values, True or False.\nIn Python, Boolean values can be handled by entering exactly True or False (case-sensitive).\n\nprint( False )\nprint( type(False) )\n\nFalse\n&lt;class 'bool'&gt;\n\n\nIn Python, the Boolean values True and False can be converted into numeric values 1 and 0, respectively.\n\nprint( int(True) )\nprint( float(False) )\n\n1\n0.0\n\n\n\n4.4.1 Comparison Operators\nComparison operators in Python are used to compare two values.\n\n\n\nOperator\nName\nExample\n\n\n\n\n==\nEqual\nx == y\n\n\n!=\nNot equal\nx != y\n\n\n&gt;\nGreater than\nx &gt; y\n\n\n&lt;\nLess than\nx &lt; y\n\n\n&gt;=\nGreater than or equal to\nx &gt;= y\n\n\n&lt;=\nLess than or equal to\nx &lt;= y\n\n\n\nAs shown in the example about strings, the == operator returns True if two values are equal to each other.\n\nprint( 5 == 5.0 )             # If the values are the same, an integer and a float are the same\nprint( 5 == \"five\" )          # A string cannot be equal to a float or an integer.\nprint( \"Five\" == \"five\" )     # Strings with different cases are not the same.\n\nTrue\nFalse\nFalse\n\n\n\n\n4.4.2 Logical Operators\nLogical operators are used to combine Boolean values (e.g., from conditional statements).\n\n\n\n\n\n\n\n\nOperator\nDescription\nExample\n\n\n\n\nand\nTrue if both statements are true\nx &lt; 5 and x &lt; 10\n\n\nor\nTrue if at least one statement is true\nx &lt; 5 or x &lt; 4\n\n\nnot\nReverses the result (Boolean negation)\nnot (x &lt; 5 and x &lt; 10)\n\n\n\nThe operation with a logical operator for two Boolean values returns a single Boolean value.\nFor example, when both statements are True, the and operator returns True\n\n# When (condition one is True) AND (condition two is True):\ncond1 = 1 &lt; 6\ncond2 = 4 &lt; 6\nprint( cond1 and cond2 )\nprint( True and True )\n\nTrue\nTrue\n\n\n\n# When (condition one is True) AND (condition two is False):\nprint( True and False )\n\nFalse\n\n\nConsidering two possible values of the statements, all possible combinations and their and results can be organized in a Truth table:\n\n\n\nCondition 1\nLogical operator\nCondition 2\nEvaluation\n\n\n\n\nTrue\nand\nTrue\nTrue\n\n\nTrue\nand\nFalse\nFalse\n\n\nFalse\nand\nTrue\nFalse\n\n\nFalse\nand\nFalse\nFalse\n\n\n\nSimilarly, create a Truth table that shows all possible results from or operator with two statements.\n\n\n\nCondition 1\nLogical operator\nCondition 2\nEvaluation\n\n\n\n\nTrue\nand\nTrue\nTrue\n\n\nTrue\nand\nFalse\nTrue\n\n\nFalse\nand\nTrue\nTrue\n\n\nFalse\nand\nFalse\nFalse\n\n\n\nLastly, the not operator only operates on a single expression for Boolean negation (i.e., flipping True to False or False to `True.\n\n# The not operator flips a True to False\nprint(not True)\nprint(not False)\n\nFalse\nTrue",
+    "crumbs": [
+      "Basics with Python Programming",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Data Types</span>"
+    ]
+  },
+  {
+    "objectID": "PB/PB-Data.html#lists",
+    "href": "PB/PB-Data.html#lists",
+    "title": "4  Data Types",
+    "section": "4.5 Lists",
+    "text": "4.5 Lists\nLists are one of four built-in data types that are used to store multiple items. Lists are created using square brackets [], and each item of any data type can be included with delimiter , in such ways of [item1, item2, item3, item4, ...].\n\n# A list of three integers \nint_list = [2, 4, 6, 8]\nprint( int_list )\nprint( type( int_list ) )\n\n[2, 4, 6, 8]\n&lt;class 'list'&gt;\n\n\n\n# A list of three mixed types \nmixed_list = [-0.2, 'car', False]\nprint( mixed_list )\nprint( type( mixed_list ) )\n\n[-0.2, 'car', False]\n&lt;class 'list'&gt;\n\n\n\n# An empty list\nempty_list = []\nprint( empty_list )\nprint( type( empty_list ) )\n\n[]\n&lt;class 'list'&gt;\n\n\n\n# A list of lists\nlists_list = [ int_list, mixed_list, empty_list] \nprint( lists_list )\nprint( type( lists_list ) )\n\n[[2, 4, 6, 8], [-0.2, 'car', False], []]\n&lt;class 'list'&gt;\n\n\nList items are presented in the order stored, and can be referred to by using the index.\n\nprint(int_list[0])     # first item of int_list\nprint(int_list[-1])     # the last item of int_list\n\n2\n8\n\n\nWe can change the value of any item in a list using an assignment statement that contains the item’s index number.\n\n# Changing the value of an item in a list\nAnimal = ['Cat', 'Dog', 'Bear']\nprint(Animal)\n\n['Cat', 'Dog', 'Bear']\n\n\n\n# Changing an item using an assignment state with index number\nAnimal[1] = 'Lion'\nprint(Animal)\n\n['Cat', 'Lion', 'Bear']",
+    "crumbs": [
+      "Basics with Python Programming",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Data Types</span>"
+    ]
+  },
+  {
+    "objectID": "PB/PB-Data.html#dictionaries",
+    "href": "PB/PB-Data.html#dictionaries",
+    "title": "4  Data Types",
+    "section": "4.6 Dictionaries",
+    "text": "4.6 Dictionaries\nDictionaries are another built-in data types storing multiple items. Dictionaries are created using curly brackets {}, and each item has a unique key paired with some value by : such that { key1 : value1, key2 : value2, key3 : value3, ...}\n\n# A dictionary of three integers \nint_dict = {\"Math\": 95, \"History\": 55, \"Art\": 70}\nprint( int_dict )\nprint( type( int_dict ) )\n\n{'Math': 95, 'History': 55, 'Art': 70}\n&lt;class 'dict'&gt;\n\n\n\n# A dictionary of mixed values\nmixed_dict = {\"Age\": 23, \"State\": \"WV\", \"Membership\": True, 'Ordered': [\"Shoes\", \"Socks\"]}\nprint( mixed_dict )\nprint( type( mixed_dict ) )\n\n{'Age': 23, 'State': 'WV', 'Membership': True, 'Ordered': ['Shoes', 'Socks']}\n&lt;class 'dict'&gt;\n\n\nDictionary items are presented in key:value pairs, and can be referred to by using the key name.\n\nprint(mixed_dict[\"Ordered\"])\n\n['Shoes', 'Socks']\n\n\nTo access a item of a list in the dictionary, an additional bracket with its index can be placed after the first indexing expression.\n\nprint(mixed_dict[\"Ordered\"][1])\n\nSocks",
+    "crumbs": [
+      "Basics with Python Programming",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Data Types</span>"
+    ]
+  },
+  {
+    "objectID": "PB/PB-Data.html#reference",
+    "href": "PB/PB-Data.html#reference",
+    "title": "4  Data Types",
+    "section": "4.7 Reference",
+    "text": "4.7 Reference\n\nhttps://uofsclibraries-drs.github.io\nhttps://www.w3schools.com/python-",
+    "crumbs": [
+      "Basics with Python Programming",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Data Types</span>"
+    ]
+  },
+  {
+    "objectID": "PB/PB-Data.html#built-in-data-types-in-python",
+    "href": "PB/PB-Data.html#built-in-data-types-in-python",
+    "title": "4  Data Types",
+    "section": "",
+    "text": "Category\nData Type\nExample\n\n\n\n\nNumeric\nint\n20\n\n\nNumeric\nfloat\n20.5\n\n\nNumeric\ncomplex\n1j\n\n\nText\nstr\n\"Hello World\"\n\n\nSequence\nlist\n[\"apple\", \"banana\", \"cherry\"]\n\n\nSequence\ntuple\n(\"apple\", \"banana\", \"cherry\")\n\n\nSequence\nrange\nrange(6)\n\n\nMapping\ndict\n{\"name\": \"John\", \"age\": 36}\n\n\nSet\nset\n{\"apple\", \"banana\", \"cherry\"}\n\n\nSet\nfrozenset\nfrozenset({\"apple\", \"banana\", \"cherry\"})\n\n\nBoolean\nbool\nTrue\n\n\nBinary\nbytes\nb\"Hello\"\n\n\nBinary\nbytearray\nbytearray(5)\n\n\nBinary\nmemoryview\nmemoryview(bytes(5))\n\n\nNone\nNoneType\nNone",
+    "crumbs": [
+      "Basics with Python Programming",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Data Types</span>"
     ]
   }
 ]
