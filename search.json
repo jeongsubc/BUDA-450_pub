@@ -642,5 +642,126 @@
       "Basics with Python Programming",
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>Data Types</span>"
     ]
+  },
+  {
+    "objectID": "App/App-Markdown.html",
+    "href": "App/App-Markdown.html",
+    "title": "Appendix A — Markdown Cheat Sheet",
+    "section": "",
+    "text": "A.1 Keyboard Shortcuts for Cell Types in Jupyter\nThis notebook is based on Markdown cheat sheet to provide a quick overview of the Markdown syntax elements. The elements introduced in this notebook are supported by many other Markdown applications. For more detailed, comprehensive information, refer to the reference guides from basic syntax and extended syntax or Tutorials.",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Markdown Cheat Sheet</span>"
+    ]
+  },
+  {
+    "objectID": "App/App-Markdown.html#keyboard-shortcuts-for-cell-types-in-jupyter-notebook-lab",
+    "href": "App/App-Markdown.html#keyboard-shortcuts-for-cell-types-in-jupyter-notebook-lab",
+    "title": "Appendix A — Markdown Cheat Sheet",
+    "section": "",
+    "text": "y Change to Code Cell Type\nm Change to Markdown Cell Type and\nr Change to Raw Cell Type",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Markdown Cheat Sheet</span>"
+    ]
+  },
+  {
+    "objectID": "App/App-Markdown.html#heading",
+    "href": "App/App-Markdown.html#heading",
+    "title": "Appendix A — Markdown Cheat Sheet",
+    "section": "A.2 Heading",
+    "text": "A.2 Heading\nMultiple levels…\n\n# H1\n## H2\n### H3\n#### H4\n##### H5\n###### H6\n\n\n\nShow the code in HTML\n&lt;h1&gt;H1&lt;/h1&gt;\n&lt;h2&gt;H2&lt;/h2&gt;\n&lt;h3&gt;H3&lt;/h3&gt;\n&lt;h4&gt;H4&lt;/h4&gt;\n&lt;h5&gt;H5&lt;/h5&gt;\n&lt;h6&gt;H6&lt;/h6&gt;",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Markdown Cheat Sheet</span>"
+    ]
+  },
+  {
+    "objectID": "App/App-Markdown.html#h2",
+    "href": "App/App-Markdown.html#h2",
+    "title": "Appendix A — Markdown Cheat Sheet",
+    "section": "B.1 H2",
+    "text": "B.1 H2\n\nB.1.1 H3\n\nB.1.1.1 H4\n\nH5\n\nH6\n# H1\n## H2\n### H3\n#### H4\n##### H5\n###### H6",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Markdown Cheat Sheet</span>"
+    ]
+  },
+  {
+    "objectID": "App/App-Markdown.html#emphasis",
+    "href": "App/App-Markdown.html#emphasis",
+    "title": "Appendix A — Markdown Cheat Sheet",
+    "section": "A.3 Emphasis",
+    "text": "A.3 Emphasis\nitalicized text\nbold text\nBold italic\nBold italic\nBold italic\nStrikethrough\n\nblockquote\n\n\n*italicized text*\n\n_italicized text_\n\n**bold text**\n\n**_Bold italic_**\n\n***Bold italic***\n\n___Bold italic___\n\n~~Strikethrough~~\n\n&gt; blockquote\n\n\n\nShow the code in HTML\n&lt;em&gt;Italic&lt;/em&gt;\n\n&lt;strong&gt;Bold&lt;/strong&gt;\n\n&lt;strike&gt;Strikethrough&lt;/strike&gt;\n\n&lt;strong&gt;&lt;em&gt;Bold italic&lt;/em&gt;&lt;strong&gt;\n\n&lt;mark&gt;Mark&lt;/mark&gt;",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Markdown Cheat Sheet</span>"
+    ]
+  },
+  {
+    "objectID": "App/App-Markdown.html#lists",
+    "href": "App/App-Markdown.html#lists",
+    "title": "Appendix A — Markdown Cheat Sheet",
+    "section": "A.4 Lists",
+    "text": "A.4 Lists\n\nA.4.1 Ordered List\n\nFirst item\nSecond item\nThird item\n\n\n1. First item\n2. Second item\n3. Third item\n\n\n\nShow the code in HTML\n&lt;ol&gt;\n    &lt;li&gt;First item&lt;/li&gt;\n    &lt;li&gt;Second item&lt;/li&gt;\n    &lt;li&gt;Third item&lt;/li&gt;\n&lt;/ol&gt;\n\n\n\n\nA.4.2 Unordered List\n\nFirst item\nSecond item\nThird item\n\n\n- First item\n- Second item\n- Third item\n\n\n\nShow the code in HTML\n&lt;ul&gt;\n    &lt;li&gt;First item&lt;/li&gt;\n    &lt;li&gt;Second item&lt;/li&gt;\n    &lt;li&gt;Third item&lt;/li&gt;\n&lt;/ul&gt;\n\n\n\n\nA.4.3 Task List\n\nFirst item\nSecond item\nThird item\n\n\n- [x] First item\n- [ ] Second item\n- [x] Third item",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Markdown Cheat Sheet</span>"
+    ]
+  },
+  {
+    "objectID": "App/App-Markdown.html#code",
+    "href": "App/App-Markdown.html#code",
+    "title": "Appendix A — Markdown Cheat Sheet",
+    "section": "A.5 Code",
+    "text": "A.5 Code\nThis is a in-line code, which is typed as `code`.\n\n\nShow the code in HTML\nThis is a in-line `code`.\n\n\nA fenced code block is for the whole space of the line.\n```  dict_ = {  “firstName”: “Jeongsub”,  “lastName”: “Choi”,  “age”: 18  }  ```\n\n\nShow the code in HTML\n&lt;code&gt; &lt;a&gt;\ndict_ = {\n  \"firstName\": \"Jeongsub\",\n  \"lastName\": \"Choi\",\n  \"age\": 18\n}\n&lt;/a&gt; &lt;/code&gt;",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Markdown Cheat Sheet</span>"
+    ]
+  },
+  {
+    "objectID": "App/App-Markdown.html#mathematical-symbols",
+    "href": "App/App-Markdown.html#mathematical-symbols",
+    "title": "Appendix A — Markdown Cheat Sheet",
+    "section": "A.6 Mathematical symbols",
+    "text": "A.6 Mathematical symbols\nThis is a in-line mathematical symbols \\(X_i = \\alpha^3\\), which is typed as $X_i = \\alpha^3$.\nAnd, a fenced equation block is for the whole space of the line.\n\\[\n\\sum_{i=1}^{3}{X_i}\n\\]\n\n$$\n\\sum_{i=1}^{3}{X_i} \n$$",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Markdown Cheat Sheet</span>"
+    ]
+  },
+  {
+    "objectID": "App/App-Markdown.html#other-elements",
+    "href": "App/App-Markdown.html#other-elements",
+    "title": "Appendix A — Markdown Cheat Sheet",
+    "section": "A.7 Other elements",
+    "text": "A.7 Other elements\n\nA.7.1 Horizontal Rule\nThe same horizontal line from different symbols:\n\nor\n\nor\n\n\n---\n\nor\n\n***\n\nor\n\n___\n\n\n\nShow the code in HTML\n&lt;hr&gt;\n\n\n\n\nA.7.2 Link\nNo space between the bracket and the paranthesis.\nMarkdown Guide\n\n[Markdown Guide](https://www.markdownguide.org)\n\n\n\nShow the code in HTML\n&lt;a href=\"https://www.markdownguide.org\" target=\"_blank\"&gt;Markdown Guide&lt;/a&gt;\n\n\n\n\nA.7.3 Image\nNo space between the exclamation mark and the bracket, and between the bracket and the paranthesis.\n\n\n\nalt text\n\n\n\n![alt text](https://www.markdownguide.org/assets/images/tux.png)\n\n\n\nShow the code in HTML\n&lt;img src=\"https://www.markdownguide.org/assets/images/tux.png\"/&gt;\n\n\n\n\nA.7.4 Table\n\n\n\nSyntax\nDescription\n\n\n\n\nHeader\nTitle\n\n\nParagraph\nText\n\n\n\n\n| Syntax | Description |\n| ----------- | ----------- |\n| Header | Title |\n| Paragraph | Text |\n\n\n\nShow the code in HTML\n&lt;table class=\"demo\"&gt;\n&lt;thead&gt;\n    &lt;tr&gt;\n        &lt;th&gt;Syntax&lt;/th&gt;\n        &lt;th&gt;Description&lt;/th&gt;\n    &lt;/tr&gt;\n    &lt;/thead&gt;\n    &lt;tbody&gt;\n    &lt;tr&gt;\n        &lt;td&gt;Header&lt;/td&gt;\n        &lt;td&gt;Title&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n        &lt;td&gt;Paragraph&lt;/td&gt;\n        &lt;td&gt;Text&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;/tbody&gt;\n&lt;/table&gt;",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Markdown Cheat Sheet</span>"
+    ]
+  },
+  {
+    "objectID": "App/App-Markdown.html#html",
+    "href": "App/App-Markdown.html#html",
+    "title": "Appendix A — Markdown Cheat Sheet",
+    "section": "A.8 HTML",
+    "text": "A.8 HTML\nMany similar and advanced syntax can be made through HTML.\n\nA.8.1 Heading\n&lt;h1&gt;H1&lt;/h1&gt;\n&lt;h2&gt;H2&lt;/h2&gt;\n&lt;h3&gt;H3&lt;/h3&gt;\n\n\nA.8.2 Emphasis\n&lt;em&gt;Italic&lt;/em&gt;\n&lt;strong&gt;Bold&lt;/strong&gt;\n&lt;strike&gt;Strikethrough&lt;/strike&gt;\n&lt;strong&gt;&lt;em&gt;Bold italic&lt;/em&gt;&lt;strong&gt;\n&lt;mark&gt;Mark&lt;/mark&gt;\n\n\nA.8.3 Lists\nOrdered list\n&lt;ol&gt;\n    &lt;li&gt;Item 1&lt;/li&gt;\n    &lt;li&gt;Item 2&lt;/li&gt;\n    &lt;li&gt;Item 3&lt;/li&gt;\n&lt;/ol&gt;\nUnordered list\n&lt;ul&gt;\n    &lt;li&gt;Item 1&lt;/li&gt;\n    &lt;li&gt;Item 2&lt;/li&gt;\n    &lt;li&gt;Item 3&lt;/li&gt;\n&lt;/ul&gt;\n\n\nA.8.4 Code\nCode\n&lt;code&gt; &lt;a&gt;Example of code&lt;/a&gt; &lt;/code&gt;\n\n\nA.8.5 Other elements\nHorizontal rule\n&lt;hr&gt;\nLink\n&lt;a href=\"https://www.wvu.edu/\" target=\"_blank\"&gt;External link - WVU&lt;/a&gt;\nImage\n&lt;img src=\"https://ccdam.wvu.edu/scm-main/university-seal-280x280.png\" /&gt; &lt;br /&gt;\n&lt;style&gt;\n.demo { border:1px solid #C0C0C0; border-collapse:collapse; padding:5px; }\n.demo th { border:1px solid #C0C0C0; padding:5px; background:#F0F0F0;}\n.demo td { border:1px solid #C0C0C0; padding:5px;}\n&lt;/style&gt;\nTable\n&lt;table class=\"demo\"&gt;\n&lt;thead&gt;\n    &lt;tr&gt;\n        &lt;th&gt;Column1&lt;/th&gt;\n        &lt;th&gt;Column2&lt;/th&gt;\n    &lt;/tr&gt;\n    &lt;/thead&gt;\n    &lt;tbody&gt;\n    &lt;tr&gt;\n        &lt;td&gt;Item 1.1&lt;/td&gt;\n        &lt;td&gt;Item 1.2&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n        &lt;td&gt;Item 2.1&lt;/td&gt;\n        &lt;td&gt;Item 2.2&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;/tbody&gt;\n&lt;/table&gt;",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Markdown Cheat Sheet</span>"
+    ]
+  },
+  {
+    "objectID": "App/App-Markdown.html#keyboard-shortcuts-for-cell-types-in-jupyter",
+    "href": "App/App-Markdown.html#keyboard-shortcuts-for-cell-types-in-jupyter",
+    "title": "Appendix A — Markdown Cheat Sheet",
+    "section": "",
+    "text": "y Change to Code Cell Type\nm Change to Markdown Cell Type and\nr Change to Raw Cell Type",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Markdown Cheat Sheet</span>"
+    ]
   }
 ]
