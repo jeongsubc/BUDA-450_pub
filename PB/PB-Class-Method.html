@@ -478,14 +478,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </table>
 <p>Almost everything in Python is an object, with its properties and methods. You can create a class to store <strong><em>data attributes</em></strong> (also called the class properties) and/or <strong><em>methods</em></strong>, and use the class to handle objects of a type in a consistent and systematic way.</p>
 <p>For example, you can define a class named <code>MyCourse</code> with an attribute named <code>program</code>, using <code>class</code> keyword:</p>
-<div id="983c7bd7" class="cell" data-execution_count="1">
+<div id="6ac5f5a0" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define a class</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> MyCourse:</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># data attribute</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    program <span class="op">=</span> <span class="st">'BUDA'</span>          <span class="co"># class variable shared by all instances</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Now, you can create an object of the new class:</p>
-<div id="7f064996" class="cell" data-execution_count="2">
+<div id="9c8345fb" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create an object</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>student_1 <span class="op">=</span> MyCourse()</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The program of student_1:"</span>, student_1.program)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -493,7 +493,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>The program of student_1: BUDA</code></pre>
 </div>
 </div>
-<div id="f98c1eea" class="cell" data-execution_count="3">
+<div id="1534048e" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Add/modify an attribute and the value in the object </span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>student_1.course <span class="op">=</span> <span class="st">"BUDA 450"</span>    <span class="co"># a new attribute</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The course code of student_1:"</span>, student_1.course)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -502,7 +502,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>Now, you can create another object of the same class, which has the same attribute <code>program</code>:</p>
-<div id="69010c85" class="cell" data-execution_count="4">
+<div id="d06cb37b" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create another object</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>student_2 <span class="op">=</span> MyCourse()</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The program of student_2:"</span>, student_2.program)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -511,13 +511,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>However, although their classes are the same, they are treated independently. So, this object <code>student_2</code> doesn’t have the attribute <code>course</code> as it was added only to <code>student_1</code>. The following example returns an error message.</p>
-<div id="7358e976" class="cell" data-execution_count="5">
+<div id="b4e39d8a" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The course code of student_2:"</span>, student_2.course)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <section id="method" class="level3" data-number="6.1.1">
 <h3 data-number="6.1.1" class="anchored" data-anchor-id="method"><span class="header-section-number">6.1.1</span> Method</h3>
 <p>A <a href="https://realpython.com/ref/glossary/method/">method</a> is a function that “belongs to” an object. So, a method is called on an object and is specific to the object’s type. To apply a method, you can call <strong>the method’s name</strong> (and <strong>arguments</strong>), following <strong>the name of the target object</strong> to call the method on and <strong>a period (dot)</strong> <code>.</code> , like <code>object_name.method_name(arguments)</code>.</p>
-<div id="544559dc" class="cell" data-execution_count="6">
+<div id="372cdce7" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define a class with method</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> MyCourse:</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># data attribute </span></span>
@@ -530,7 +530,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Here, <code>self</code> indicates the class object itself. That is, <code>self.program</code> call the <code>program</code> attribute of the object that is created through this class, locally within this class’ code block.</p>
 <p>As a result, the function can utilize internally defined attribute that will be identically created in every <code>MyCourse</code> object.</p>
 <p>For example, you can create two objects of <code>MyCourse</code> class, and use the same method with different arguments:</p>
-<div id="9466f1b1" class="cell" data-execution_count="7">
+<div id="2c33a525" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>student_3 <span class="op">=</span> MyCourse()</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>student_3.add_course(<span class="st">"450"</span>)</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(student_3.course)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -538,7 +538,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>BUDA 450</code></pre>
 </div>
 </div>
-<div id="a1ec7c4e" class="cell" data-execution_count="8">
+<div id="e7c86b2c" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>student_4 <span class="op">=</span> MyCourse()</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>student_4.add_course(<span class="st">"455"</span>)</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(student_4.course)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -550,7 +550,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h4 data-number="6.1.1.1" class="anchored" data-anchor-id="the-__init__-method"><span class="header-section-number">6.1.1.1</span> The <code>__init__()</code> Method</h4>
 <p>Almost all classes have a built-in method called <code>__init__()</code>, which makes the classes much useful by having an initial setup for each object. The <code>__init__()</code> method is always executed when the class is being initiated — when an object of the class is created.</p>
 <p>For example, the <code>__init__()</code> method can be used to assign initial values to object properties, or other operations that are necessary to do when the object is being created:</p>
-<div id="9699c0c0" class="cell" data-execution_count="9">
+<div id="89ca6dbd" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define a class with __init__ method</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> MyCourse_general:</span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, program):</span>
@@ -560,7 +560,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.course <span class="op">=</span> <span class="va">self</span>.program <span class="op">+</span> <span class="st">" "</span> <span class="op">+</span> course_code</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>For example, the <code>MyCourse_general</code> requires an argument for <code>program</code> attribute to initiate (i.e., create) an object. The following objects are created with different program names, while using the same method.</p>
-<div id="a2539627" class="cell" data-execution_count="10">
+<div id="c747cf9d" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># without the initial value, the object cannot be created</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>student_5 <span class="op">=</span> MyCourse_general(<span class="st">"BUDA"</span>)</span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>student_5.add_course(<span class="st">"450"</span>)</span>
@@ -569,7 +569,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>BUDA 450</code></pre>
 </div>
 </div>
-<div id="72676be0" class="cell" data-execution_count="11">
+<div id="013fbe59" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>student_6 <span class="op">=</span> MyCourse_general(<span class="st">"MIST"</span>)</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>student_6.add_course(<span class="st">"450"</span>)</span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(student_6.course)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
