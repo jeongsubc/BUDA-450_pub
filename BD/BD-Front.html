@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Appendix A — Markdown Cheat Sheet – Business Data Mining and Visualization</title>
+<title>Basics in Data Science with Python – Business Data Mining and Visualization</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,41 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -65,7 +30,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../BD/BD-Pandas.html" rel="prev">
+<link href="../BD/BD-NumPy.html" rel="next">
+<link href="../PB/PB-Class-Method.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -108,35 +74,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="../style.css">
 </head>
@@ -312,7 +249,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../App/App-Markdown.html">Appendices</a></li><li class="breadcrumb-item"><a href="../App/App-Markdown.html"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Markdown Cheat Sheet</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../BD/BD-Front.html">Basics in Data Science with Python</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -396,7 +333,7 @@ window.Quarto = {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../BD/BD-Front.html" class="sidebar-item-text sidebar-link">
+            <a href="../BD/BD-Front.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Basics in Data Science with Python</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -428,7 +365,7 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../App/App-Markdown.html" class="sidebar-item-text sidebar-link active">
+  <a href="../App/App-Markdown.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Markdown Cheat Sheet</span></span></a>
   </div>
 </li>
@@ -444,24 +381,7 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#keyboard-shortcuts-for-cell-types-in-jupyter" id="toc-keyboard-shortcuts-for-cell-types-in-jupyter" class="nav-link active" data-scroll-target="#keyboard-shortcuts-for-cell-types-in-jupyter"><span class="header-section-number">A.1</span> Keyboard Shortcuts for Cell Types in Jupyter</a></li>
-  <li><a href="#heading" id="toc-heading" class="nav-link" data-scroll-target="#heading"><span class="header-section-number">A.2</span> Heading</a></li>
-  <li><a href="#emphasis" id="toc-emphasis" class="nav-link" data-scroll-target="#emphasis"><span class="header-section-number">A.3</span> Emphasis</a></li>
-  <li><a href="#lists" id="toc-lists" class="nav-link" data-scroll-target="#lists"><span class="header-section-number">A.4</span> Lists</a>
-  <ul class="collapse">
-  <li><a href="#ordered-list" id="toc-ordered-list" class="nav-link" data-scroll-target="#ordered-list"><span class="header-section-number">A.4.1</span> Ordered List</a></li>
-  <li><a href="#unordered-list" id="toc-unordered-list" class="nav-link" data-scroll-target="#unordered-list"><span class="header-section-number">A.4.2</span> Unordered List</a></li>
-  <li><a href="#task-list" id="toc-task-list" class="nav-link" data-scroll-target="#task-list"><span class="header-section-number">A.4.3</span> Task List</a></li>
-  </ul></li>
-  <li><a href="#code" id="toc-code" class="nav-link" data-scroll-target="#code"><span class="header-section-number">A.5</span> Code</a></li>
-  <li><a href="#mathematical-symbols" id="toc-mathematical-symbols" class="nav-link" data-scroll-target="#mathematical-symbols"><span class="header-section-number">A.6</span> Mathematical symbols</a></li>
-  <li><a href="#other-elements" id="toc-other-elements" class="nav-link" data-scroll-target="#other-elements"><span class="header-section-number">A.7</span> Other elements</a>
-  <ul class="collapse">
-  <li><a href="#horizontal-rule" id="toc-horizontal-rule" class="nav-link" data-scroll-target="#horizontal-rule"><span class="header-section-number">A.7.1</span> Horizontal Rule</a></li>
-  <li><a href="#link" id="toc-link" class="nav-link" data-scroll-target="#link"><span class="header-section-number">A.7.2</span> Link</a></li>
-  <li><a href="#image" id="toc-image" class="nav-link" data-scroll-target="#image"><span class="header-section-number">A.7.3</span> Image</a></li>
-  <li><a href="#table" id="toc-table" class="nav-link" data-scroll-target="#table"><span class="header-section-number">A.7.4</span> Table</a></li>
-  </ul></li>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
   </ul>
 </nav>
     </div>
@@ -469,9 +389,9 @@ window.Quarto = {
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../App/App-Markdown.html">Appendices</a></li><li class="breadcrumb-item"><a href="../App/App-Markdown.html"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Markdown Cheat Sheet</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Appendix A — Markdown Cheat Sheet</h1>
+<h1 class="title">Basics in Data Science with Python</h1>
 </div>
 
 
@@ -488,293 +408,23 @@ window.Quarto = {
 </header>
 
 
-<p>This notebook is based on <a href="https://www.markdownguide.org/cheat-sheet/">Markdown cheat sheet</a> to provide a quick overview of the Markdown syntax elements. The elements introduced in this notebook are supported by many other Markdown applications. For more detailed, comprehensive information, refer to the reference guides from <a href="https://www.markdownguide.org/basic-syntax/">basic syntax</a> and <a href="https://www.markdownguide.org/extended-syntax/">extended syntax</a> or <a href="https://www.w3schools.io/file/markdown-introduction/">Tutorials</a>.</p>
-<section id="keyboard-shortcuts-for-cell-types-in-jupyter" class="level2" data-number="A.1">
-<h2 data-number="A.1" class="anchored" data-anchor-id="keyboard-shortcuts-for-cell-types-in-jupyter"><span class="header-section-number">A.1</span> Keyboard Shortcuts for Cell Types in Jupyter</h2>
-<ul>
-<li><code>y</code> Change to Code Cell Type</li>
-<li><code>m</code> Change to Markdown Cell Type and</li>
-<li><code>r</code> Change to Raw Cell Type</li>
-</ul>
-</section>
-<section id="heading" class="level2" data-number="A.2">
-<h2 data-number="A.2" class="anchored" data-anchor-id="heading"><span class="header-section-number">A.2</span> Heading</h2>
-<p>Multiple levels…</p>
-<div id="da5cd239" class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># H1</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">## H2</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">### H3</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">#### H4</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">##### H5</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">###### H6</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div id="15445766" class="cell" data-execution_count="2">
-<details class="code-fold">
-<summary>Show the code in HTML</summary>
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>h1<span class="op">&gt;</span>H1<span class="op">&lt;/</span>h1<span class="op">&gt;</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>h2<span class="op">&gt;</span>H2<span class="op">&lt;/</span>h2<span class="op">&gt;</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>h3<span class="op">&gt;</span>H3<span class="op">&lt;/</span>h3<span class="op">&gt;</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>h4<span class="op">&gt;</span>H4<span class="op">&lt;/</span>h4<span class="op">&gt;</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>h5<span class="op">&gt;</span>H5<span class="op">&lt;/</span>h5<span class="op">&gt;</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>h6<span class="op">&gt;</span>H6<span class="op">&lt;/</span>h6<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-</div>
-</section>
-<section id="emphasis" class="level2" data-number="A.3">
-<h2 data-number="A.3" class="anchored" data-anchor-id="emphasis"><span class="header-section-number">A.3</span> Emphasis</h2>
-<p><em>italicized text</em></p>
-<p><strong>bold text</strong></p>
-<p><strong><em>Bold italic</em></strong></p>
-<p><strong><em>Bold italic</em></strong></p>
-<p><strong><em>Bold italic</em></strong></p>
-<p><del>Strikethrough</del></p>
-<blockquote class="blockquote">
-<p>blockquote</p>
-</blockquote>
-<div id="3aa6b546" class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="op">*</span>italicized text<span class="op">*</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>_italicized text_</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="op">**</span>bold text<span class="op">**</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="op">**</span>_Bold italic_<span class="op">**</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="op">***</span>Bold italic<span class="op">***</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>___Bold italic___</span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="op">~~</span>Strikethrough<span class="op">~~</span></span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span> blockquote</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div id="44881575" class="cell" data-execution_count="4">
-<details class="code-fold">
-<summary>Show the code in HTML</summary>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>em<span class="op">&gt;</span>Italic<span class="op">&lt;/</span>em<span class="op">&gt;</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>strong<span class="op">&gt;</span>Bold<span class="op">&lt;/</span>strong<span class="op">&gt;</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>strike<span class="op">&gt;</span>Strikethrough<span class="op">&lt;/</span>strike<span class="op">&gt;</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>strong<span class="op">&gt;&lt;</span>em<span class="op">&gt;</span>Bold italic<span class="op">&lt;/</span>em<span class="op">&gt;&lt;</span>strong<span class="op">&gt;</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>mark<span class="op">&gt;</span>Mark<span class="op">&lt;/</span>mark<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-</div>
-</section>
-<section id="lists" class="level2" data-number="A.4">
-<h2 data-number="A.4" class="anchored" data-anchor-id="lists"><span class="header-section-number">A.4</span> Lists</h2>
-<section id="ordered-list" class="level3" data-number="A.4.1">
-<h3 data-number="A.4.1" class="anchored" data-anchor-id="ordered-list"><span class="header-section-number">A.4.1</span> Ordered List</h3>
-<ol type="1">
-<li>First item</li>
-<li>Second item</li>
-<li>Third item</li>
+<section id="overview" class="level2">
+<h2 class="anchored" data-anchor-id="overview">Overview</h2>
+<p>This chapter reviews fundamental skills for data science with Python.</p>
+<ol start="7" type="1">
+<li><p>Data Science Package - NumPy</p></li>
+<li><p>Data Science Package - Pandas</p></li>
 </ol>
-<div id="be00826b" class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fl">1.</span> First item</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fl">2.</span> Second item</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fl">3.</span> Third item</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div id="1232ad97" class="cell" data-execution_count="6">
-<details class="code-fold">
-<summary>Show the code in HTML</summary>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>ol<span class="op">&gt;</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="op">&lt;</span>li<span class="op">&gt;</span>First item<span class="op">&lt;/</span>li<span class="op">&gt;</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="op">&lt;</span>li<span class="op">&gt;</span>Second item<span class="op">&lt;/</span>li<span class="op">&gt;</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">&lt;</span>li<span class="op">&gt;</span>Third item<span class="op">&lt;/</span>li<span class="op">&gt;</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;/</span>ol<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-</div>
-</section>
-<section id="unordered-list" class="level3" data-number="A.4.2">
-<h3 data-number="A.4.2" class="anchored" data-anchor-id="unordered-list"><span class="header-section-number">A.4.2</span> Unordered List</h3>
-<ul>
-<li>First item</li>
-<li>Second item</li>
-<li>Third item</li>
-</ul>
-<div id="969ec4d4" class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> First item</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> Second item</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> Third item</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div id="3faf9ca2" class="cell" data-execution_count="8">
-<details class="code-fold">
-<summary>Show the code in HTML</summary>
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>ul<span class="op">&gt;</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="op">&lt;</span>li<span class="op">&gt;</span>First item<span class="op">&lt;/</span>li<span class="op">&gt;</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="op">&lt;</span>li<span class="op">&gt;</span>Second item<span class="op">&lt;/</span>li<span class="op">&gt;</span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">&lt;</span>li<span class="op">&gt;</span>Third item<span class="op">&lt;/</span>li<span class="op">&gt;</span></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;/</span>ul<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-</div>
-</section>
-<section id="task-list" class="level3" data-number="A.4.3">
-<h3 data-number="A.4.3" class="anchored" data-anchor-id="task-list"><span class="header-section-number">A.4.3</span> Task List</h3>
-<ul class="task-list">
-<li><label><input type="checkbox" checked="">First item</label></li>
-<li><label><input type="checkbox">Second item</label></li>
-<li><label><input type="checkbox" checked="">Third item</label></li>
-</ul>
-<div id="2bc69062" class="cell" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> [x] First item</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> [ ] Second item</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> [x] Third item</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-</section>
-<section id="code" class="level2" data-number="A.5">
-<h2 data-number="A.5" class="anchored" data-anchor-id="code"><span class="header-section-number">A.5</span> Code</h2>
-<p>This is a in-line <code>code</code>, which is typed as `code`.</p>
-<div id="2234b03e" class="cell" data-execution_count="10">
-<details class="code-fold">
-<summary>Show the code in HTML</summary>
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>This <span class="kw">is</span> a <span class="kw">in</span><span class="op">-</span>line `code`.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-</div>
-<p>A fenced code block is for the whole space of the line.</p>
-<p>``` <br> dict_ = { <br> “firstName”: “Jeongsub”, <br> “lastName”: “Choi”, <br> “age”: 18 <br> } <br> ```</p>
-<div id="b7bf35b1" class="cell" data-execution_count="11">
-<details class="code-fold">
-<summary>Show the code in HTML</summary>
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>code<span class="op">&gt;</span> <span class="op">&lt;</span>a<span class="op">&gt;</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>dict_ <span class="op">=</span> {</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">"firstName"</span>: <span class="st">"Jeongsub"</span>,</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">"lastName"</span>: <span class="st">"Choi"</span>,</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">"age"</span>: <span class="dv">18</span></span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;/</span>a<span class="op">&gt;</span> <span class="op">&lt;/</span>code<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-</div>
-</section>
-<section id="mathematical-symbols" class="level2" data-number="A.6">
-<h2 data-number="A.6" class="anchored" data-anchor-id="mathematical-symbols"><span class="header-section-number">A.6</span> Mathematical symbols</h2>
-<p>This is a in-line mathematical symbols <span class="math inline">\(X_i = \alpha^3\)</span>, which is typed as $X_i = \alpha^3$.</p>
-<p>And, a fenced equation block is for the whole space of the line.</p>
-<p><span class="math display">\[
-\sum_{i=1}^{3}{X_i}
-\]</span></p>
-<div id="a1b960c9" class="cell" data-execution_count="12">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>\sum_{i<span class="op">=</span><span class="dv">1</span>}<span class="op">^</span>{<span class="dv">3</span>}{X_i} </span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>$$</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="other-elements" class="level2" data-number="A.7">
-<h2 data-number="A.7" class="anchored" data-anchor-id="other-elements"><span class="header-section-number">A.7</span> Other elements</h2>
-<section id="horizontal-rule" class="level3" data-number="A.7.1">
-<h3 data-number="A.7.1" class="anchored" data-anchor-id="horizontal-rule"><span class="header-section-number">A.7.1</span> Horizontal Rule</h3>
-<p>The same horizontal line from different symbols:</p>
-<hr>
-<p>or</p>
-<hr>
-<p>or</p>
-<hr>
-<div id="f7772811" class="cell" data-execution_count="13">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="op">---</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="kw">or</span></span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="op">***</span></span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="kw">or</span></span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>___</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div id="8a73ea6f" class="cell" data-execution_count="14">
-<details class="code-fold">
-<summary>Show the code in HTML</summary>
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>hr<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-</div>
-</section>
-<section id="link" class="level3" data-number="A.7.2">
-<h3 data-number="A.7.2" class="anchored" data-anchor-id="link"><span class="header-section-number">A.7.2</span> Link</h3>
-<p>No space between the bracket and the paranthesis.</p>
-<p><a href="https://www.markdownguide.org">Markdown Guide</a></p>
-<div id="efcac614" class="cell" data-execution_count="15">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>[Markdown Guide](https:<span class="op">//</span>www.markdownguide.org)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div id="4ca7f38a" class="cell" data-execution_count="16">
-<details class="code-fold">
-<summary>Show the code in HTML</summary>
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>a href<span class="op">=</span><span class="st">"https://www.markdownguide.org"</span> target<span class="op">=</span><span class="st">"_blank"</span><span class="op">&gt;</span>Markdown Guide<span class="op">&lt;/</span>a<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-</div>
-</section>
-<section id="image" class="level3" data-number="A.7.3">
-<h3 data-number="A.7.3" class="anchored" data-anchor-id="image"><span class="header-section-number">A.7.3</span> Image</h3>
-<p>No space between the exclamation mark and the bracket, and between the bracket and the paranthesis.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://www.markdownguide.org/assets/images/tux.png" class="img-fluid figure-img"></p>
-<figcaption>alt text</figcaption>
-</figure>
-</div>
-<div id="24c7c896" class="cell" data-execution_count="17">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>[alt text](https:<span class="op">//</span>www.markdownguide.org<span class="op">/</span>assets<span class="op">/</span>images<span class="op">/</span>tux.png)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div id="5c9d445d" class="cell" data-execution_count="18">
-<details class="code-fold">
-<summary>Show the code in HTML</summary>
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>img src<span class="op">=</span><span class="st">"https://www.markdownguide.org/assets/images/tux.png"</span><span class="op">/&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-</div>
-</section>
-<section id="table" class="level3" data-number="A.7.4">
-<h3 data-number="A.7.4" class="anchored" data-anchor-id="table"><span class="header-section-number">A.7.4</span> Table</h3>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Syntax</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Header</td>
-<td>Title</td>
-</tr>
-<tr class="even">
-<td>Paragraph</td>
-<td>Text</td>
-</tr>
-</tbody>
-</table>
-<div id="21d70f21" class="cell" data-execution_count="19">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="op">|</span> Syntax <span class="op">|</span> Description <span class="op">|</span></span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="op">|</span> <span class="op">-----------</span> <span class="op">|</span> <span class="op">-----------</span> <span class="op">|</span></span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="op">|</span> Header <span class="op">|</span> Title <span class="op">|</span></span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="op">|</span> Paragraph <span class="op">|</span> Text <span class="op">|</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div id="a54fc6f9" class="cell" data-execution_count="20">
-<details class="code-fold">
-<summary>Show the code in HTML</summary>
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>table <span class="kw">class</span><span class="op">=</span><span class="st">"demo"</span><span class="op">&gt;</span></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>thead<span class="op">&gt;</span></span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>    <span class="op">&lt;</span>tr<span class="op">&gt;</span></span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>        <span class="op">&lt;</span>th<span class="op">&gt;</span>Syntax<span class="op">&lt;/</span>th<span class="op">&gt;</span></span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>        <span class="op">&lt;</span>th<span class="op">&gt;</span>Description<span class="op">&lt;/</span>th<span class="op">&gt;</span></span>
-<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>    <span class="op">&lt;/</span>tr<span class="op">&gt;</span></span>
-<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>    <span class="op">&lt;/</span>thead<span class="op">&gt;</span></span>
-<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>    <span class="op">&lt;</span>tbody<span class="op">&gt;</span></span>
-<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>    <span class="op">&lt;</span>tr<span class="op">&gt;</span></span>
-<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>        <span class="op">&lt;</span>td<span class="op">&gt;</span>Header<span class="op">&lt;/</span>td<span class="op">&gt;</span></span>
-<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>        <span class="op">&lt;</span>td<span class="op">&gt;</span>Title<span class="op">&lt;/</span>td<span class="op">&gt;</span></span>
-<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a>    <span class="op">&lt;/</span>tr<span class="op">&gt;</span></span>
-<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a>    <span class="op">&lt;</span>tr<span class="op">&gt;</span></span>
-<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a>        <span class="op">&lt;</span>td<span class="op">&gt;</span>Paragraph<span class="op">&lt;/</span>td<span class="op">&gt;</span></span>
-<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a>        <span class="op">&lt;</span>td<span class="op">&gt;</span>Text<span class="op">&lt;/</span>td<span class="op">&gt;</span></span>
-<span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a>    <span class="op">&lt;/</span>tr<span class="op">&gt;</span></span>
-<span id="cb20-17"><a href="#cb20-17" aria-hidden="true" tabindex="-1"></a>    <span class="op">&lt;/</span>tbody<span class="op">&gt;</span></span>
-<span id="cb20-18"><a href="#cb20-18" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;/</span>table<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-</div>
+<!--
+- Data Preprocessing
+  - Data Inspection
+  - Data Integration
+  - Data Cleaning
+  - Data Transformation
+
+-->
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -1192,11 +842,14 @@ window.Quarto = {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../BD/BD-Pandas.html" class="pagination-link" aria-label="Pandas">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Pandas</span></span>
+      <a href="../PB/PB-Class-Method.html" class="pagination-link" aria-label="Classes and Methods">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Classes and Methods</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="../BD/BD-NumPy.html" class="pagination-link" aria-label="NumPy">
+        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">NumPy</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->
