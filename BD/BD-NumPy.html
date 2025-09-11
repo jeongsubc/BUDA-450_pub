@@ -108,6 +108,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+<style>html{ scroll-behavior: smooth; }</style>
 
 
 <link rel="stylesheet" href="../style.css">
@@ -391,13 +392,30 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
- <span class="menu-text">Appendices</span></a>
+            <a href="../DV/DV-Front.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Data Visualization</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../DV/DV-IntroVisual.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Introduction to Data Visualization</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../App/App-Markdown.html" class="sidebar-item-text sidebar-link">
@@ -462,7 +480,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="from-data-objects" class="level3" data-number="7.1.1">
 <h3 data-number="7.1.1" class="anchored" data-anchor-id="from-data-objects"><span class="header-section-number">7.1.1</span> From data objects</h3>
 <p>An <code>ndarray</code> can be created from a list. For example, a <strong>1</strong>-dimensional numpy array (i.e., vector) can be defined in a <code>oneDim_array</code> object, using a list <code>oneDim_list</code> as follows.</p>
-<div id="1d2a028a" class="cell" data-execution_count="1">
+<div id="ea0fb6cd" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># import the package</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -480,7 +498,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>The basic information about the <code>ndarray</code> object can be retrieved from its attributes. Here are some attributes frequently used:</p>
-<div id="c3100e6b" class="cell" data-execution_count="2">
+<div id="280261f6" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"No. Dimensions    ="</span>, oneDim_array.ndim)</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Dimension         ="</span>, oneDim_array.shape)</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Size              ="</span>, oneDim_array.size)</span>
@@ -493,7 +511,7 @@ Array's data type = int64</code></pre>
 </div>
 </div>
 <p>Similarly, it is possible to create a <strong>multi</strong>-dimensional array, which can be created with a list of lists (a list of <em>rows</em>).</p>
-<div id="76ff23b3" class="cell" data-execution_count="3">
+<div id="8d439590" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>twoDim_list <span class="op">=</span> [[<span class="dv">1</span>,<span class="dv">2</span>],[<span class="dv">3</span>,<span class="dv">4</span>],[<span class="dv">5</span>,<span class="dv">6</span>],[<span class="dv">7</span>,<span class="dv">8</span>]]          <span class="co"># a list of "rows"</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>twoDim_array <span class="op">=</span> np.array(twoDim_list, dtype<span class="op">=</span><span class="st">'f'</span>)  <span class="co"># a two-dimensional array (matrix) as a float type</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -518,7 +536,7 @@ Array type     = float32</code></pre>
 Besides, the `ndarray` object can be created from a tuple object as well:
 
 
- ::: {#61b07f97 .cell execution_count=4}
+ ::: {#1e8dcc9d .cell execution_count=4}
  ``` {.python .cell-code}
  twoDim_tuple= [(1,'a',3.0),(2,'b',3.5)]
  twoDim_array_tuple= np.array(twoDim_tuple)  # create ndarray from tuple
@@ -547,7 +565,7 @@ Besides, the `ndarray` object can be created from a tuple object as well:
 <section id="from-functions" class="level3" data-number="7.1.2">
 <h3 data-number="7.1.2" class="anchored" data-anchor-id="from-functions"><span class="header-section-number">7.1.2</span> From functions</h3>
 <p>An <code>ndarray</code> can be created as a result of the operation of a function in <code>numpy</code>. Here are some functions that output new 1-dim <code>ndarray</code> objects.</p>
-<div id="3ecde0a7" class="cell" data-execution_count="5">
+<div id="1f6d5514" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Array of integers between -10 and 10, with step size of 2'</span>)</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>( np.arange(<span class="op">-</span><span class="dv">10</span>,<span class="dv">10</span>,<span class="dv">2</span>), <span class="st">'</span><span class="ch">\n</span><span class="st">'</span>)  <span class="co"># similar to range, but returns ndarray instead of list</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -565,11 +583,11 @@ Array of values between 0 and 1, split into 10 equally spaced values
  0.66666667 0.77777778 0.88888889 1.        ] 
 
 Array of random numbers from a uniform distribution
-[0.39617804 0.98103487 0.24975598 0.41850638 0.57147212]</code></pre>
+[0.25001948 0.76443099 0.2107207  0.01105534 0.5771979 ]</code></pre>
 </div>
 </div>
 <p>And, here are some functions that output 2- or higher dimensional <code>ndarray</code> objects.</p>
-<div id="93ad9422" class="cell" data-execution_count="6">
+<div id="1f61f2c1" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'A 3 x 3 identity matrix:'</span>)</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>( np.eye(<span class="dv">3</span>), <span class="st">'</span><span class="ch">\n</span><span class="st">'</span>)              <span class="co"># a 3 x 3 identity matrix</span></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -604,7 +622,7 @@ A 3 x 2 x 3 tensor of ones:
 <h3 data-number="7.1.3" class="anchored" data-anchor-id="from-data-files"><span class="header-section-number">7.1.3</span> From data files</h3>
 <p>Loading data from a text file is another way to create an <code>ndarray.</code> For that, you can use <code>numpy.genfromtxt()</code> that loads data by extracting each value distinguished by a delimiter from each line in a text file.</p>
 <p>Quite often, data are stored in a file formated with a single character that marks the separation between columns. For example, <a href="https://en.wikipedia.org/wiki/Comma-separated_values">comma-separated values</a> (CSV) files use a comma <code>,</code> or a semicolon <code>;</code> as delimiter.</p>
-<div id="18598cc3" class="cell" data-execution_count="7">
+<div id="7e8d788e" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load data from a csv file</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>file_path_n_name <span class="op">=</span> <span class="st">'data_array.csv'</span></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -620,7 +638,7 @@ A 3 x 2 x 3 tensor of ones:
 </div>
 <p>Here, <code>nan</code> is a floating point representation of <a href="https://numpy.org/devdocs/reference/constants.html#numpy.nan">Not a Number</a> in <code>numpy</code>.</p>
 <p>Similarily, some numeric constants are considered with specific keywords:</p>
-<div id="6960fc10" class="cell" data-execution_count="8">
+<div id="6b7d86a1" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The floating point representation of "</span>)</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"   - Not a Number (NaN),    numpy.nan:  "</span>, np.nan)</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"   - (positive) infinity,   numpy.inf:  "</span>, np.inf)</span>
@@ -636,7 +654,7 @@ A 3 x 2 x 3 tensor of ones:
 <section id="reshaping-an-array" class="level3" data-number="7.1.4">
 <h3 data-number="7.1.4" class="anchored" data-anchor-id="reshaping-an-array"><span class="header-section-number">7.1.4</span> Reshaping an array</h3>
 <p>You can change the shape of an <code>ndarray</code>, using <code>reshape()</code>:</p>
-<div id="2ec3d235" class="cell" data-execution_count="9">
+<div id="2d5f88e2" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Convert 1-dim into 2-dim array'</span>, <span class="st">'</span><span class="ch">\n</span><span class="st">'</span>)</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>oneDim_example <span class="op">=</span> np.arange(<span class="dv">12</span>)</span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -668,7 +686,7 @@ Methods in <code>numpy</code>
 </div>
 <div class="callout-body-container callout-body">
 <p>Using a method associated with <code>ndarray</code>, you can get the same result, but through a compact/intuitive code:</p>
-<div id="1e6d0294" class="cell" data-execution_count="10">
+<div id="f01b90c5" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'the classical function:'</span>)</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>( np.reshape(oneDim_example, (<span class="dv">3</span>,<span class="dv">4</span>)), <span class="st">'</span><span class="ch">\n</span><span class="st">'</span>)  <span class="co"># using the reshape function</span></span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -695,7 +713,7 @@ the method:
 <h2 data-number="7.2" class="anchored" data-anchor-id="indexing-and-slicing"><span class="header-section-number">7.2</span> Indexing and Slicing</h2>
 <p>There are various ways to select and manage a subset of elements within a <code>ndarray</code>. To access elements of an <code>ndarray</code>, you can use indices (e.g., row or column numbers).</p>
 <p>The following examples illustrate the indexing elements of 1-dim and 2-dim <code>ndarray</code>s.</p>
-<div id="1b976b4a" class="cell" data-execution_count="11">
+<div id="87334797" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1-dim example</span></span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>my1d_arr <span class="op">=</span> np.array(</span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>    [<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>]</span>
@@ -709,7 +727,7 @@ my1d_arr[:2] = [0 1]
 my1d_arr[2:] = [2 3 4 5 6 7 8]</code></pre>
 </div>
 </div>
-<div id="c4524798" class="cell" data-execution_count="12">
+<div id="4b448afd" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 2-dim example</span></span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>my2d_arr <span class="op">=</span> np.array(</span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>    [[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>],</span>
@@ -735,7 +753,7 @@ my2d_arr[:2,2:] =
 </div>
 </div>
 <p>Also, indexing can be based on a list of direct element indices.</p>
-<div id="677347d7" class="cell" data-execution_count="13">
+<div id="2678d7cc" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1-dim example</span></span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'my1d_arr =</span><span class="ch">\n</span><span class="st">'</span>, my1d_arr, <span class="st">'</span><span class="ch">\n</span><span class="st">'</span>)</span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -754,7 +772,7 @@ my1d_arr[indices] =
  [2 1 0 3]</code></pre>
 </div>
 </div>
-<div id="1eb51a63" class="cell" data-execution_count="14">
+<div id="437e2e69" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 2-dim example</span></span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'my2d_arr =</span><span class="ch">\n</span><span class="st">'</span>, my2d_arr, <span class="st">'</span><span class="ch">\n</span><span class="st">'</span>)</span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -779,7 +797,7 @@ my2d_arr[rowIndex,columnIndex] = [ 1  3  5 10  3]</code></pre>
 </div>
 </div>
 <p>Besides, <code>ndarray</code> supports Boolean (e.g., <code>[True, False, True]</code> to choose the 1st and 3rd in a list of three elements) indexing too.</p>
-<div id="0d60cb1b" class="cell" data-execution_count="15">
+<div id="edfa3d81" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1-dim example</span></span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'my1d_arr =</span><span class="ch">\n</span><span class="st">'</span>, my1d_arr, <span class="st">'</span><span class="ch">\n</span><span class="st">'</span>)</span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -796,7 +814,7 @@ my1d_arr[ my1d_arr % 3 == 0 ] =
  [0 3 6]</code></pre>
 </div>
 </div>
-<div id="3c126465" class="cell" data-execution_count="16">
+<div id="02f01b77" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 2-dim example</span></span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'my2d_arr =</span><span class="ch">\n</span><span class="st">'</span>, my2d_arr)</span>
 <span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -827,7 +845,7 @@ Warning
 </div>
 <div class="callout-body-container callout-body">
 <p><strong>Assigning an array</strong> (or a subset of its elements) to another variable will <strong><em>simply pass a reference to the array</em></strong> instead of copying its values. Therefore, when the modification of the values in the new variable (e.g., <code>y</code> in the following example) is linked to the modification of the values in the original variable (e.g., <code>x</code>).</p>
-<div id="5af233c8" class="cell" data-execution_count="17">
+<div id="047c7199" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.arange(<span class="op">-</span><span class="dv">5</span>,<span class="dv">5</span>)</span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Given x ='</span>, x)</span>
 <span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -849,7 +867,7 @@ Modification in Y
 </div>
 </div>
 <p>To create an <code>ndarray</code> that is independent of the orignial reference, you need to make a copy by explicitly calling the <code>copy()</code> function.</p>
-<div id="47a5d8cc" class="cell" data-execution_count="18">
+<div id="3da18791" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>z <span class="op">=</span> x[<span class="dv">3</span>:<span class="dv">5</span>].copy()   <span class="co"># makes a copy of the subarray</span></span>
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Before: x ='</span>, x)</span>
 <span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'        z ='</span>, z, <span class="st">'</span><span class="ch">\n</span><span class="st">'</span>)</span>
@@ -871,7 +889,7 @@ After : z = [500 500]
 <section id="element-wise-operations" class="level2" data-number="7.3">
 <h2 data-number="7.3" class="anchored" data-anchor-id="element-wise-operations"><span class="header-section-number">7.3</span> Element-wise Operations</h2>
 <p>You can apply standard arithmetic operators such as addition and multiplication on each element of the <code>ndarray</code>.</p>
-<div id="b49c3ff2" class="cell" data-execution_count="19">
+<div id="fa7c6ef3" class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.array([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>], dtype<span class="op">=</span><span class="st">'f'</span>)</span>
 <span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'x      ='</span>, x, <span class="st">'</span><span class="ch">\n</span><span class="st">'</span>)</span>
@@ -898,7 +916,7 @@ x % 2  = [1. 0. 1. 0. 1.]</code></pre>
 </div>
 </div>
 <p>Such operators can be applied to the operation between two <code>ndarray</code> objects when they have <strong><em>the same shape</em></strong>.</p>
-<div id="03ed1529" class="cell" data-execution_count="20">
+<div id="c02812fe" class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.array([<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">6</span>,<span class="dv">8</span>,<span class="dv">10</span>])</span>
 <span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> np.array([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>])</span>
 <span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -932,7 +950,7 @@ x % y  = [0 0 0 2 1]</code></pre>
 <h2 data-number="7.4" class="anchored" data-anchor-id="arithmetics-and-statistics"><span class="header-section-number">7.4</span> Arithmetics and Statistics</h2>
 <p><code>numpy</code> provides various built-in mathematical functions available for manipulating elements of an <code>ndarray</code>.</p>
 <p>First, there are functions that return a single-value answer from the operation with the values in a <code>ndarray</code>:</p>
-<div id="016d1c84" class="cell" data-execution_count="21">
+<div id="9552385b" class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.array([<span class="op">-</span><span class="fl">1.452</span>, <span class="fl">0.410</span>, <span class="op">-</span><span class="fl">3.287</span>, <span class="fl">2.539</span>])    </span>
 <span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'x          ='</span>, x, <span class="st">'</span><span class="ch">\n</span><span class="st">'</span>)</span>
 <span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -952,7 +970,7 @@ np.std(x)  = 2.163692965741674</code></pre>
 </div>
 </div>
 <p>Also, some other functions return an array of the same shape, applying element-wise operations:</p>
-<div id="68b9537b" class="cell" data-execution_count="22">
+<div id="c9c7aa5b" class="cell" data-execution_count="22">
 <div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'x               ='</span>, x, <span class="st">'</span><span class="ch">\n</span><span class="st">'</span>)</span>
 <span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'np.sign(x)      ='</span>, np.sign(x))          <span class="co"># the sign of each element</span></span>
@@ -973,7 +991,7 @@ np.sort(x)      = [-3.287 -1.452  0.41   2.539]</code></pre>
 </div>
 </div>
 <p>In addition, functions for many other mathematical operations are available:</p>
-<div id="c55a6919" class="cell" data-execution_count="23">
+<div id="57736718" class="cell" data-execution_count="23">
 <div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> np.arange(<span class="dv">2</span>,<span class="dv">6</span>)</span>
 <span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'x                    ='</span>, x)</span>
 <span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'y                    ='</span>, y, <span class="st">'</span><span class="ch">\n</span><span class="st">'</span>)</span>
@@ -1010,7 +1028,7 @@ np.minimum(x,y)      = [-1.452  0.41  -3.287  2.539]</code></pre>
 <section id="linear-algebra" class="level2" data-number="7.5">
 <h2 data-number="7.5" class="anchored" data-anchor-id="linear-algebra"><span class="header-section-number">7.5</span> Linear algebra</h2>
 <p><code>Numpy</code> provides many functions to support linear algebra operations.</p>
-<div id="4f1f4ab0" class="cell" data-execution_count="24">
+<div id="305117b6" class="cell" data-execution_count="24">
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> np.random.randn(<span class="dv">2</span>,<span class="dv">3</span>)                       <span class="co"># create a 2 x 3 random matrix</span></span>
 <span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'X =</span><span class="ch">\n</span><span class="st">'</span>, X, <span class="st">'</span><span class="ch">\n</span><span class="st">'</span>)</span>
 <span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Transpose of X, X.T =</span><span class="ch">\n</span><span class="st">'</span>, X.T, <span class="st">'</span><span class="ch">\n</span><span class="st">'</span>)    <span class="co"># matrix transpose operation X^T</span></span>
@@ -1026,31 +1044,31 @@ np.minimum(x,y)      = [-1.452  0.41  -3.287  2.539]</code></pre>
 <span id="cb45-13"><a href="#cb45-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'</span><span class="ch">\n</span><span class="st">X.T.dot(X) =</span><span class="ch">\n</span><span class="st">'</span>, X.T.dot(X))          <span class="co"># matrix-matrix multiplication  X^T * X</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>X =
- [[-0.96101696 -0.5294638  -1.06336934]
- [-0.83775353 -1.03677156 -1.02905819]] 
+ [[-0.24937736 -0.02412108 -0.64270499]
+ [ 0.74443656 -0.08672017 -0.24617047]] 
 
 Transpose of X, X.T =
- [[-0.96101696 -0.83775353]
- [-0.5294638  -1.03677156]
- [-1.06336934 -1.02905819]] 
+ [[-0.24937736  0.74443656]
+ [-0.02412108 -0.08672017]
+ [-0.64270499 -0.24617047]] 
 
-y = [0.77327992 0.38776203 0.07131714] 
+y = [ 0.85319601 -1.58241595  1.3379214 ] 
 
 Matrix-vector multiplication
 X.dot(y) =
- [-1.02427753 -1.12322811] 
+ [-1.03448695  0.44302093] 
 
 Matrix-matrix product
-X.dot(X.T) = [[2.33463985 2.44829729]
- [2.44829729 2.83568701]]
+X.dot(X.T) = [[ 0.47584059 -0.02533885]
+ [-0.02533885  0.62230608]]
 
 X.T.dot(X) =
- [[1.62538457 1.37738273 1.8840131 ]
- [1.37738273 1.35522718 1.62991384]
- [1.8840131  1.62991384 2.18971511]]</code></pre>
+ [[ 0.61637486 -0.05854241 -0.02298223]
+ [-0.05854241  0.00810221  0.03685068]
+ [-0.02298223  0.03685068  0.4736696 ]]</code></pre>
 </div>
 </div>
-<div id="0350dddf" class="cell" data-execution_count="25">
+<div id="21e52b78" class="cell" data-execution_count="25">
 <div class="sourceCode cell-code" id="cb47"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> np.random.randn(<span class="dv">5</span>,<span class="dv">3</span>)</span>
 <span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'X =</span><span class="ch">\n</span><span class="st">'</span>, X, <span class="st">'</span><span class="ch">\n</span><span class="st">'</span>)</span>
 <span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1068,29 +1086,29 @@ X.T.dot(X) =
 <span id="cb47-15"><a href="#cb47-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Eigenvectors of C =</span><span class="ch">\n</span><span class="st">'</span>, U)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>X =
- [[ 1.6264251  -1.00828384 -0.17829145]
- [ 0.02492629 -0.20926076  0.90029424]
- [-1.69583437 -0.65078392  0.5821845 ]
- [ 0.64956654  0.56218335  0.92956846]
- [ 2.68011497 -0.35517491 -0.34356286]] 
+ [[ 0.39630937 -1.11811058  1.45870628]
+ [-1.74990565  0.6570603  -1.0889057 ]
+ [-2.00685081  1.29104727 -0.77592785]
+ [ 0.29088804  1.75685359  0.27758229]
+ [-0.46118162  1.04855683  0.73996344]] 
 
 C = X.T.dot(X) =
- [[13.12668711 -1.12822662 -1.57179657]
- [-1.12822662  1.92614542  0.25710864]
- [-1.57179657  0.25710864  2.16338929]] 
+ [[ 7.54398543 -4.15637794  3.78024048]
+ [-4.15637794  7.53470853 -2.08466601]
+ [ 3.78024048 -2.08466601  4.54020151]] 
 
 Inverse of C = np.linalg.inv(C)
- [[ 0.08682697  0.04312177  0.05795876]
- [ 0.04312177  0.54895645 -0.03391105]
- [ 0.05795876 -0.03391105  0.50837739]] 
+ [[ 2.85253560e-01  1.04978792e-01 -1.89304667e-01]
+ [ 1.04978792e-01  1.90667216e-01  1.39285939e-04]
+ [-1.89304667e-01  1.39285939e-04  3.77936426e-01]] 
 
-Determinant of C = np.linalg.det(C) = 47.230686138165666
+Determinant of C = np.linalg.det(C) = 104.69023638944232
 Eigenvalues of C =
- [13.46283043  1.99399092  1.75940047]
+ [13.62011627  1.85488282  4.14389638]
 Eigenvectors of C =
- [[ 0.98524114 -0.16982817 -0.02140773]
- [-0.09945613 -0.46617141 -0.87908628]
- [-0.13931394 -0.8682411   0.47618171]]</code></pre>
+ [[-0.67574072  0.63637697  0.37201993]
+ [ 0.60553664  0.19142468  0.77245192]
+ [-0.42035682 -0.74724892  0.51470302]]</code></pre>
 </div>
 </div>
 </section>
@@ -1205,6 +1223,8 @@ Eigenvectors of C =
           if (link.dataset.originalHref !== undefined) {
             link.href = link.dataset.originalHref;
           }
+            // default icon
+            link.classList.add("external");
         }
       }
     function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
@@ -1548,4 +1568,5 @@ Eigenvectors of C =
 
 
 
+<script src="../site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>

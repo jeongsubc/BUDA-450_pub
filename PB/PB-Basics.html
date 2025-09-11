@@ -108,6 +108,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+<style>html{ scroll-behavior: smooth; }</style>
 
 
 <link rel="stylesheet" href="../style.css">
@@ -391,13 +392,30 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
- <span class="menu-text">Appendices</span></a>
+            <a href="../DV/DV-Front.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Data Visualization</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../DV/DV-IntroVisual.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Introduction to Data Visualization</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../App/App-Markdown.html" class="sidebar-item-text sidebar-link">
@@ -455,14 +473,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 data-number="3.1" class="anchored" data-anchor-id="expressions-and-operators"><span class="header-section-number">3.1</span> Expressions and Operators</h2>
 <p>An <a href="https://docs.python.org/3/glossary.html#term-expression">expression</a> is <em>a piece of syntax which can be evaluated to some value</em>. The detailed definitions are available in <a href="https://docs.python.org/3.11/reference/expressions.html">6. Expressions</a> (ver. 3.11).</p>
 <p>The following expression is a simple expression for mathematical operation with the “addition” operator <code>+</code>:</p>
-<div id="98dcca35" class="cell" data-execution_count="1">
+<div id="d426b570" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="op">+</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="1">
 <pre><code>2</code></pre>
 </div>
 </div>
 <p>By using a combination of multiple operators, an expression for complex computation can be computed.</p>
-<div id="3a37081a" class="cell" data-execution_count="2">
+<div id="2d37567a" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="dv">8</span><span class="op">**</span><span class="dv">2</span> <span class="op">-</span> <span class="dv">5</span><span class="op">%</span><span class="dv">7</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="2">
 <pre><code>59</code></pre>
@@ -526,7 +544,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Addition and Subtraction (from left to right)</li>
 </ol>
 <p>In the previous example, if some elements and operations were in parentheses, the result becomes different:</p>
-<div id="2fcbc6c6" class="cell" data-execution_count="3">
+<div id="a83eb1e6" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>(<span class="dv">8</span><span class="op">**</span><span class="dv">2</span> <span class="op">-</span> <span class="dv">5</span>) <span class="op">%</span> <span class="dv">7</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="3">
 <pre><code>3</code></pre>
@@ -538,12 +556,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>A <a href="https://docs.python.org/3/glossary.html#term-statement">statement</a> is part of a suite (a “block” of code) as a syntactic unit the interpreter executes.</p>
 <p>Let’s start with a simple statement for assignment. In Python terms, an assignment (re)binds a name to a value. In other words, we assign a value to a variable to bind a name to an object, where variables are containers for storing objects (e.g., data values).</p>
 <p>For example, the following statement is about the assignment of a value (computed from an expression) to a variable <code>result</code>:</p>
-<div id="fc3107b8" class="cell" data-execution_count="4">
+<div id="5047a5c3" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> (<span class="dv">8</span><span class="op">**</span><span class="dv">2</span> <span class="op">-</span> <span class="dv">5</span>) <span class="op">%</span> <span class="dv">7</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>By doing so, we can refer to the stored value later, reuse it, update program state, pass information between parts of a program, and make code clearer to humans.</p>
 <p>For example, the stored value can be called by using <code>print()</code> function, which display the output, and can be reused:</p>
-<div id="d71ac037" class="cell" data-execution_count="5">
+<div id="0406f5bb" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>( result )</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>( result <span class="op">+</span> <span class="dv">4</span> )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -557,7 +575,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 data-number="3.2.1" class="anchored" data-anchor-id="output-versus-printing"><span class="header-section-number">3.2.1</span> Output versus printing</h3>
 <p>In the examples above, the output was displayed below the cell either from the excution or through <code>print()</code>. When you run a code line by line in the interactive environment (e.g., the interactive interpreter and Jupyter notebook), the output will be displayed. But, it will not work when you have more lines.</p>
 <p>In the example below we run two lines after two assignments. When not using the <code>print()</code>, only the output of the last operation in the cell is printed.</p>
-<div id="dcc91410" class="cell" data-execution_count="6">
+<div id="5567964a" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>first_value <span class="op">=</span> <span class="dv">111</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>second_value <span class="op">=</span> <span class="dv">222</span></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>first_value</span>
@@ -567,13 +585,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>Further, if the last operation is for some other (e.g., the assignment of a variable) rather than referring to a value, nothing will be printed.</p>
-<div id="6a71c44e" class="cell" data-execution_count="7">
+<div id="d4d45f9d" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>first_value</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>second_value</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>something_else <span class="op">=</span> <span class="st">"abc"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>In such situation, <code>print()</code> is used to print output to the screen.</p>
-<div id="e142a654" class="cell" data-execution_count="8">
+<div id="2acbda85" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>( first_value )</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>( second_value )</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>something_else <span class="op">=</span> <span class="st">"abc"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -589,7 +607,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 data-number="3.3" class="anchored" data-anchor-id="indentation"><span class="header-section-number">3.3</span> Indentation</h2>
 <p>Indentation refers to the spaces at the beginning of a code line. The indentation in Python is very important, while the indentation in code in other programming languages is for readability only.</p>
 <p>Python uses indentation to indicate a block of code. For example, the following is <code>if</code> statement (a compound statement) that contains a condition and a suite of two simple statements (excution of <code>print()</code> on two lines). This statement will return the result of the <code>print()</code> only if the condition is met.</p>
-<div id="c134e6ea" class="cell" data-execution_count="9">
+<div id="f3d3606b" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="dv">5</span> <span class="op">&gt;</span> <span class="dv">2</span>:</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Is five greater than two?"</span>)</span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Yes!"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -599,19 +617,19 @@ Yes!</code></pre>
 </div>
 </div>
 <p>Based on the identation, your code may lead to a different result, as the suite for the statement is differently defined and interpreted by Python.</p>
-<div id="a01309d8" class="cell" data-execution_count="10">
+<div id="f25a49d7" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">-</span><span class="dv">7</span> <span class="op">&gt;</span> <span class="dv">3</span>:</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Is five greater than two?"</span>)</span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Yes!"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>On the other hand, Python will give you an error if the indentation is either omitted in a statemet that expects an indented suite:</p>
-<div id="eba0be97" class="cell" data-execution_count="11">
+<div id="27d86cdc" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="dv">5</span> <span class="op">&gt;</span> <span class="dv">2</span>:</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Is five greater than two?"</span>)</span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Yes!"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Also, you have to use the same level (number of spaces) in the same block of code, otherwise Python will give you an error:</p>
-<div id="6d99316e" class="cell" data-execution_count="12">
+<div id="ef7d6aab" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="dv">5</span> <span class="op">&gt;</span> <span class="dv">2</span>:</span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Is five greater than two?"</span>)</span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(<span class="st">"Yes!"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -621,7 +639,7 @@ Yes!</code></pre>
 <h2 data-number="3.4" class="anchored" data-anchor-id="comments"><span class="header-section-number">3.4</span> Comments</h2>
 <p>Python has commenting capability for the purpose of in-code documentation. Comments start with a sharp <code>#</code>, and Python will render the rest of the line, ignoring the rest of the line.</p>
 <p>Comments can be added to your code in two typical ways. - a single-line comment can be placed for a one-liner note to explain the following lines:</p>
-<div id="e1eb7bbb" class="cell" data-execution_count="13">
+<div id="8d613d76" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># This is a single-line comment. 1 + 1 will be NOT calculated by Python.</span></span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Hello, World!"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -631,7 +649,7 @@ Yes!</code></pre>
 <ul>
 <li>a inline comment can be placed right next to an expression to explain it:</li>
 </ul>
-<div id="dc0e16a8" class="cell" data-execution_count="14">
+<div id="c8d30c8b" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>( <span class="dv">3</span> <span class="op">+</span> <span class="dv">2</span> ) <span class="co"># addition</span></span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>( <span class="dv">3</span> <span class="op">-</span> <span class="dv">2</span> ) <span class="co"># substraction</span></span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>( <span class="dv">3</span> <span class="op">*</span> <span class="dv">2</span> ) <span class="co"># multiplication</span></span>
@@ -755,6 +773,8 @@ Yes!</code></pre>
           if (link.dataset.originalHref !== undefined) {
             link.href = link.dataset.originalHref;
           }
+            // default icon
+            link.classList.add("external");
         }
       }
     function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
@@ -1098,4 +1118,5 @@ Yes!</code></pre>
 
 
 
+<script src="../site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>
