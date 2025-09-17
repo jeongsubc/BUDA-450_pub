@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.31">
+<meta name="generator" content="quarto-1.8.24">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Basics with Python Programming – Business Data Mining and Visualization</title>
+<title>3&nbsp; Concepts and Syntax – Business Data Mining and Visualization</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -30,22 +65,23 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../PB/PB-GetStarted.html" rel="next">
-<link href="../intro.html" rel="prev">
+<link href="../PY/PY-Data.html" rel="next">
+<link href="../PY/PY-GetStarted.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-8ef56b68f8fa1e9d2ba328e99e439f80.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b651517ce65839d647a86e2780455cfb.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-d3c8755f9ee0debb4a40ed1724eb7175.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-4db6997902892d884061c5ae0b5d2b43.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-d3c8755f9ee0debb4a40ed1724eb7175.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-0b2585a1fb9be14073f33885e8cab21d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-5a92a1bd7a72c20926042465265bc79c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-0b2585a1fb9be14073f33885e8cab21d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -250,7 +286,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../PB/PB-Front.html">Basics with Python Programming</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../PY/PY-Front.html">Python Basics</a></li><li class="breadcrumb-item"><a href="../PY/PY-Basics.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Concepts and Syntax</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -263,11 +299,13 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="../index.html" class="sidebar-logo-link">
+      </a>
     <div class="sidebar-title mb-0 py-0">
       <a href="../">Business Data Mining and Visualization</a> 
         <div class="sidebar-tools-main">
-    <a href="https://github.com/jeongsubc/BUDA-450/tree/main/book/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="https://github.com/jeongsubc/BUDA-450_pub" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
     </div>
@@ -293,8 +331,8 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../PB/PB-Front.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Basics with Python Programming</span></a>
+            <a href="../PY/PY-Front.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Python Basics</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -302,31 +340,31 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../PB/PB-GetStarted.html" class="sidebar-item-text sidebar-link">
+  <a href="../PY/PY-GetStarted.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Getting Started</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../PB/PB-Basics.html" class="sidebar-item-text sidebar-link">
+  <a href="../PY/PY-Basics.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Concepts and Syntax</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../PB/PB-Data.html" class="sidebar-item-text sidebar-link">
+  <a href="../PY/PY-Data.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Data Types</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../PB/PB-Fn-Pack.html" class="sidebar-item-text sidebar-link">
+  <a href="../PY/PY-Fn-Pack.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Functions and Packages</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../PB/PB-Class-Method.html" class="sidebar-item-text sidebar-link">
+  <a href="../PY/PY-Class-Method.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Classes and Methods</span></span></a>
   </div>
 </li>
@@ -335,7 +373,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../BD/BD-Front.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Basics in Data Science with Python</span></a>
+ <span class="menu-text">Data Science with Python</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -367,7 +405,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../DV/DV-IntroVisual.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Introduction to Data Visualization</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Visualizing Data</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -386,8 +424,8 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
- <span class="menu-text">Appendices</span></a>
+            <a href="../PD/PD-Front.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Predictive Modeling</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -395,8 +433,31 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../PD/PD-KNN.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">k-Nearest Neighbors</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../App/App-Markdown.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Markdown Cheat Sheet</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../App/App-Proximity.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Proximity</span></span></a>
   </div>
 </li>
       </ul>
@@ -406,16 +467,29 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#expressions-and-operators" id="toc-expressions-and-operators" class="nav-link active" data-scroll-target="#expressions-and-operators"><span class="header-section-number">3.1</span> Expressions and Operators</a></li>
+  <li><a href="#statements-and-variables" id="toc-statements-and-variables" class="nav-link" data-scroll-target="#statements-and-variables"><span class="header-section-number">3.2</span> Statements and Variables</a>
+  <ul class="collapse">
+  <li><a href="#output-versus-printing" id="toc-output-versus-printing" class="nav-link" data-scroll-target="#output-versus-printing"><span class="header-section-number">3.2.1</span> Output versus printing</a></li>
+  </ul></li>
+  <li><a href="#indentation" id="toc-indentation" class="nav-link" data-scroll-target="#indentation"><span class="header-section-number">3.3</span> Indentation</a></li>
+  <li><a href="#comments" id="toc-comments" class="nav-link" data-scroll-target="#comments"><span class="header-section-number">3.4</span> Comments</a></li>
+  <li><a href="#reference" id="toc-reference" class="nav-link" data-scroll-target="#reference"><span class="header-section-number">3.5</span> Reference</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../PY/PY-Front.html">Python Basics</a></li><li class="breadcrumb-item"><a href="../PY/PY-Basics.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Concepts and Syntax</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Basics with Python Programming</h1>
+<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Concepts and Syntax</span></h1>
 </div>
 
 
@@ -432,54 +506,210 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>This chapter introduces Python basics:</p>
-<ol start="2" type="1">
-<li>Getting Started
-<ul>
-<li>Python</li>
-<li>Setting Python Development Environment</li>
-</ul></li>
-<li>Concepts and Syntax
-<ul>
-<li>Expression and Operators</li>
-<li>Statements and Variables</li>
-<li>Indentation</li>
-<li>Comments</li>
-</ul></li>
-<li>Data Types
-<ul>
-<li>Built-in Data Types</li>
-<li>Numbers</li>
-<li>Strings</li>
-<li>Boolean Values</li>
-<li>Lists</li>
-<li>Dictionaries</li>
-</ul></li>
-<li>Functions and Packages
-<ul>
-<li>Functions</li>
-<li>Modules and Packages</li>
-</ul></li>
-<li>(Optional) Classes and Methods
-<ul>
-<li>Classes</li>
-<li>Methods</li>
-</ul></li>
+<p>This section introduces fundamental concepts and syntax in python, including basic programming concepts and syntax, operators, and data types.</p>
+<section id="expressions-and-operators" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="expressions-and-operators"><span class="header-section-number">3.1</span> Expressions and Operators</h2>
+<p>An <a href="https://docs.python.org/3/glossary.html#term-expression">expression</a> is <em>a piece of syntax which can be evaluated to some value</em>. The detailed definitions are available in <a href="https://docs.python.org/3.11/reference/expressions.html">6. Expressions</a> (ver. 3.11).</p>
+<p>The following expression is a simple expression for mathematical operation with the “addition” operator <code>+</code>:</p>
+<div id="c12792d8" class="cell" data-execution_count="1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="op">+</span> <span class="dv">1</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="1">
+<pre><code>2</code></pre>
+</div>
+</div>
+<p>By using a combination of multiple operators, an expression for complex computation can be computed.</p>
+<div id="d2530e86" class="cell" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="dv">8</span><span class="op">**</span><span class="dv">2</span> <span class="op">-</span> <span class="dv">5</span><span class="op">%</span><span class="dv">7</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="2">
+<pre><code>59</code></pre>
+</div>
+</div>
+<p>As shown in this example, many different operators can be used in Python. Here are operators for arthmatic operations:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Operator</th>
+<th>Operation</th>
+<th>Example</th>
+<th>Evaluation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>+</td>
+<td>Addition</td>
+<td>4 + 3</td>
+<td>7</td>
+</tr>
+<tr class="even">
+<td>-</td>
+<td>Subtraction</td>
+<td>18 - 4</td>
+<td>14</td>
+</tr>
+<tr class="odd">
+<td>*</td>
+<td>Multiplication</td>
+<td>7 * 8</td>
+<td>56</td>
+</tr>
+<tr class="even">
+<td>/</td>
+<td>Division</td>
+<td>30 / 6</td>
+<td>5</td>
+</tr>
+<tr class="odd">
+<td>%</td>
+<td>Modulus/Remainder</td>
+<td>34 % 6</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td>**</td>
+<td>Exponent/Power</td>
+<td>3 ** 3</td>
+<td>27</td>
+</tr>
+</tbody>
+</table>
+<p>See more operators from https://www.w3schools.com/python/python_operators.asp</p>
+<p>When you run (i.e., <strong>evaluate</strong>) an expression, the operations in the expression are evaluated in the “PEMDAS” order:</p>
+<ol type="1">
+<li>Parentheses</li>
+<li>Exponents</li>
+<li>Multiplication and Division (from left to right)</li>
+<li>Addition and Subtraction (from left to right)</li>
 </ol>
-<!--
-- Functions
-- Logics
-- Sequence and dictionaries
-- Interations
-- BP-Misc.qmd
+<p>In the previous example, if some elements and operations were in parentheses, the result becomes different:</p>
+<div id="b5ea4c08" class="cell" data-execution_count="3">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>(<span class="dv">8</span><span class="op">**</span><span class="dv">2</span> <span class="op">-</span> <span class="dv">5</span>) <span class="op">%</span> <span class="dv">7</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="3">
+<pre><code>3</code></pre>
+</div>
+</div>
+</section>
+<section id="statements-and-variables" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="statements-and-variables"><span class="header-section-number">3.2</span> Statements and Variables</h2>
+<p>A <a href="https://docs.python.org/3/glossary.html#term-statement">statement</a> is part of a suite (a “block” of code) as a syntactic unit the interpreter executes.</p>
+<p>Let’s start with a simple statement for assignment. In Python terms, an assignment (re)binds a name to a value. In other words, we assign a value to a variable to bind a name to an object, where variables are containers for storing objects (e.g., data values).</p>
+<p>For example, the following statement is about the assignment of a value (computed from an expression) to a variable <code>result</code>:</p>
+<div id="7b057b01" class="cell" data-execution_count="4">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> (<span class="dv">8</span><span class="op">**</span><span class="dv">2</span> <span class="op">-</span> <span class="dv">5</span>) <span class="op">%</span> <span class="dv">7</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>By doing so, we can refer to the stored value later, reuse it, update program state, pass information between parts of a program, and make code clearer to humans.</p>
+<p>For example, the stored value can be called by using <code>print()</code> function, which display the output, and can be reused:</p>
+<div id="0391a1a9" class="cell" data-execution_count="5">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>( result )</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>( result <span class="op">+</span> <span class="dv">4</span> )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>3
+7</code></pre>
+</div>
+</div>
+<p>To be specific, Python divides statements into - simple statements (single logical line, e.g., expression statements and assignment) - compound statements (control flow or definition blocks that contain other statements, e.g., if, for, while, try, with, and def) that contain (groups of) other statements.</p>
+<p>Later, we will revisit some of those that are helpful for our tasks. The detailed definitions are available in <a href="https://docs.python.org/3.11/reference/simple_stmts.html">7. Simple statements</a> and <a href="https://docs.python.org/3.11/reference/compound_stmts.html">8. Compound statements</a> (ver. 3.11).</p>
+<section id="output-versus-printing" class="level3" data-number="3.2.1">
+<h3 data-number="3.2.1" class="anchored" data-anchor-id="output-versus-printing"><span class="header-section-number">3.2.1</span> Output versus printing</h3>
+<p>In the examples above, the output was displayed below the cell either from the excution or through <code>print()</code>. When you run a code line by line in the interactive environment (e.g., the interactive interpreter and Jupyter notebook), the output will be displayed. But, it will not work when you have more lines.</p>
+<p>In the example below we run two lines after two assignments. When not using the <code>print()</code>, only the output of the last operation in the cell is printed.</p>
+<div id="f23aea13" class="cell" data-execution_count="6">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>first_value <span class="op">=</span> <span class="dv">111</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>second_value <span class="op">=</span> <span class="dv">222</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>first_value</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>second_value</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="6">
+<pre><code>222</code></pre>
+</div>
+</div>
+<p>Further, if the last operation is for some other (e.g., the assignment of a variable) rather than referring to a value, nothing will be printed.</p>
+<div id="1dfc311c" class="cell" data-execution_count="7">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>first_value</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>second_value</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>something_else <span class="op">=</span> <span class="st">"abc"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>In such situation, <code>print()</code> is used to print output to the screen.</p>
+<div id="8f54db96" class="cell" data-execution_count="8">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>( first_value )</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>( second_value )</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>something_else <span class="op">=</span> <span class="st">"abc"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>111
+222</code></pre>
+</div>
+</div>
+<p><strong>Rule of thumb</strong>: - use the normal output for <em>quick</em> checking the output of an operation while developing in an interactive environment. - use <code>print()</code> for controling what is printed when, while developing more complicated codes (often in long codes or scripts).</p>
+</section>
+</section>
+<section id="indentation" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="indentation"><span class="header-section-number">3.3</span> Indentation</h2>
+<p>Indentation refers to the spaces at the beginning of a code line. The indentation in Python is very important, while the indentation in code in other programming languages is for readability only.</p>
+<p>Python uses indentation to indicate a block of code. For example, the following is <code>if</code> statement (a compound statement) that contains a condition and a suite of two simple statements (excution of <code>print()</code> on two lines). This statement will return the result of the <code>print()</code> only if the condition is met.</p>
+<div id="bf374908" class="cell" data-execution_count="9">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="dv">5</span> <span class="op">&gt;</span> <span class="dv">2</span>:</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Is five greater than two?"</span>)</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Yes!"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Is five greater than two?
+Yes!</code></pre>
+</div>
+</div>
+<p>Based on the identation, your code may lead to a different result, as the suite for the statement is differently defined and interpreted by Python.</p>
+<div id="e1c73938" class="cell" data-execution_count="10">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">-</span><span class="dv">7</span> <span class="op">&gt;</span> <span class="dv">3</span>:</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Is five greater than two?"</span>)</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Yes!"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>On the other hand, Python will give you an error if the indentation is either omitted in a statemet that expects an indented suite:</p>
+<div id="b2e6bed5" class="cell" data-execution_count="11">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="dv">5</span> <span class="op">&gt;</span> <span class="dv">2</span>:</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Is five greater than two?"</span>)</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Yes!"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Also, you have to use the same level (number of spaces) in the same block of code, otherwise Python will give you an error:</p>
+<div id="412b2a0c" class="cell" data-execution_count="12">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="dv">5</span> <span class="op">&gt;</span> <span class="dv">2</span>:</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Is five greater than two?"</span>)</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(<span class="st">"Yes!"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="comments" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="comments"><span class="header-section-number">3.4</span> Comments</h2>
+<p>Python has commenting capability for the purpose of in-code documentation. Comments start with a sharp <code>#</code>, and Python will render the rest of the line, ignoring the rest of the line.</p>
+<p>Comments can be added to your code in two typical ways. - a single-line comment can be placed for a one-liner note to explain the following lines:</p>
+<div id="94550796" class="cell" data-execution_count="13">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># This is a single-line comment. 1 + 1 will be NOT calculated by Python.</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Hello, World!"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Hello, World!</code></pre>
+</div>
+</div>
+<ul>
+<li>a inline comment can be placed right next to an expression to explain it:</li>
+</ul>
+<div id="2d28f669" class="cell" data-execution_count="14">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>( <span class="dv">3</span> <span class="op">+</span> <span class="dv">2</span> ) <span class="co"># addition</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>( <span class="dv">3</span> <span class="op">-</span> <span class="dv">2</span> ) <span class="co"># substraction</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>( <span class="dv">3</span> <span class="op">*</span> <span class="dv">2</span> ) <span class="co"># multiplication</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>( <span class="dv">3</span> <span class="op">/</span> <span class="dv">2</span> ) <span class="co"># division</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>5
+1
+6
+1.5</code></pre>
+</div>
+</div>
+<p>Many developers use comments for various purpose. You can check some best practices discussed in many online posts including <a href="https://www.devacetech.com/insights/python-comments">How to Use Python Comments Effectively?</a>.</p>
+</section>
+<section id="reference" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="reference"><span class="header-section-number">3.5</span> Reference</h2>
+<ul>
+<li>https://uofsclibraries-drs.github.io</li>
+<li>https://www.w3schools.com/python-</li>
+</ul>
 
 
-- BP-BestPractice.md
-- BP-Advanced.ipynb
-- BP-Shortcuts.ipynb
--->
-
-
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -546,13 +776,14 @@ ul.task-list li input[type="checkbox"] {
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
@@ -898,13 +1129,13 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../intro.html" class="pagination-link" aria-label="Introduction to Course">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction to Course</span></span>
+      <a href="../PY/PY-GetStarted.html" class="pagination-link" aria-label="Getting Started">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Getting Started</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../PB/PB-GetStarted.html" class="pagination-link" aria-label="Getting Started">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Getting Started</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../PY/PY-Data.html" class="pagination-link" aria-label="Data Types">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Data Types</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

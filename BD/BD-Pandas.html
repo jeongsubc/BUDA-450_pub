@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.31">
+<meta name="generator" content="quarto-1.8.24">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -69,18 +69,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../BD/BD-NumPy.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-8ef56b68f8fa1e9d2ba328e99e439f80.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b651517ce65839d647a86e2780455cfb.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-d3c8755f9ee0debb4a40ed1724eb7175.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-4db6997902892d884061c5ae0b5d2b43.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-d3c8755f9ee0debb4a40ed1724eb7175.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-0b2585a1fb9be14073f33885e8cab21d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-5a92a1bd7a72c20926042465265bc79c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-0b2585a1fb9be14073f33885e8cab21d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -291,7 +292,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../BD/BD-Front.html">Basics in Data Science with Python</a></li><li class="breadcrumb-item"><a href="../BD/BD-Pandas.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Pandas</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../BD/BD-Front.html">Data Science with Python</a></li><li class="breadcrumb-item"><a href="../BD/BD-Pandas.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Pandas</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -304,11 +305,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="../index.html" class="sidebar-logo-link">
+      </a>
     <div class="sidebar-title mb-0 py-0">
       <a href="../">Business Data Mining and Visualization</a> 
         <div class="sidebar-tools-main">
-    <a href="https://github.com/jeongsubc/BUDA-450/tree/main/book/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="https://github.com/jeongsubc/BUDA-450_pub" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
     </div>
@@ -334,8 +337,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../PB/PB-Front.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Basics with Python Programming</span></a>
+            <a href="../PY/PY-Front.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Python Basics</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -343,31 +346,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../PB/PB-GetStarted.html" class="sidebar-item-text sidebar-link">
+  <a href="../PY/PY-GetStarted.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Getting Started</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../PB/PB-Basics.html" class="sidebar-item-text sidebar-link">
+  <a href="../PY/PY-Basics.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Concepts and Syntax</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../PB/PB-Data.html" class="sidebar-item-text sidebar-link">
+  <a href="../PY/PY-Data.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Data Types</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../PB/PB-Fn-Pack.html" class="sidebar-item-text sidebar-link">
+  <a href="../PY/PY-Fn-Pack.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Functions and Packages</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../PB/PB-Class-Method.html" class="sidebar-item-text sidebar-link">
+  <a href="../PY/PY-Class-Method.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Classes and Methods</span></span></a>
   </div>
 </li>
@@ -376,7 +379,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../BD/BD-Front.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Basics in Data Science with Python</span></a>
+ <span class="menu-text">Data Science with Python</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -408,7 +411,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../DV/DV-IntroVisual.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Introduction to Data Visualization</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Visualizing Data</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -427,8 +430,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
- <span class="menu-text">Appendices</span></a>
+            <a href="../PD/PD-Front.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Predictive Modeling</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -436,8 +439,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../PD/PD-KNN.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">k-Nearest Neighbors</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../App/App-Markdown.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Markdown Cheat Sheet</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../App/App-Proximity.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Proximity</span></span></a>
   </div>
 </li>
       </ul>
@@ -473,7 +499,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../BD/BD-Front.html">Basics in Data Science with Python</a></li><li class="breadcrumb-item"><a href="../BD/BD-Pandas.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Pandas</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../BD/BD-Front.html">Data Science with Python</a></li><li class="breadcrumb-item"><a href="../BD/BD-Pandas.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Pandas</span></a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Pandas</span></h1>
 </div>
@@ -506,7 +532,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>You can create a <code>Series</code> object from a list, a numpy array, or a Python dictionary.</p>
 <p>For example, the following shows how to create a <code>Series</code> object with a list.</p>
 <div id="f5cf6e4d" class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np   <span class="co"># for later usages</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np   <span class="co"># for later usages</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd </span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># creating a series from a list</span></span>
@@ -516,7 +542,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'sr.values ='</span>, sr.values)                   <span class="co"># display values of the Series</span></span>
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'sr.index  ='</span>, sr.index)                     <span class="co"># display indices of the Series</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'sr.dtype  ='</span>, sr.dtype)                     <span class="co"># display the element type of the Series</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'sr.dtype  ='</span>, sr.dtype)                     <span class="co"># display the element type of the Series</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>sr =
 0    3.1
@@ -534,12 +560,12 @@ sr.dtype  = float64</code></pre>
 </div>
 <p>Each element in a <code>Series</code> is automatically labeled with numeric indices in an ascending order, if no index data were provided. When creating a <code>Series</code>, you can manually set the labels with your labels (e.g., in a list) for the argument <code>index</code>:</p>
 <div id="200af25e" class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># assign indexes</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># assign indexes</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>list_index <span class="op">=</span> [<span class="st">'Record2'</span>, <span class="st">'Record3'</span>, <span class="st">'Record4'</span>, <span class="st">'Record5'</span>, <span class="st">'Record6'</span>, <span class="st">'Record7'</span>]</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'list_index =</span><span class="ch">\n</span><span class="st">'</span>, list_index, <span class="st">'</span><span class="ch">\n</span><span class="st">'</span>, sep<span class="op">=</span><span class="st">""</span>)</span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>sr_labeled <span class="op">=</span> pd.Series(list_data, index <span class="op">=</span> list_index)</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'sr_labeled =</span><span class="ch">\n</span><span class="st">'</span>, sr_labeled, <span class="st">'</span><span class="ch">\n</span><span class="st">'</span>, sep<span class="op">=</span><span class="st">""</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'sr_labeled =</span><span class="ch">\n</span><span class="st">'</span>, sr_labeled, <span class="st">'</span><span class="ch">\n</span><span class="st">'</span>, sep<span class="op">=</span><span class="st">""</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>list_index =
 ['Record2', 'Record3', 'Record4', 'Record5', 'Record6', 'Record7']
@@ -557,11 +583,11 @@ dtype: float64
 </div>
 <p>Alternatively, you can assign (overwrite) new index data, accessing the <code>Series</code>’s index attribute:</p>
 <div id="052a4134" class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>list_index_new <span class="op">=</span> [<span class="st">'Rec0'</span>, <span class="st">'Rec1'</span>, <span class="st">'Rec2'</span>, <span class="st">'Rec3'</span>, <span class="st">'Rec4'</span>, <span class="st">'Rec5'</span>]</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>list_index_new <span class="op">=</span> [<span class="st">'Rec0'</span>, <span class="st">'Rec1'</span>, <span class="st">'Rec2'</span>, <span class="st">'Rec3'</span>, <span class="st">'Rec4'</span>, <span class="st">'Rec5'</span>]</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'list_index_new =</span><span class="ch">\n</span><span class="st">'</span>, list_index_new, <span class="st">'</span><span class="ch">\n</span><span class="st">'</span>, sep<span class="op">=</span><span class="st">""</span>)</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>sr_labeled.index <span class="op">=</span> list_index_new                       <span class="co"># assign a new list</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'sr_labeled =</span><span class="ch">\n</span><span class="st">'</span>, sr_labeled, <span class="st">'</span><span class="ch">\n</span><span class="st">'</span>, sep<span class="op">=</span><span class="st">""</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'sr_labeled =</span><span class="ch">\n</span><span class="st">'</span>, sr_labeled, <span class="st">'</span><span class="ch">\n</span><span class="st">'</span>, sep<span class="op">=</span><span class="st">""</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>list_index_new =
 ['Rec0', 'Rec1', 'Rec2', 'Rec3', 'Rec4', 'Rec5']
@@ -579,11 +605,11 @@ dtype: float64
 </div>
 <p>A <code>Series</code> object can be created with a numpy object assigning indexes together. For example, when a data array <code>np.arange(3,7)</code> is given with indexes <code>['a', 'b', 'c', 'd']</code>:</p>
 <div id="59b69866" class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># creating a series from a numpy ndarray</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># creating a series from a numpy ndarray</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>arr_data <span class="op">=</span> np.arange(<span class="dv">3</span>,<span class="dv">7</span>)</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>arr_index <span class="op">=</span> [<span class="st">'a'</span>, <span class="st">'b'</span>, <span class="st">'c'</span>, <span class="st">'d'</span>]</span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>sr_arr <span class="op">=</span> pd.Series(arr_data, index<span class="op">=</span>arr_index) </span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'sr_arr =</span><span class="ch">\n</span><span class="st">'</span>, sr_arr, <span class="st">'</span><span class="ch">\n</span><span class="st">'</span>, sep<span class="op">=</span><span class="st">""</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'sr_arr =</span><span class="ch">\n</span><span class="st">'</span>, sr_arr, <span class="st">'</span><span class="ch">\n</span><span class="st">'</span>, sep<span class="op">=</span><span class="st">""</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>sr_arr =
 a    3
@@ -596,10 +622,10 @@ dtype: int64
 </div>
 <p>Another way is with a dictionary—the key becomes the index while the the value of the key is taken as the corresponding element’s value. For example, a <code>Series</code> object can be defined from a dictionary <code>{'MI': 'Lansing', 'CA': 'Sacramento', 'TX': 'Austin', 'MN': 'St Paul'}</code>:</p>
 <div id="fc3a4e4c" class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># creating a series from a dictionary </span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># creating a series from a dictionary </span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>dict_data <span class="op">=</span> {<span class="st">'MI'</span>: <span class="st">'Lansing'</span>, <span class="st">'CA'</span>: <span class="st">'Sacramento'</span>, <span class="st">'TX'</span>: <span class="st">'Austin'</span>, <span class="st">'MN'</span>: <span class="st">'St Paul'</span>}</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>sr_dict <span class="op">=</span> pd.Series(dict_data)                </span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'sr_dict =</span><span class="ch">\n</span><span class="st">'</span>, sr_dict, <span class="st">'</span><span class="ch">\n</span><span class="st">'</span>, sep<span class="op">=</span><span class="st">""</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'sr_dict =</span><span class="ch">\n</span><span class="st">'</span>, sr_dict, <span class="st">'</span><span class="ch">\n</span><span class="st">'</span>, sep<span class="op">=</span><span class="st">""</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>sr_dict =
 MI       Lansing
@@ -616,7 +642,7 @@ dtype: object
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Exercise
+<span class="screen-reader-only">Caution</span>Exercise
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -624,10 +650,10 @@ Exercise
 <div id="a670ef9c" class="cell" data-execution_count="6">
 <details class="code-fold">
 <summary>Show the code</summary>
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>arr_data <span class="op">=</span> np.arange(<span class="dv">3</span>,<span class="dv">7</span>)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>arr_data <span class="op">=</span> np.arange(<span class="dv">3</span>,<span class="dv">7</span>)</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>arr_index <span class="op">=</span> [<span class="st">'a'</span>, <span class="st">'b'</span>, <span class="st">'c'</span>, <span class="st">'d'</span>]</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>sr_arr <span class="op">=</span> pd.Series(arr_data, index<span class="op">=</span>arr_index) </span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'sr_arr =</span><span class="ch">\n</span><span class="st">'</span>, sr_arr, <span class="st">'</span><span class="ch">\n</span><span class="st">'</span>, sep<span class="op">=</span><span class="st">""</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'sr_arr =</span><span class="ch">\n</span><span class="st">'</span>, sr_arr, <span class="st">'</span><span class="ch">\n</span><span class="st">'</span>, sep<span class="op">=</span><span class="st">""</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>sr_arr =
@@ -643,9 +669,9 @@ dtype: int64
 <div id="468f15b9" class="cell" data-execution_count="7">
 <details class="code-fold">
 <summary>Show the code</summary>
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>dict_data <span class="op">=</span> {<span class="st">'MI'</span>: <span class="st">'Lansing'</span>, <span class="st">'CA'</span>: <span class="st">'Sacramento'</span>, <span class="st">'TX'</span>: <span class="st">'Austin'</span>, <span class="st">'MN'</span>: <span class="st">'St Paul'</span>}</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>dict_data <span class="op">=</span> {<span class="st">'MI'</span>: <span class="st">'Lansing'</span>, <span class="st">'CA'</span>: <span class="st">'Sacramento'</span>, <span class="st">'TX'</span>: <span class="st">'Austin'</span>, <span class="st">'MN'</span>: <span class="st">'St Paul'</span>}</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>sr_dict <span class="op">=</span> pd.Series(dict_data)                <span class="co"># creating a series from dictionary object</span></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'sr_dict =</span><span class="ch">\n</span><span class="st">'</span>, sr_dict, <span class="st">'</span><span class="ch">\n</span><span class="st">'</span>, sep<span class="op">=</span><span class="st">""</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'sr_dict =</span><span class="ch">\n</span><span class="st">'</span>, sr_dict, <span class="st">'</span><span class="ch">\n</span><span class="st">'</span>, sep<span class="op">=</span><span class="st">""</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>sr_dict =
@@ -668,9 +694,9 @@ dtype: object
 <li>using <code>.iloc[]</code> with a group of rows and columns by integer indexes (https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.iloc.html)</li>
 </ul>
 <div id="475b052c" class="cell" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Access elements based on labels or a boolean array</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Access elements based on labels or a boolean array</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(sr_labeled.loc[<span class="st">'Rec3'</span>])</span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(sr_labeled.loc[sr_labeled <span class="op">==</span> <span class="op">-</span><span class="fl">0.2</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(sr_labeled.loc[sr_labeled <span class="op">==</span> <span class="op">-</span><span class="fl">0.2</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>-0.2
 Rec3   -0.2
@@ -678,9 +704,9 @@ dtype: float64</code></pre>
 </div>
 </div>
 <div id="7b2e69f8" class="cell" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Access elements purely based on integer index (i.e., location)</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Access elements purely based on integer index (i.e., location)</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The 4th element:  "</span>, sr_labeled.iloc[<span class="dv">3</span>], <span class="st">"</span><span class="ch">\n</span><span class="st">"</span>)</span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"All the elements from the 4th: </span><span class="ch">\n</span><span class="st">"</span>, sr_labeled.iloc[<span class="dv">3</span>:], sep<span class="op">=</span><span class="st">""</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"All the elements from the 4th: </span><span class="ch">\n</span><span class="st">"</span>, sr_labeled.iloc[<span class="dv">3</span>:], sep<span class="op">=</span><span class="st">""</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>The 4th element:   -0.2 
 
@@ -696,7 +722,7 @@ dtype: float64</code></pre>
 <h3 data-number="8.1.3" class="anchored" data-anchor-id="numeric-operations"><span class="header-section-number">8.1.3</span> Numeric Operations</h3>
 <p>Scalar operations can be performed on elements of a numeric Series.</p>
 <div id="02f35d55" class="cell" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'sr      =</span><span class="ch">\n</span><span class="st">'</span>, sr, <span class="st">'</span><span class="ch">\n</span><span class="st">'</span>, sep<span class="op">=</span><span class="st">""</span>)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'sr      =</span><span class="ch">\n</span><span class="st">'</span>, sr, <span class="st">'</span><span class="ch">\n</span><span class="st">'</span>, sep<span class="op">=</span><span class="st">""</span>)</span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'sr + 1  =</span><span class="ch">\n</span><span class="st">'</span>, sr <span class="op">+</span> <span class="dv">1</span>, <span class="st">'</span><span class="ch">\n</span><span class="st">'</span>, sep<span class="op">=</span><span class="st">""</span>)      <span class="co"># addition</span></span>
 <span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'sr - 1  =</span><span class="ch">\n</span><span class="st">'</span>, sr <span class="op">-</span> <span class="dv">1</span>, <span class="st">'</span><span class="ch">\n</span><span class="st">'</span>, sep<span class="op">=</span><span class="st">""</span>)      <span class="co"># subtraction</span></span>
@@ -704,7 +730,7 @@ dtype: float64</code></pre>
 <span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'1 / sr  =</span><span class="ch">\n</span><span class="st">'</span>, <span class="dv">1</span> <span class="op">/</span> sr, <span class="st">'</span><span class="ch">\n</span><span class="st">'</span>, sep<span class="op">=</span><span class="st">""</span>)      <span class="co"># division</span></span>
 <span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'sr // 2 =</span><span class="ch">\n</span><span class="st">'</span>, sr <span class="op">//</span> <span class="dv">2</span>, <span class="st">'</span><span class="ch">\n</span><span class="st">'</span>, sep<span class="op">=</span><span class="st">""</span>)     <span class="co"># integer division</span></span>
 <span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'sr ** 2 =</span><span class="ch">\n</span><span class="st">'</span>, sr <span class="op">**</span> <span class="dv">2</span>, <span class="st">'</span><span class="ch">\n</span><span class="st">'</span>, sep<span class="op">=</span><span class="st">""</span>)     <span class="co"># square</span></span>
-<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'sr % 2  =</span><span class="ch">\n</span><span class="st">'</span>, sr <span class="op">%</span> <span class="dv">2</span>, <span class="st">'</span><span class="ch">\n</span><span class="st">'</span>, sep<span class="op">=</span><span class="st">""</span>)      <span class="co"># modulo  </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'sr % 2  =</span><span class="ch">\n</span><span class="st">'</span>, sr <span class="op">%</span> <span class="dv">2</span>, <span class="st">'</span><span class="ch">\n</span><span class="st">'</span>, sep<span class="op">=</span><span class="st">""</span>)      <span class="co"># modulo  </span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>sr      =
 0    3.1
@@ -782,12 +808,12 @@ dtype: float64
 </div>
 <p>You can apply most of operations/functions for <code>NumPy</code>’s <code>ndarray</code> on the <code>Series</code> object, because <code>Series</code> of <code>Pandas</code> is built on top of <code>ndarray</code> and support many similar operations.</p>
 <div id="76286bb1" class="cell" data-execution_count="11">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># applying numpy functions that returns a single value</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># applying numpy functions that returns a single value</span></span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"np.min(sr)  ="</span>, np.<span class="bu">min</span>(sr))   <span class="co"># min </span></span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"np.max(sr)  ="</span>, np.<span class="bu">max</span>(sr))   <span class="co"># max </span></span>
 <span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"np.mean(sr) ="</span>, np.mean(sr))  <span class="co"># mean/average</span></span>
 <span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"np.std(sr)  ="</span>, np.std(sr))   <span class="co"># standard deviation</span></span>
-<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"np.sum(sr)  ="</span>, np.<span class="bu">sum</span>(sr))   <span class="co"># sum </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"np.sum(sr)  ="</span>, np.<span class="bu">sum</span>(sr))   <span class="co"># sum </span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>np.min(sr)  = -1.7
 np.max(sr)  = 4.5
@@ -797,13 +823,13 @@ np.sum(sr)  = 11.5</code></pre>
 </div>
 </div>
 <div id="a5ab6c26" class="cell" data-execution_count="12">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># applying numpy functions that returns element-wise operation outcomes</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># applying numpy functions that returns element-wise operation outcomes</span></span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'np.sign(sr)      =</span><span class="ch">\n</span><span class="st">'</span>, np.sign(sr))          <span class="co"># the sign of each element</span></span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'np.abs(sr)       =</span><span class="ch">\n</span><span class="st">'</span>, np.<span class="bu">abs</span>(sr))           <span class="co"># the absolute value of each element</span></span>
 <span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'np.sqrt(abs(sr)) =</span><span class="ch">\n</span><span class="st">'</span>, np.sqrt(<span class="bu">abs</span>(sr)))     <span class="co"># the square root of each element</span></span>
 <span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'np.exp(sr)       =</span><span class="ch">\n</span><span class="st">'</span>, np.exp(sr))           <span class="co"># the exponentiation</span></span>
 <span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'np.log(sr)       =</span><span class="ch">\n</span><span class="st">'</span>, np.log(<span class="bu">abs</span>(sr)))      <span class="co"># the natural logarithm</span></span>
-<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'np.sort(sr)      =</span><span class="ch">\n</span><span class="st">'</span>, np.sort(sr))          <span class="co"># the sorting array</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'np.sort(sr)      =</span><span class="ch">\n</span><span class="st">'</span>, np.sort(sr))          <span class="co"># the sorting array</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>np.sign(sr)      =
  0    1.0
@@ -850,7 +876,7 @@ np.sort(sr)      =
 </div>
 </div>
 <div id="675dadde" class="cell" data-execution_count="13">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># applying numpy functions to multiple numeric Series'</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># applying numpy functions to multiple numeric Series'</span></span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>ss <span class="op">=</span> pd.Series([<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">5</span>,<span class="dv">7</span>,<span class="dv">7</span>])</span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'np.add(sr,ss)          =</span><span class="ch">\n</span><span class="st">'</span>, np.add(sr,ss))          <span class="co"># element-wise addition  </span></span>
@@ -863,7 +889,7 @@ np.sort(sr)      =
 <span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'np.power(sr,ss)        =</span><span class="ch">\n</span><span class="st">'</span>, np.power(sr,ss))        <span class="co"># element-wise exponentiation </span></span>
 <span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'np.maximum(sr,ss)      =</span><span class="ch">\n</span><span class="st">'</span>, np.maximum(sr,ss))      <span class="co"># element-wise maximum </span></span>
-<span id="cb25-14"><a href="#cb25-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'np.minimum(sr,ss)      =</span><span class="ch">\n</span><span class="st">'</span>, np.minimum(sr,ss))      <span class="co"># element-wise minimum </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb25-14"><a href="#cb25-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'np.minimum(sr,ss)      =</span><span class="ch">\n</span><span class="st">'</span>, np.minimum(sr,ss))      <span class="co"># element-wise minimum </span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>np.add(sr,ss)          =
  0    4.1
@@ -946,7 +972,7 @@ dtype: float64</code></pre>
 <p>A <code>DataFrame</code> object is a tabular, spreadsheet-like data structure containing a collection of columns, each of which can be of different types (numeric, string, boolean, etc). Unlike <code>Series</code>, a <code>DataFrame</code> has distinct row and column indices.</p>
 <p>There are many ways to create a <code>DataFrame</code> object (e.g., from a dictionary, list of tuples, or even numpy’s ndarrays).</p>
 <div id="79119edb" class="cell" data-execution_count="14">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># creating a DataFrame from a dictionary</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># creating a DataFrame from a dictionary</span></span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>cars <span class="op">=</span> {</span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">'make'</span>: [<span class="st">'Ford'</span>, <span class="st">'Honda'</span>, <span class="st">'Toyota'</span>, <span class="st">'Tesla'</span>],</span>
 <span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">'model'</span>: [<span class="st">'Taurus'</span>, <span class="st">'Accord'</span>, <span class="st">'Camry'</span>, <span class="st">'Model S'</span>],</span>
@@ -961,7 +987,7 @@ dtype: float64</code></pre>
 <span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'df_car.size  =</span><span class="ch">\n</span><span class="st">'</span>, df_car.size, <span class="st">"</span><span class="ch">\n</span><span class="st">"</span>, sep<span class="op">=</span><span class="st">""</span>)     <span class="co"># the number of all elements</span></span>
 <span id="cb27-14"><a href="#cb27-14" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-15"><a href="#cb27-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'df_car.index   =</span><span class="ch">\n</span><span class="st">'</span>, df_car.index, <span class="st">"</span><span class="ch">\n</span><span class="st">"</span>, sep<span class="op">=</span><span class="st">""</span>)  <span class="co"># the row indices</span></span>
-<span id="cb27-16"><a href="#cb27-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'df_car.columns =</span><span class="ch">\n</span><span class="st">'</span>, df_car.columns)              <span class="co"># the column labels</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb27-16"><a href="#cb27-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'df_car.columns =</span><span class="ch">\n</span><span class="st">'</span>, df_car.columns)              <span class="co"># the column labels</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>df_car =
      make    model   MSRP
@@ -990,11 +1016,11 @@ df_car.columns =
 </div>
 </div>
 <div id="f56270d4" class="cell" data-execution_count="15">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creating a DataFrame from a numpy ndarray</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creating a DataFrame from a numpy ndarray</span></span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>npdata <span class="op">=</span> np.random.randn(<span class="dv">4</span>,<span class="dv">3</span>)       <span class="co"># create a 5 by 3 random matrix</span></span>
 <span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>columnNames <span class="op">=</span> [<span class="st">'x1'</span>,<span class="st">'x2'</span>,<span class="st">'x3'</span>]</span>
 <span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>df_rnd <span class="op">=</span> pd.DataFrame(npdata, columns<span class="op">=</span>columnNames)</span>
-<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df_rnd)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df_rnd)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>         x1        x2        x3
 0 -0.435293 -0.242869 -0.256680
@@ -1015,11 +1041,11 @@ weatherData
  #```
 -->
 <div id="8f4e847b" class="cell" data-execution_count="16">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creating a DataFrame from a data file</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creating a DataFrame from a data file</span></span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>file_path_n_name <span class="op">=</span> <span class="st">'data_header.csv'</span></span>
 <span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>rowNames <span class="op">=</span> [<span class="st">"Rec0"</span>, <span class="st">"Rec1"</span>, <span class="st">"Rec2"</span>, <span class="st">"Rec3"</span>]</span>
 <span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>df_csv <span class="op">=</span> pd.read_csv(file_path_n_name)</span>
-<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df_csv)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df_csv)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   Col0  Col1  Col2
 0     1   2.0   0.3
@@ -1032,15 +1058,15 @@ weatherData
 <section id="insertingmodifying-columns" class="level3" data-number="8.2.1">
 <h3 data-number="8.2.1" class="anchored" data-anchor-id="insertingmodifying-columns"><span class="header-section-number">8.2.1</span> Inserting/Modifying Columns</h3>
 <div id="b29b04a2" class="cell" data-execution_count="17">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>carData2 <span class="op">=</span> pd.DataFrame(cars, index <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>])  <span class="co"># change the row index</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>carData2 <span class="op">=</span> pd.DataFrame(cars, index <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>])  <span class="co"># change the row index</span></span>
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>carData2[<span class="st">'year'</span>] <span class="op">=</span> <span class="dv">2018</span>    <span class="co"># add column with same value</span></span>
 <span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>carData2[<span class="st">'dealership'</span>] <span class="op">=</span> [<span class="st">'Courtesy Ford'</span>,<span class="st">'Capital Honda'</span>,<span class="st">'Spartan Toyota'</span>,<span class="st">'N/A'</span>]</span>
-<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>carData2                   <span class="co"># display table</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>carData2                   <span class="co"># display table</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="56">
 <div>
 
 
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -1053,7 +1079,7 @@ weatherData
 </thead>
 <tbody>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">1</td>
+<th data-quarto-table-cell-role="th">1</th>
 <td>Ford</td>
 <td>Taurus</td>
 <td>27595</td>
@@ -1061,7 +1087,7 @@ weatherData
 <td>Courtesy Ford</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">2</td>
+<th data-quarto-table-cell-role="th">2</th>
 <td>Honda</td>
 <td>Accord</td>
 <td>23570</td>
@@ -1069,7 +1095,7 @@ weatherData
 <td>Capital Honda</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">3</td>
+<th data-quarto-table-cell-role="th">3</th>
 <td>Toyota</td>
 <td>Camry</td>
 <td>23495</td>
@@ -1077,7 +1103,7 @@ weatherData
 <td>Spartan Toyota</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">4</td>
+<th data-quarto-table-cell-role="th">4</th>
 <td>Tesla</td>
 <td>Model S</td>
 <td>68000</td>
@@ -1095,13 +1121,13 @@ weatherData
 <h3 data-number="8.2.2" class="anchored" data-anchor-id="indexing-and-slicing-1"><span class="header-section-number">8.2.2</span> Indexing and Slicing</h3>
 <p>The ways for indexing and slicing data are similar with those for <code>Series</code> to access elements of a <code>DataFrame</code> object.</p>
 <div id="561136c9" class="cell" data-execution_count="18">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># accessing an entire column</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># accessing an entire column</span></span>
 <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df_car[<span class="st">'make'</span>], <span class="st">"</span><span class="ch">\n</span><span class="st">"</span>)           <span class="co"># using column's label</span></span>
 <span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">type</span>(df_car[<span class="st">'make'</span>]), <span class="st">"</span><span class="ch">\n</span><span class="st">"</span>)</span>
 <span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a><span class="co"># print(df_car.make, "\n")            # column's label as attribute</span></span>
 <span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a><span class="co"># print(df_car.loc[:,'make'], "\n")   # using column's label, selecting all rows</span></span>
-<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a><span class="co"># print(df_car.iloc[:,0])             # using column's index, selecting all rows</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a><span class="co"># print(df_car.iloc[:,0])             # using column's index, selecting all rows</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>A      Ford
 B     Honda
@@ -1114,12 +1140,12 @@ Name: make, dtype: object
 </div>
 </div>
 <div id="f2e27b50" class="cell" data-execution_count="19">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># accessing an entire row</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># accessing an entire row</span></span>
 <span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df_car.loc[<span class="st">'B'</span>], <span class="st">"</span><span class="ch">\n</span><span class="st">"</span>)          <span class="co"># using only row's label</span></span>
 <span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a><span class="co"># print(df_car.iloc[2], "\n")         # using only row's index</span></span>
 <span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a><span class="co"># print(df_car.loc['B',:], "\n")      # using row's label, selecting all columns</span></span>
-<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a><span class="co"># print(df_car.iloc[2,:])             # using row's index, selecting all columns</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a><span class="co"># print(df_car.iloc[2,:])             # using row's index, selecting all columns</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>make      Honda
 model    Accord
@@ -1129,7 +1155,7 @@ Name: B, dtype: object
 </div>
 </div>
 <div id="85bd0abb" class="cell" data-execution_count="20">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co"># accessing a specific element of the DataFrame</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co"># accessing a specific element of the DataFrame</span></span>
 <span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'df_car.loc[</span><span class="ch">\'</span><span class="st">A</span><span class="ch">\'</span><span class="st">,</span><span class="ch">\'</span><span class="st">model</span><span class="ch">\'</span><span class="st">] ='</span>, df_car.loc[<span class="st">'A'</span>,<span class="st">'model'</span>])    <span class="co"># retrieving from 2nd row, column named 'model'</span></span>
 <span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'df_car.iloc[1,2]      ='</span>, df_car.iloc[<span class="dv">1</span>,<span class="dv">1</span>], <span class="st">'</span><span class="ch">\n</span><span class="st">'</span>)           <span class="co"># retrieving from 2nd row, 2nd column</span></span>
 <span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -1137,7 +1163,7 @@ Name: B, dtype: object
 <span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'df_car.iloc[1:3,1:3] =</span><span class="ch">\n</span><span class="st">'</span>, df_car.iloc[<span class="dv">1</span>:<span class="dv">3</span>,<span class="dv">1</span>:<span class="dv">3</span>], <span class="st">"</span><span class="ch">\n</span><span class="st">"</span>, sep<span class="op">=</span><span class="st">""</span>)</span>
 <span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a><span class="co"># selection and filtering</span></span>
-<span id="cb38-9"><a href="#cb38-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'df_car[df_car.MSRP &gt; 25000] =</span><span class="ch">\n</span><span class="st">'</span>, df_car[df_car.MSRP <span class="op">&gt;</span> <span class="dv">25000</span>], sep<span class="op">=</span><span class="st">""</span>)  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb38-9"><a href="#cb38-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'df_car[df_car.MSRP &gt; 25000] =</span><span class="ch">\n</span><span class="st">'</span>, df_car[df_car.MSRP <span class="op">&gt;</span> <span class="dv">25000</span>], sep<span class="op">=</span><span class="st">""</span>)  </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>df_car.loc['A','model'] = Taurus
 df_car.iloc[1,2]      = Accord 
@@ -1158,7 +1184,7 @@ D  Tesla  Model S  68000</code></pre>
 <h3 data-number="8.2.3" class="anchored" data-anchor-id="basic-operations"><span class="header-section-number">8.2.3</span> Basic Operations</h3>
 <p>There are many useful functions/methods are available in <code>Pandas</code> for <code>DataFrame</code> (and <code>Series</code>), which can help us easily handle data. Here are some basic, essential functions.</p>
 <div id="d84f0ad1" class="cell" data-execution_count="21">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Checking data by viewing a small sample of a Series or DataFrame object</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Checking data by viewing a small sample of a Series or DataFrame object</span></span>
 <span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"df_car.head() =</span><span class="ch">\n</span><span class="st">"</span>, df_car.head(), <span class="st">"</span><span class="ch">\n</span><span class="st">"</span>)   <span class="co"># for the first few</span></span>
 <span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"df_car.tail() =</span><span class="ch">\n</span><span class="st">"</span>, df_car.tail(), <span class="st">"</span><span class="ch">\n</span><span class="st">"</span>)   <span class="co"># for the last few</span></span>
 <span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -1170,7 +1196,7 @@ D  Tesla  Model S  68000</code></pre>
 <span id="cb40-10"><a href="#cb40-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb40-11"><a href="#cb40-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Converting the data into other type</span></span>
 <span id="cb40-12"><a href="#cb40-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"df_car.to_numpy() =</span><span class="ch">\n</span><span class="st">"</span>, df_car.to_numpy(), <span class="st">"</span><span class="ch">\n</span><span class="st">"</span>)   <span class="co"># ndarray</span></span>
-<span id="cb40-13"><a href="#cb40-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"df_car.to_dict() =</span><span class="ch">\n</span><span class="st">"</span>, df_car.to_dict(), <span class="st">"</span><span class="ch">\n</span><span class="st">"</span>)     <span class="co"># dictionary</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb40-13"><a href="#cb40-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"df_car.to_dict() =</span><span class="ch">\n</span><span class="st">"</span>, df_car.to_dict(), <span class="st">"</span><span class="ch">\n</span><span class="st">"</span>)     <span class="co"># dictionary</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>df_car.head() =
       make    model   MSRP
@@ -1221,7 +1247,7 @@ df_car.to_dict() =
 <section id="numeric-operations-1" class="level3" data-number="8.2.4">
 <h3 data-number="8.2.4" class="anchored" data-anchor-id="numeric-operations-1"><span class="header-section-number">8.2.4</span> Numeric Operations</h3>
 <div id="97f3a3e4" class="cell" data-execution_count="22">
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Addition: data + 4'</span>)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Addition: data + 4'</span>)</span>
 <span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df_rnd <span class="op">+</span> <span class="dv">4</span>, <span class="st">'</span><span class="ch">\n</span><span class="st">'</span>)    <span class="co"># addition operation</span></span>
 <span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Multiplication: data * 10'</span>)</span>
@@ -1243,7 +1269,7 @@ df_car.to_dict() =
 <span id="cb42-20"><a href="#cb42-20" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df_rnd.mean(axis<span class="op">=</span><span class="dv">1</span>), <span class="st">'</span><span class="ch">\n</span><span class="st">'</span>)   <span class="co"># get average value for each row</span></span>
 <span id="cb42-21"><a href="#cb42-21" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb42-22"><a href="#cb42-22" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Standard deviations per row:'</span>)</span>
-<span id="cb42-23"><a href="#cb42-23" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df_rnd.std(), <span class="st">'</span><span class="ch">\n</span><span class="st">'</span>)          <span class="co"># get average value for each row</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb42-23"><a href="#cb42-23" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df_rnd.std(), <span class="st">'</span><span class="ch">\n</span><span class="st">'</span>)          <span class="co"># get average value for each row</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Addition: data + 4
          x1        x2        x3
@@ -1378,13 +1404,14 @@ dtype: float64
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

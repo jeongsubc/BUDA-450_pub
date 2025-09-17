@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Jeongsub Choi">
-<meta name="dcterms.date" content="2025-09-17">
 
-<title>Business Data Mining and Visualization</title>
+<title>6&nbsp; Classes and Methods – Business Data Mining and Visualization</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -60,29 +58,30 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./intro.html" rel="next">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b651517ce65839d647a86e2780455cfb.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-0b2585a1fb9be14073f33885e8cab21d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-5a92a1bd7a72c20926042465265bc79c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-0b2585a1fb9be14073f33885e8cab21d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../BD/BD-Front.html" rel="next">
+<link href="../PY/PY-Fn-Pack.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b651517ce65839d647a86e2780455cfb.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-0b2585a1fb9be14073f33885e8cab21d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-5a92a1bd7a72c20926042465265bc79c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-0b2585a1fb9be14073f33885e8cab21d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -113,7 +112,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <style>html{ scroll-behavior: smooth; }</style>
 
 
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="../style.css">
 </head>
 
 <body class="nav-sidebar floating quarto-light"><script id="quarto-html-before-body" type="application/javascript">
@@ -287,7 +286,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Welcome!</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../PY/PY-Front.html">Python Basics</a></li><li class="breadcrumb-item"><a href="../PY/PY-Class-Method.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Classes and Methods</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -301,10 +300,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
-      <a href="./index.html" class="sidebar-logo-link">
+      <a href="../index.html" class="sidebar-logo-link">
       </a>
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">Business Data Mining and Visualization</a> 
+      <a href="../">Business Data Mining and Visualization</a> 
         <div class="sidebar-tools-main">
     <a href="https://github.com/jeongsubc/BUDA-450_pub" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
@@ -320,19 +319,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Welcome!</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./intro.html" class="sidebar-item-text sidebar-link">
+  <a href="../intro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction to Course</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./PY/PY-Front.html" class="sidebar-item-text sidebar-link">
+            <a href="../PY/PY-Front.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Python Basics</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -341,31 +340,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./PY/PY-GetStarted.html" class="sidebar-item-text sidebar-link">
+  <a href="../PY/PY-GetStarted.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Getting Started</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./PY/PY-Basics.html" class="sidebar-item-text sidebar-link">
+  <a href="../PY/PY-Basics.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Concepts and Syntax</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./PY/PY-Data.html" class="sidebar-item-text sidebar-link">
+  <a href="../PY/PY-Data.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Data Types</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./PY/PY-Fn-Pack.html" class="sidebar-item-text sidebar-link">
+  <a href="../PY/PY-Fn-Pack.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Functions and Packages</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./PY/PY-Class-Method.html" class="sidebar-item-text sidebar-link">
+  <a href="../PY/PY-Class-Method.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Classes and Methods</span></span></a>
   </div>
 </li>
@@ -373,7 +372,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./BD/BD-Front.html" class="sidebar-item-text sidebar-link">
+            <a href="../BD/BD-Front.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Data Science with Python</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -382,13 +381,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./BD/BD-NumPy.html" class="sidebar-item-text sidebar-link">
+  <a href="../BD/BD-NumPy.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">NumPy</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./BD/BD-Pandas.html" class="sidebar-item-text sidebar-link">
+  <a href="../BD/BD-Pandas.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Pandas</span></span></a>
   </div>
 </li>
@@ -396,7 +395,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./DV/DV-Front.html" class="sidebar-item-text sidebar-link">
+            <a href="../DV/DV-Front.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Data Visualization</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -405,19 +404,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./DV/DV-IntroVisual.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Introduction to Data Visualization</span></span></a>
+  <a href="../DV/DV-IntroVisual.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Visualizing Data</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./DV/DV-Matplotlib.html" class="sidebar-item-text sidebar-link">
+  <a href="../DV/DV-Matplotlib.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Matplotlib</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./DV/DV-ComPlots.html" class="sidebar-item-text sidebar-link">
+  <a href="../DV/DV-ComPlots.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Common Plots</span></span></a>
   </div>
 </li>
@@ -425,7 +424,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./PD/PD-Front.html" class="sidebar-item-text sidebar-link">
+            <a href="../PD/PD-Front.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Predictive Modeling</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -434,7 +433,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./PD/PD-KNN.html" class="sidebar-item-text sidebar-link">
+  <a href="../PD/PD-KNN.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">k-Nearest Neighbors</span></span></a>
   </div>
 </li>
@@ -451,13 +450,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./App/App-Markdown.html" class="sidebar-item-text sidebar-link">
+  <a href="../App/App-Markdown.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Markdown Cheat Sheet</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./App/App-Proximity.html" class="sidebar-item-text sidebar-link">
+  <a href="../App/App-Proximity.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Proximity</span></span></a>
   </div>
 </li>
@@ -473,9 +472,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#welcome" id="toc-welcome" class="nav-link active" data-scroll-target="#welcome">Welcome!</a>
+  <li><a href="#classes" id="toc-classes" class="nav-link active" data-scroll-target="#classes"><span class="header-section-number">6.1</span> Classes</a>
   <ul class="collapse">
-  <li><a href="#conventions" id="toc-conventions" class="nav-link" data-scroll-target="#conventions">Conventions</a></li>
+  <li><a href="#method" id="toc-method" class="nav-link" data-scroll-target="#method"><span class="header-section-number">6.1.1</span> Method</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -484,28 +483,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../PY/PY-Front.html">Python Basics</a></li><li class="breadcrumb-item"><a href="../PY/PY-Class-Method.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Classes and Methods</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Business Data Mining and Visualization</h1>
+<h1 class="title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Classes and Methods</span></h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Jeongsub Choi </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">September 17, 2025</p>
-    </div>
-  </div>
   
     
   </div>
@@ -515,164 +502,140 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="welcome" class="level1 unnumbered">
-<h1 class="unnumbered">Welcome!</h1>
-<p>This website is for the lecture notes of { <strong>BUDA-450</strong> <strong><em>Business Data Mining and Visualization</em></strong> }, and it will be updated with the development of the course.</p>
-<p>The materials aim to introduce to <strong>Data Mining</strong> and <strong>Visualization</strong> with <strong>Python Programming</strong> basics. The content of the course will be given with the following software and brief introductions.</p>
+<p>This section introduces classes and methods in python.</p>
+<p>For example, a built-in function <code>print()</code> outputs text to the console (or to a specified file):</p>
+<section id="classes" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="classes"><span class="header-section-number">6.1</span> Classes</h2>
+<p>Python is a language for object-oriented programming (OOP), allowing you to structure your code using classes and objects for better organization and reusability. It has advantages over other programming approaches:</p>
 <ul>
-<li><a href="https://www.python.org/">Python</a> and its packages</li>
-<li><a href="https://jupyter.org/">Jupiter</a> notebook (or jupiterlab)</li>
-<li><a href="https://anaconda.org/">Conda/Anaconda</a> for virtual environments</li>
+<li>Provides a clear structure to programs</li>
+<li>Makes code easier to maintain, reuse, and debug</li>
+<li>Helps keep your code DRY (Don’t Repeat Yourself)</li>
+<li>Allows you to build reusable applications with less code</li>
 </ul>
-<!--    
-In those lectures using R/Python, the code is embedded in the lecture notes. You are strongly recommended to run the code to test/repeat the results in the lecture. It is the best way to learn R/Python and any programming languages.
--->
-<!--
-In this book, we will utilize the Jupyter Notebook interface and take you from the basics of Python syntax to using the `pandas` package to work with data frames. In doing so, we aim to give you the tools and confidence to start exploring Python and all it has to offer. 
-
-After the course, you will be able to start using Python in your own project, this will be hard in the beginning (a one day course is unfortunately not enough to become a skilled programmer) but we are available during our weekly [walk in hours](https://www.uu.nl/en/research/research-data-management/workshops/walk-in-hours-research-data-and-software) to get you on track!
--->
-<!-- 
-  ## About this Book {-}
-
-![](img/cover-img.png) 
-
-This book provides an introduction to the skill of computer programming ("programming 101") in the Python language, with an emphasis on skills useful for information and data sciences. It will introduce programming concepts such as syntax (how to "speak" Python), data organization (how computers represent information), control flow (how to have the computer do lots of things in a row), and debugging (how to fix broken programs). The goal is to develop skills in formal language semantics, algorithmic thinking, abstraction, and debugging—being able to "think like the computer" to understand how it works. In short: the goal is to get you familiar with programming concepts and abstract thinking skills used in automatically managing and analyzing information. It assumes no previous programming background.
-
--->
-<!-- 
-![Creative Commons License](img/index/by-nc-sa.png)
-This book is licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-nc-sa/4.0/).
--->
-<section id="conventions" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="conventions">Conventions</h2>
-<p>The lecture notes are compiled using <a href="https://quarto.org/">Quarto</a>.</p>
-<ul>
-<li><p><em>Italic</em>, <strong>Bold</strong>, and <strong><em>ItalicBold</em></strong> texts are used to highlight concepts or items being discussed.</p></li>
-<li><p><code>typewriter</code> font is used for function, inline code, and file names, pertaining to software use.</p></li>
-<li><p>The following code blocks are used to show codes (and results) in Python:</p></li>
-</ul>
-<div id="958b2b64" class="cell" data-execution_count="1">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="dv">2</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> <span class="dv">5</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"a plus b is equal to"</span>, a<span class="op">+</span>b)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>In Python, a <a href="https://docs.python.org/3/tutorial/classes.html">class</a> is a <em>blueprint</em> for a type of objects, as it defines what an object should look like. And, an object is created based on that class as it inherits all the variables and functions defined inside that class.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Class</th>
+<th>Objects</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Fruit</td>
+<td>Apple, Banana, Mango</td>
+</tr>
+<tr class="even">
+<td>Car</td>
+<td>Volvo, Audi, Toyota</td>
+</tr>
+</tbody>
+</table>
+<p>Almost everything in Python is an object, with its properties and methods. You can create a class to store <strong><em>data attributes</em></strong> (also called the class properties) and/or <strong><em>methods</em></strong>, and use the class to handle objects of a type in a consistent and systematic way.</p>
+<p>For example, you can define a class named <code>MyCourse</code> with an attribute named <code>program</code>, using <code>class</code> keyword:</p>
+<div id="8ae03d87" class="cell" data-execution_count="1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define a class</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> MyCourse:</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># data attribute</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    program <span class="op">=</span> <span class="st">'BUDA'</span>          <span class="co"># class variable shared by all instances</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Now, you can create an object of the new class:</p>
+<div id="9a51a45b" class="cell" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create an object</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>student_1 <span class="op">=</span> MyCourse()</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The program of student_1:"</span>, student_1.program)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>a plus b is equal to 7</code></pre>
+<pre><code>The program of student_1: BUDA</code></pre>
 </div>
 </div>
-<ul>
-<li>Some blocks will show the code (without the result for exercise) when you click:</li>
-</ul>
-<div id="fcf7c552" class="cell" data-execution_count="2">
-<details class="code-fold">
-<summary>Show the code for 3 to the 4th</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> <span class="dv">3</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>d <span class="op">=</span> <span class="dv">4</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"3 to the 4th is equal to"</span>, c <span class="op">**</span> d)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
-</div>
-<ul>
-<li>The following blocks are used to draw extra attention based on the five types below:</li>
-</ul>
-<div class="grid">
-<div class="g-col-12 g-col-md-2">
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Note
+<div id="40beb739" class="cell" data-execution_count="3">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Add/modify an attribute and the value in the object </span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>student_1.course <span class="op">=</span> <span class="st">"BUDA 450"</span>    <span class="co"># a new attribute</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The course code of student_1:"</span>, student_1.course)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>The course code of student_1: BUDA 450</code></pre>
 </div>
 </div>
-<div class="callout-body-container callout-body">
-<p>For additional or extra topics.</p>
+<p>Now, you can create another object of the same class, which has the same attribute <code>program</code>:</p>
+<div id="d1877d43" class="cell" data-execution_count="4">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create another object</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>student_2 <span class="op">=</span> MyCourse()</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The program of student_2:"</span>, student_2.program)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>The program of student_2: BUDA</code></pre>
 </div>
 </div>
+<p>However, although their classes are the same, they are treated independently. So, this object <code>student_2</code> doesn’t have the attribute <code>course</code> as it was added only to <code>student_1</code>. The following example returns an error message.</p>
+<div id="2324a138" class="cell" data-execution_count="5">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The course code of student_2:"</span>, student_2.course)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div class="g-col-12 g-col-md-2">
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+<section id="method" class="level3" data-number="6.1.1">
+<h3 data-number="6.1.1" class="anchored" data-anchor-id="method"><span class="header-section-number">6.1.1</span> Method</h3>
+<p>A <a href="https://realpython.com/ref/glossary/method/">method</a> is a function that “belongs to” an object. So, a method is called on an object and is specific to the object’s type. To apply a method, you can call <strong>the method’s name</strong> (and <strong>arguments</strong>), following <strong>the name of the target object</strong> to call the method on and <strong>a period (dot)</strong> <code>.</code> , like <code>object_name.method_name(arguments)</code>.</p>
+<div id="898995f7" class="cell" data-execution_count="6">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define a class with method</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> MyCourse:</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># data attribute </span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    program <span class="op">=</span> <span class="st">'BUDA'</span>          <span class="co"># class variable shared by all instances</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># method</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> add_course(<span class="va">self</span>, course_code):</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.course <span class="op">=</span> <span class="va">self</span>.program <span class="op">+</span> <span class="st">" "</span> <span class="op">+</span> course_code</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Warning</span>Warning
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>For practical issues or warnings.</p>
-</div>
-</div>
-</div>
-<div class="g-col-12 g-col-md-3">
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>Important
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>For key information and takeaways.</p>
+<p>Here, <code>self</code> indicates the class object itself. That is, <code>self.program</code> call the <code>program</code> attribute of the object that is created through this class, locally within this class’ code block.</p>
+<p>As a result, the function can utilize internally defined attribute that will be identically created in every <code>MyCourse</code> object.</p>
+<p>For example, you can create two objects of <code>MyCourse</code> class, and use the same method with different arguments:</p>
+<div id="b2abbcfe" class="cell" data-execution_count="7">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>student_3 <span class="op">=</span> MyCourse()</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>student_3.add_course(<span class="st">"450"</span>)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(student_3.course)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>BUDA 450</code></pre>
 </div>
 </div>
-</div>
-<div class="g-col-12 g-col-md-2">
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Tip
+<div id="2a74f8be" class="cell" data-execution_count="8">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>student_4 <span class="op">=</span> MyCourse()</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>student_4.add_course(<span class="st">"455"</span>)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(student_4.course)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>BUDA 455</code></pre>
 </div>
 </div>
-<div class="callout-body-container callout-body">
-<p>For useful or extra techniques.</p>
+<section id="the-__init__-method" class="level4" data-number="6.1.1.1">
+<h4 data-number="6.1.1.1" class="anchored" data-anchor-id="the-__init__-method"><span class="header-section-number">6.1.1.1</span> The <code>__init__()</code> Method</h4>
+<p>Almost all classes have a built-in method called <code>__init__()</code>, which makes the classes much useful by having an initial setup for each object. The <code>__init__()</code> method is always executed when the class is being initiated — when an object of the class is created.</p>
+<p>For example, the <code>__init__()</code> method can be used to assign initial values to object properties, or other operations that are necessary to do when the object is being created:</p>
+<div id="078068e8" class="cell" data-execution_count="9">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define a class with __init__ method</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> MyCourse_general:</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, program):</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.program <span class="op">=</span> program        <span class="co"># instance variable unique to each instance</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> add_course(<span class="va">self</span>, course_code):</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.course <span class="op">=</span> <span class="va">self</span>.program <span class="op">+</span> <span class="st">" "</span> <span class="op">+</span> course_code</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>For example, the <code>MyCourse_general</code> requires an argument for <code>program</code> attribute to initiate (i.e., create) an object. The following objects are created with different program names, while using the same method.</p>
+<div id="7f823c95" class="cell" data-execution_count="10">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># without the initial value, the object cannot be created</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>student_5 <span class="op">=</span> MyCourse_general(<span class="st">"BUDA"</span>)</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>student_5.add_course(<span class="st">"450"</span>)</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(student_5.course)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>BUDA 450</code></pre>
 </div>
 </div>
-</div>
-<div class="g-col-12 g-col-md-2">
-<div class="callout callout-style-default callout-caution callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Caution</span>Exercise
+<div id="328ffc84" class="cell" data-execution_count="11">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>student_6 <span class="op">=</span> MyCourse_general(<span class="st">"MIST"</span>)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>student_6.add_course(<span class="st">"450"</span>)</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(student_6.course)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>MIST 450</code></pre>
 </div>
 </div>
-<div class="callout-body-container callout-body">
-<p>For practice or exercise problems.</p>
-</div>
-</div>
-</div>
-</div>
-<!--
-## Acknowledgements {.unnumbered}
-
-The main references of this book are: 
-
-- [Data Analysis and Visualization in Python for Ecologists](https://datacarpentry.org/python-ecology-lesson/index.html) developed by [The Carpentries](https://carpentries.org/)  
-    
-- [Introduction to R & Data](https://utrechtuniversity.github.io/workshop-introduction-to-R-and-data/) developed by [Research Data Management Support](https://www.uu.nl/en/research/research-data-management) at Utrecht University. 
-
-- [Introduction to Programming for Data Science and Visualization]() [University of Washington Information School](https://ischool.uw.edu/); (The "INFX" in the URL title was the original prefix for these courses). However, this book has been structured to be an online resource for anyone who wishes to learn programming. Some chapters of this book have been developed in conjunction with [Technical Foundations of Informatics](https://info201.github.io/), by Freeman and Ross.
-
--->
-<!--
-The aforementioned source materials are reused under a [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0/) license.
-
-Our workshop material is licensed under a Creative Commons Attribution 4.0 International License. You can view the license on our [GitHub repository](https://github.com/UtrechtUniversity/workshop-introduction-to-python).
--->
-<!-- 
-- target format/structure of book: <https://www.albany.edu/spatial/GIS4SS/lecture/>
--->
 
 
+</section>
 </section>
 </section>
 
@@ -1094,10 +1057,13 @@ Our workshop material is licensed under a Creative Commons Attribution 4.0 Inter
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="../PY/PY-Fn-Pack.html" class="pagination-link" aria-label="Functions and Packages">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Functions and Packages</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./intro.html" class="pagination-link" aria-label="Introduction to Course">
-        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction to Course</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../BD/BD-Front.html" class="pagination-link" aria-label="Data Science with Python">
+        <span class="nav-page-text">Data Science with Python</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -1119,5 +1085,5 @@ Our workshop material is licensed under a Creative Commons Attribution 4.0 Inter
 
 
 
-<script src="site_libs/quarto-html/zenscroll-min.js"></script>
+<script src="../site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>
