@@ -1,0 +1,1756 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.24">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Appendix C — Impurity – Business Data Mining and Visualization</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script><script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../App/App-Proximity.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b651517ce65839d647a86e2780455cfb.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-0b2585a1fb9be14073f33885e8cab21d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-5a92a1bd7a72c20926042465265bc79c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-0b2585a1fb9be14073f33885e8cab21d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+<script src="https://cdn.jsdelivr.net/npm/requirejs@2.3.6/require.min.js" integrity="sha384-c9c+LnTbwQ3aujuU7ULEPVvgLs+Fn6fJUvIGTsuu1ZcCf11fiEubah0ttpca4ntM sha384-6V1/AdqZRWk1KAlWbKBlGhN7VG4iE/yAZcO6NZPMF8od0vukrvr0tg4qY6NSrItx" crossorigin="anonymous"></script>
+
+
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../style.css">
+</head>
+
+<body class="nav-sidebar floating quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../App/App-Markdown.html">Appendices</a></li><li class="breadcrumb-item"><a href="../App/App-Impurity.html"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Impurity</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="../index.html" class="sidebar-logo-link">
+      </a>
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Business Data Mining and Visualization</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/jeongsubc/BUDA-450_pub" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Welcome!</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction to Course</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../PY/PY-Front.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Python Basics</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../PY/PY-GetStarted.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Getting Started</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../PY/PY-Basics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Concepts and Syntax</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../PY/PY-Data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Data Types</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../PY/PY-Fn-Pack.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Functions and Packages</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../PY/PY-Class-Method.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Classes and Methods</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../BD/BD-Front.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Data Science with Python</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../BD/BD-NumPy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">NumPy</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../BD/BD-Pandas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Pandas</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../DV/DV-Front.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Data Visualization</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../DV/DV-IntroVisual.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Visualizing Data</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../DV/DV-Matplotlib.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Matplotlib</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../DV/DV-ComPlots.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Common Plots</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../PD/PD-Front.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Predictive Modeling</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../PD/PD-KNN.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">k-Nearest Neighbors</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../PD/PD-DecisionTree.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Decision Trees</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../App/App-Markdown.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Markdown Cheat Sheet</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../App/App-Proximity.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Proximity</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../App/App-Impurity.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Impurity</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#what-is-impurity" id="toc-what-is-impurity" class="nav-link active" data-scroll-target="#what-is-impurity"><span class="header-section-number">C.1</span> What is Impurity?</a>
+  <ul class="collapse">
+  <li><a href="#key-idea" id="toc-key-idea" class="nav-link" data-scroll-target="#key-idea"><span class="header-section-number">C.1.1</span> Key idea</a></li>
+  <li><a href="#mathematical-measures-of-impurity" id="toc-mathematical-measures-of-impurity" class="nav-link" data-scroll-target="#mathematical-measures-of-impurity"><span class="header-section-number">C.1.2</span> Mathematical measures of impurity</a></li>
+  </ul></li>
+  <li><a href="#prep" id="toc-prep" class="nav-link" data-scroll-target="#prep"><span class="header-section-number">C.2</span> Data Preparation</a>
+  <ul class="collapse">
+  <li><a href="#simple-data-visualizations---bar-chart" id="toc-simple-data-visualizations---bar-chart" class="nav-link" data-scroll-target="#simple-data-visualizations---bar-chart"><span class="header-section-number">C.2.1</span> Simple data visualizations - Bar chart</a></li>
+  </ul></li>
+  <li><a href="#gini" id="toc-gini" class="nav-link" data-scroll-target="#gini"><span class="header-section-number">C.3</span> Gini Impurity</a>
+  <ul class="collapse">
+  <li><a href="#exercise-with-visualization---bar-plot" id="toc-exercise-with-visualization---bar-plot" class="nav-link" data-scroll-target="#exercise-with-visualization---bar-plot"><span class="header-section-number">C.3.1</span> Exercise with Visualization - Bar Plot</a></li>
+  </ul></li>
+  <li><a href="#entro" id="toc-entro" class="nav-link" data-scroll-target="#entro"><span class="header-section-number">C.4</span> Entropy</a>
+  <ul class="collapse">
+  <li><a href="#computation" id="toc-computation" class="nav-link" data-scroll-target="#computation"><span class="header-section-number">C.4.1</span> Computation</a></li>
+  <li><a href="#exercise-with-visualization---lollipop-plot" id="toc-exercise-with-visualization---lollipop-plot" class="nav-link" data-scroll-target="#exercise-with-visualization---lollipop-plot"><span class="header-section-number">C.4.2</span> Exercise with Visualization - Lollipop Plot</a></li>
+  </ul></li>
+  <li><a href="#conde" id="toc-conde" class="nav-link" data-scroll-target="#conde"><span class="header-section-number">C.5</span> Conditional Entropy</a>
+  <ul class="collapse">
+  <li><a href="#computation-1" id="toc-computation-1" class="nav-link" data-scroll-target="#computation-1"><span class="header-section-number">C.5.1</span> Computation</a></li>
+  </ul></li>
+  <li><a href="#mutui" id="toc-mutui" class="nav-link" data-scroll-target="#mutui"><span class="header-section-number">C.6</span> Information Gain</a>
+  <ul class="collapse">
+  <li><a href="#computation-2" id="toc-computation-2" class="nav-link" data-scroll-target="#computation-2"><span class="header-section-number">C.6.1</span> Computation</a></li>
+  <li><a href="#example-igx_1y-via-hx_1-hx_1y" id="toc-example-igx_1y-via-hx_1-hx_1y" class="nav-link" data-scroll-target="#example-igx_1y-via-hx_1-hx_1y"><span class="header-section-number">C.6.2</span> Example: <span class="math inline">\(IG(X_{1};Y)\)</span> via <span class="math inline">\(H(X_1)-H(X_{1}|Y)\)</span></a></li>
+  <li><a href="#example-igx_1y-via-hx_1hy-hx_1y" id="toc-example-igx_1y-via-hx_1hy-hx_1y" class="nav-link" data-scroll-target="#example-igx_1y-via-hx_1hy-hx_1y"><span class="header-section-number">C.6.3</span> Example: <span class="math inline">\(IG(X_{1};Y)\)</span> via <span class="math inline">\(H(X_1)+H(Y)-H(X_{1},Y)\)</span></a></li>
+  <li><a href="#general-utility-igxy-from-a-joint-table" id="toc-general-utility-igxy-from-a-joint-table" class="nav-link" data-scroll-target="#general-utility-igxy-from-a-joint-table"><span class="header-section-number">C.6.4</span> General utility: <span class="math inline">\(IG(X;Y)\)</span> from a joint table</a></li>
+  </ul></li>
+  <li><a href="#related-readingreference" id="toc-related-readingreference" class="nav-link" data-scroll-target="#related-readingreference"><span class="header-section-number">C.7</span> Related Reading/Reference</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../App/App-Markdown.html">Appendices</a></li><li class="breadcrumb-item"><a href="../App/App-Impurity.html"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Impurity</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Appendix C — Impurity</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>This session explores impurity measures used in various data mining methods, including decision trees.</p>
+<section id="what-is-impurity" class="level2" data-number="C.1">
+<h2 data-number="C.1" class="anchored" data-anchor-id="what-is-impurity"><span class="header-section-number">C.1</span> What is Impurity?</h2>
+<p><strong>Impurity</strong> describes how mixed or diverse a set of outcomes is. It measures the <em>lack of uniformity</em> in a distribution:</p>
+<ul>
+<li><strong><em>Pure distribution</em></strong>: all elements belong to the same category (no diversity).<br>
+</li>
+<li><strong><em>Impure distribution</em></strong>: elements are spread across different categories (greater diversity).</li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Everyday analogy
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Imagine a jar of balls:</p>
+<ul>
+<li>If the jar contains only <em><span style="color:red;">red balls</span> </em>, it is <strong>pure</strong> (no uncertainty about what color you will draw).<br>
+</li>
+<li>If the jar has a <em>mix of <span style="color:red;">red</span>, <span style="color:blue;">blue</span>, and <span style="color:green;">green</span> balls</em>, it is <strong>impure</strong> (uncertain which color you will draw).<br>
+</li>
+<li>The <em>more evenly</em> the balls are mixed, the <strong>higher the impurity</strong>.<br>
+</li>
+</ul>
+</div>
+</div>
+<section id="key-idea" class="level3" data-number="C.1.1">
+<h3 data-number="C.1.1" class="anchored" data-anchor-id="key-idea"><span class="header-section-number">C.1.1</span> Key idea</h3>
+<ul>
+<li><strong>Impurity is about uncertainty or disorder</strong> in a distribution.<br>
+</li>
+<li>It shows how much “mixing” there is among the outcomes.<br>
+</li>
+<li>Different measures capture this idea in slightly different ways, but all describe <strong>how far the data is from being uniform or pure</strong>.</li>
+</ul>
+</section>
+<section id="mathematical-measures-of-impurity" class="level3" data-number="C.1.2">
+<h3 data-number="C.1.2" class="anchored" data-anchor-id="mathematical-measures-of-impurity"><span class="header-section-number">C.1.2</span> Mathematical measures of impurity</h3>
+<p>Several formulas are used to quantify this idea of diversity or uncertainty in a probability distribution:</p>
+<ol type="1">
+<li><strong>Gini index</strong> (from probability theory)
+<ul>
+<li>Measures the probability of misclassifying a randomly chosen data point (i.e., how often a randomly chosen element would be incorrectly identified if labeled by chance)</li>
+<li>Value is 0 for a pure node; Lower values mean more purity, higher values mean more mixture.</li>
+</ul></li>
+<li><strong>Entropy</strong> (from information theory)
+<ul>
+<li>Measures the amount of <em>uncertainty</em> or <em>disorder</em> in outcomes.<br>
+</li>
+<li>Entropy is 0 for a pure node; and larger when classes are more evenly mixed; Entropy is maximized when all outcomes are equally likely.</li>
+</ul></li>
+<li><strong>Variance</strong> (for numeric data)
+<ul>
+<li>Measures how spread out the values are.<br>
+</li>
+<li>Zero variance means all values are identical (pure), higher variance means greater diversity.</li>
+</ul></li>
+<li><strong>Classification Error</strong> (less common)
+<ul>
+<li>The fraction of samples that do not belong to the majority class in the node.</li>
+</ul></li>
+</ol>
+</section>
+</section>
+<section id="prep" class="level2" data-number="C.2">
+<h2 data-number="C.2" class="anchored" data-anchor-id="prep"><span class="header-section-number">C.2</span> Data Preparation</h2>
+<p>For the following examples, let’s consider a dataset <code>dat</code> that consists of four input attributes, <code>X1</code>, <code>X2</code> <code>X3</code>, <code>X4</code>, for the prediction of values of the target attribute <code>Y</code>:</p>
+<div id="250301aa" class="cell" data-execution_count="1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Data Frame</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>dat <span class="op">=</span> pd.DataFrame({</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"X1"</span>: pd.Categorical([<span class="st">'A'</span>,<span class="st">'A'</span>,<span class="st">'B'</span>,<span class="st">'B'</span>,<span class="st">'C'</span>], categories<span class="op">=</span>[<span class="st">'A'</span>,<span class="st">'B'</span>,<span class="st">'C'</span>]),</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">"X2"</span>: pd.Categorical([<span class="st">'A'</span>,<span class="st">'A'</span>,<span class="st">'B'</span>,<span class="st">'B'</span>,<span class="st">'A'</span>], categories<span class="op">=</span>[<span class="st">'A'</span>,<span class="st">'B'</span>,<span class="st">'C'</span>]),</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">"X3"</span>: pd.Categorical([<span class="st">'A'</span>,<span class="st">'B'</span>,<span class="st">'A'</span>,<span class="st">'B'</span>,<span class="st">'C'</span>], categories<span class="op">=</span>[<span class="st">'A'</span>,<span class="st">'B'</span>,<span class="st">'C'</span>]),</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">"X4"</span>: pd.Categorical([<span class="st">'A'</span>,<span class="st">'A'</span>,<span class="st">'A'</span>,<span class="st">'A'</span>,<span class="st">'A'</span>], categories<span class="op">=</span>[<span class="st">'A'</span>,<span class="st">'B'</span>,<span class="st">'C'</span>]),</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Y"</span>:  pd.Series([<span class="va">True</span>, <span class="va">True</span>, <span class="va">False</span>, <span class="va">False</span>, <span class="va">False</span>], dtype<span class="op">=</span><span class="st">"boolean"</span>)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(dat)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  X1 X2 X3 X4      Y
+0  A  A  A  A   True
+1  A  A  B  A   True
+2  B  B  A  A  False
+3  B  B  B  A  False
+4  C  A  C  A  False</code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><code>pd.Categorical()</code> is used to encode a vector, allowing you to specify possible values (categories) although some of the values don’t exist in the vector.</p>
+<div id="79dffc0f" class="cell" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>pd.Categorical([<span class="dv">1</span>,<span class="dv">2</span>], categories<span class="op">=</span>[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="2">
+<pre><code>[1, 2]
+Categories (3, int64): [1, 2, 3]</code></pre>
+</div>
+</div>
+<p>Similarly, <code>pd.Series(..., dtype="category")</code> or <code>pd.Categorical(...)</code> without explicit categories uses only the values existing in the given input data object.</p>
+<div id="aac25a78" class="cell" data-execution_count="3">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>pd.Categorical([<span class="dv">1</span>,<span class="dv">2</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="3">
+<pre><code>[1, 2]
+Categories (2, int64): [1, 2]</code></pre>
+</div>
+</div>
+</div>
+</div>
+<p>For the following examples, the <code>X1</code> data can be organized, considering unique classes <code>ClsX1</code>, the frequencies <code>FqX1</code>, and probability distribution <code>PrX1</code><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</p>
+<div id="8c7ca269" class="cell" data-execution_count="4">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>X1 <span class="op">=</span> dat[<span class="st">"X1"</span>]                      <span class="co"># Extract column</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>ClsX1 <span class="op">=</span> X1.unique()                 <span class="co"># Unique classes</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>FqX1 <span class="op">=</span> X1.value_counts(sort<span class="op">=</span><span class="va">False</span>)  <span class="co"># Frequencies (keep category order)</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>PrX1 <span class="op">=</span> FqX1 <span class="op">/</span> FqX1.<span class="bu">sum</span>()            <span class="co"># Probabilities</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Combine into a DataFrame</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>dat_X1 <span class="op">=</span> pd.DataFrame(</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    {</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Class"</span>: ClsX1,</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Freq"</span>: FqX1.values,</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Prob"</span>: PrX1.values</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(dat_X1)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Class  Freq  Prob
+0     A     2   0.4
+1     B     2   0.4
+2     C     1   0.2</code></pre>
+</div>
+</div>
+<section id="simple-data-visualizations---bar-chart" class="level3" data-number="C.2.1">
+<h3 data-number="C.2.1" class="anchored" data-anchor-id="simple-data-visualizations---bar-chart"><span class="header-section-number">C.2.1</span> Simple data visualizations - Bar chart</h3>
+<p>The frequency data <code>FqX1</code> can be visualized in a bar chart by using <strong>Matplotlib’s</strong> <code>bar()</code> function, which takes data vectors with additional optional arguments:</p>
+<div id="7522a957" class="cell" data-execution_count="5">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Barplot</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots()</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>ax.bar(</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    dat_X1[<span class="st">"Class"</span>],                    <span class="co"># bar names</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    dat_X1[<span class="st">"Freq"</span>],                     <span class="co"># bar heights</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>    color<span class="op">=</span>[<span class="st">'red'</span>,<span class="st">'green'</span>,<span class="st">'dodgerblue'</span>]  <span class="co"># bar colors</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="co"># labels and title</span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">"Barplot"</span>)</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">"Class"</span>)</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">"Frequency"</span>)</span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="App-Impurity_files/figure-html/cell-6-output-1.png" width="597" height="449" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Also, bar charts can be created using the <code>Seaborn</code> package. The <code>sns.barplot()</code> function provides a high-level API for bar charts.</p>
+<div id="7c20cd6d" class="cell" data-execution_count="6">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Barplot with Seaborn</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots()</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>sns.barplot(</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>    data<span class="op">=</span>dat_X1, </span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="st">"Class"</span>, </span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>    y<span class="op">=</span><span class="st">"Freq"</span>, </span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>    hue<span class="op">=</span><span class="st">"Class"</span>, </span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>    palette<span class="op">=</span>[<span class="st">"red"</span>,<span class="st">"green"</span>,<span class="st">"dodgerblue"</span>],</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>    ax<span class="op">=</span>ax</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">"Count Distribution of X1"</span>)</span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">"Class"</span>)</span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">"Count"</span>)</span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="App-Impurity_files/figure-html/cell-7-output-1.png" width="597" height="449" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Here, the argument <code>stat</code> in <code>geom_bar()</code> is for statistical transformation before plotting the data, and this example takes the data as it is, without any tranfomation, by having the argument <code>stat='identity'</code>.</p>
+</section>
+</section>
+<section id="gini" class="level2" data-number="C.3">
+<h2 data-number="C.3" class="anchored" data-anchor-id="gini"><span class="header-section-number">C.3</span> Gini Impurity</h2>
+<p>The <a href="https://en.wikipedia.org/wiki/Decision_tree_learning#Gini_impurity">Gini Impurity</a> (also known as the Gini’s diversity index) measures the inequality among values of a frequency distribution from a set of data. It ranges between 0 and 1, where 0 indicates perfect homogeneity of the data (all values are the same as <em>pure</em> data).</p>
+<p>Based on the formula <span class="math inline">\(Gini(X)=1-\sum_{k=1}^{C}{(P_{X}(k))^2}\)</span>, the Gini impurity can be calculated step-by-step:</p>
+<div id="39818f80" class="cell" data-execution_count="7">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Step-by-step Gini calculation</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>PrX1_sqr <span class="op">=</span> PrX1<span class="op">**</span><span class="dv">2</span>              <span class="co"># squared probability for each class k</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>PrX1_sqr_sum <span class="op">=</span> PrX1_sqr.<span class="bu">sum</span>()   <span class="co"># sum of squared probabilities</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>gini <span class="op">=</span> <span class="dv">1</span> <span class="op">-</span> PrX1_sqr_sum         <span class="co"># Gini impurity</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>gini</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="7">
+<pre><code>np.float64(0.6399999999999999)</code></pre>
+</div>
+</div>
+<p>The Gini impurity can also be calculated by wrapping the above into a custom function that takes a probability distribution vector:</p>
+<div id="cc01997a" class="cell" data-execution_count="8">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Gini impurity function</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> gini_imp(prob):</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">1</span> <span class="op">-</span> <span class="bu">sum</span>(prob<span class="op">**</span><span class="dv">2</span>)</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>gini_imp(PrX1)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="8">
+<pre><code>0.6399999999999999</code></pre>
+</div>
+</div>
+<p>Alternatively, it can be computed directly with <code>scikit-learn</code> utilities. Using class labels:</p>
+<div id="ee3884e2" class="cell" data-execution_count="9">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> confusion_matrix</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> gini_from_labels(labels):</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>    _, counts <span class="op">=</span> np.unique(labels, return_counts<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>    probs <span class="op">=</span> counts <span class="op">/</span> counts.<span class="bu">sum</span>()</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">1</span> <span class="op">-</span> np.<span class="bu">sum</span>(probs<span class="op">**</span><span class="dv">2</span>)</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>gini_from_labels(dat[<span class="st">"X1"</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="9">
+<pre><code>np.float64(0.6399999999999999)</code></pre>
+</div>
+</div>
+<p>Or, with a vector of class frequencies:</p>
+<div id="74c0d564" class="cell" data-execution_count="10">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example: frequencies for A, B, C</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>freqs <span class="op">=</span> np.array([FqX1.loc[<span class="st">'A'</span>], FqX1.loc[<span class="st">'B'</span>], FqX1.loc[<span class="st">'C'</span>]])</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>probs <span class="op">=</span> freqs <span class="op">/</span> freqs.<span class="bu">sum</span>()</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="op">-</span> np.<span class="bu">sum</span>(probs<span class="op">**</span><span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="10">
+<pre><code>np.float64(0.6399999999999999)</code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Gini Impurity for Numerical Data
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The Gini impurity can be computed for numerical data in the way described above, given a split rule. In other words, the Gini impurity can be obtained in the same way, after transforming the numerical data by discretization (or binarization).</p>
+<p>For example, let’s consider a split point for numeric data <code>Xnum</code> given as <code>5</code>, and transform the data:</p>
+<div id="5d4aba89" class="cell" data-execution_count="11">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example numerical data</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>Xnum <span class="op">=</span> np.array([<span class="op">-</span><span class="dv">2</span>, <span class="op">-</span><span class="fl">0.5</span>, <span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">7</span>, <span class="dv">10</span>])</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Split transformation: whether greater than 5</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>Xnum_greater_than_5 <span class="op">=</span> Xnum <span class="op">&gt;</span> <span class="dv">5</span></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(Xnum_greater_than_5)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[False False False False  True  True]</code></pre>
+</div>
+</div>
+<p>Then, the Gini impurity is calculated in the same way as for categorical data:</p>
+<div id="624eeade" class="cell" data-execution_count="12">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Frequency counts</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>FqXnum <span class="op">=</span> pd.Series(Xnum_greater_than_5).value_counts()</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Probabilities</span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>PrXnum <span class="op">=</span> FqXnum <span class="op">/</span> FqXnum.<span class="bu">sum</span>()</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Use the previously defined Gini function</span></span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>gini_imp(PrXnum)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="12">
+<pre><code>0.4444444444444444</code></pre>
+</div>
+</div>
+<p>Alternatively, the same can be done directly from the split vector:</p>
+<div id="12494007" class="cell" data-execution_count="13">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>gini_from_labels(Xnum_greater_than_5)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="13">
+<pre><code>np.float64(0.4444444444444444)</code></pre>
+</div>
+</div>
+</div>
+</div>
+<section id="exercise-with-visualization---bar-plot" class="level3" data-number="C.3.1">
+<h3 data-number="C.3.1" class="anchored" data-anchor-id="exercise-with-visualization---bar-plot"><span class="header-section-number">C.3.1</span> Exercise with Visualization - Bar Plot</h3>
+<p>Let’s calculate the Gini impurity of all X attributes and visualize them in a bar plot[^gal1]:</p>
+<div id="14e36cf7" class="cell" data-execution_count="14">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute Gini impurity for each feature (X1–X4)</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>GiniXs <span class="op">=</span> {</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"X1"</span>: gini_from_labels(dat[<span class="st">"X1"</span>]),</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"X2"</span>: gini_from_labels(dat[<span class="st">"X2"</span>]),</span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"X3"</span>: gini_from_labels(dat[<span class="st">"X3"</span>]),</span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"X4"</span>: gini_from_labels(dat[<span class="st">"X4"</span>]),</span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Organize the results in a DataFrame</span></span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>dat_GiniXs <span class="op">=</span> pd.DataFrame({</span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Feature"</span>: <span class="bu">list</span>(GiniXs.keys()),</span>
+<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Gini"</span>: <span class="bu">list</span>(GiniXs.values())</span>
+<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb25-14"><a href="#cb25-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(dat_GiniXs)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Feature  Gini
+0      X1  0.64
+1      X2  0.48
+2      X3  0.64
+3      X4  0.00</code></pre>
+</div>
+</div>
+<p>Now, visualize the impurities using a bar chart:</p>
+<div id="1661a65a" class="cell" data-execution_count="15">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot with Matplotlib (OO interface)</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots()</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>ax.bar(</span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>    dat_GiniXs[<span class="st">"Feature"</span>], </span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>    dat_GiniXs[<span class="st">"Gini"</span>], </span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>    color<span class="op">=</span>[<span class="st">"red"</span>, <span class="st">"green"</span>, <span class="st">"dodgerblue"</span>, <span class="st">"orange"</span>]</span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Labels and title</span></span>
+<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">"Gini Impurity of Xs"</span>)</span>
+<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">"Feature"</span>)</span>
+<span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">"Impurity"</span>)</span>
+<span id="cb27-14"><a href="#cb27-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-15"><a href="#cb27-15" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="App-Impurity_files/figure-html/cell-16-output-1.png" width="589" height="449" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="entro" class="level2" data-number="C.4">
+<h2 data-number="C.4" class="anchored" data-anchor-id="entro"><span class="header-section-number">C.4</span> Entropy</h2>
+<p><a href="https://en.wikipedia.org/wiki/Entropy_(information_theory)">Entropy</a> measures the amount of uncertainty in data of an attribute (a variable). It quantifies the average amount of information produced by a stochastic source of data. In other words, entropy is a measure of unpredictability or disorder within a set of possible outcomes. If all outcomes are equally likely, entropy is maximized. If one outcome is certain (probability 1), entropy is zero.</p>
+<section id="computation" class="level3" data-number="C.4.1">
+<h3 data-number="C.4.1" class="anchored" data-anchor-id="computation"><span class="header-section-number">C.4.1</span> Computation</h3>
+<p>Based on the formula <span class="math inline">\(H(X)=-\sum_{k=1}^{C}{P_{X}(k)\log_{2}(P_{X}(k))}\)</span>, the Entropy for the probability distribution <code>PrX1</code> of the previous example can be calculated step-by-step:</p>
+<div id="02404f62" class="cell" data-execution_count="16">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Step-by-step Entropy calculation</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>log2_PrX1 <span class="op">=</span> np.log2(PrX1)                       <span class="co"># log2(prob) for each k</span></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>PrX1_log2_PrX1 <span class="op">=</span> PrX1 <span class="op">*</span> log2_PrX1               <span class="co"># prob * log2(prob)</span></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>sum_PrX1_log2_PrX1 <span class="op">=</span> PrX1_log2_PrX1.<span class="bu">sum</span>()       <span class="co"># sum of products</span></span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>entropyX1 <span class="op">=</span> <span class="op">-</span>sum_PrX1_log2_PrX1                 <span class="co"># negative sum</span></span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>entropyX1</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="16">
+<pre><code>np.float64(1.5219280948873621)</code></pre>
+</div>
+</div>
+<p>Or, define a custom function that takes a probability distribution vector:</p>
+<div id="092e5098" class="cell" data-execution_count="17">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Entropy function</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> entropy_H(prob):</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>    prob <span class="op">=</span> np.asarray(prob)</span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>    prob <span class="op">=</span> prob[prob <span class="op">&gt;</span> <span class="dv">0</span>]   <span class="co"># avoid log(0)</span></span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="op">-</span>(prob <span class="op">*</span> np.log2(prob)).<span class="bu">sum</span>()</span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>entropy_H(PrX1)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="17">
+<pre><code>np.float64(1.5219280948873621)</code></pre>
+</div>
+</div>
+<p>Alternatively, you can obtain the entropy using <code>SciPy</code>, which provides <code>scipy.stats.entropy()</code>:</p>
+<div id="99837ecc" class="cell" data-execution_count="18">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> entropy</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="co"># with probability vector (base=2 for log2)</span></span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>entropy(PrX1, base<span class="op">=</span><span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="18">
+<pre><code>np.float64(1.5219280948873626)</code></pre>
+</div>
+</div>
+<p>Or directly from the frequency vector:</p>
+<div id="5e4d0e3d" class="cell" data-execution_count="19">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>entropy(FqX1, base<span class="op">=</span><span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="19">
+<pre><code>np.float64(1.5219280948873626)</code></pre>
+</div>
+</div>
+</section>
+<section id="exercise-with-visualization---lollipop-plot" class="level3" data-number="C.4.2">
+<h3 data-number="C.4.2" class="anchored" data-anchor-id="exercise-with-visualization---lollipop-plot"><span class="header-section-number">C.4.2</span> Exercise with Visualization - Lollipop Plot</h3>
+<p>Let’s calculate the entropy of all <code>X</code> variables and visualize them in a lollipop plot[^gal2], using vertical line segments plus points:</p>
+<div id="8593a537" class="cell" data-execution_count="20">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Helper: entropy function (base-2)</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> entropy_H(prob):</span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>    prob <span class="op">=</span> np.asarray(prob, dtype<span class="op">=</span><span class="bu">float</span>)</span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>    prob <span class="op">=</span> prob[prob <span class="op">&gt;</span> <span class="dv">0</span>]   <span class="co"># avoid log2(0)</span></span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="op">-</span>(prob <span class="op">*</span> np.log2(prob)).<span class="bu">sum</span>()</span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute entropy for each categorical feature X1–X4</span></span>
+<span id="cb36-8"><a href="#cb36-8" aria-hidden="true" tabindex="-1"></a>features <span class="op">=</span> [<span class="st">"X1"</span>, <span class="st">"X2"</span>, <span class="st">"X3"</span>, <span class="st">"X4"</span>]</span>
+<span id="cb36-9"><a href="#cb36-9" aria-hidden="true" tabindex="-1"></a>entropyXs <span class="op">=</span> {</span>
+<span id="cb36-10"><a href="#cb36-10" aria-hidden="true" tabindex="-1"></a>    f: entropy_H(dat[f].value_counts(normalize<span class="op">=</span><span class="va">True</span>, sort<span class="op">=</span><span class="va">False</span>).values)</span>
+<span id="cb36-11"><a href="#cb36-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> f <span class="kw">in</span> features</span>
+<span id="cb36-12"><a href="#cb36-12" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb36-13"><a href="#cb36-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-14"><a href="#cb36-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Organize results</span></span>
+<span id="cb36-15"><a href="#cb36-15" aria-hidden="true" tabindex="-1"></a>dat_entropyXs <span class="op">=</span> pd.DataFrame({</span>
+<span id="cb36-16"><a href="#cb36-16" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Feature"</span>: <span class="bu">list</span>(entropyXs.keys()),</span>
+<span id="cb36-17"><a href="#cb36-17" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Entropy"</span>: <span class="bu">list</span>(entropyXs.values())</span>
+<span id="cb36-18"><a href="#cb36-18" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb36-19"><a href="#cb36-19" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(dat_entropyXs)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Feature   Entropy
+0      X1  1.521928
+1      X2  0.970951
+2      X3  1.521928
+3      X4 -0.000000</code></pre>
+</div>
+</div>
+<div id="1a591411" class="cell" data-execution_count="21">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Lollipop plot with Matplotlib (OO interface)</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots()</span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>x_pos <span class="op">=</span> np.arange(<span class="bu">len</span>(dat_entropyXs))</span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>y_val <span class="op">=</span> dat_entropyXs[<span class="st">"Entropy"</span>].values</span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a><span class="co"># stems (segments from 0 to each entropy)</span></span>
+<span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a>ax.vlines(x<span class="op">=</span>x_pos, ymin<span class="op">=</span><span class="dv">0</span>, ymax<span class="op">=</span>y_val)</span>
+<span id="cb38-9"><a href="#cb38-9" aria-hidden="true" tabindex="-1"></a><span class="co"># lollipop heads (points)</span></span>
+<span id="cb38-10"><a href="#cb38-10" aria-hidden="true" tabindex="-1"></a>ax.scatter(x_pos, y_val, s<span class="op">=</span><span class="dv">50</span>)</span>
+<span id="cb38-11"><a href="#cb38-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-12"><a href="#cb38-12" aria-hidden="true" tabindex="-1"></a><span class="co"># labels and ticks</span></span>
+<span id="cb38-13"><a href="#cb38-13" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">"Entropy of Xs"</span>)</span>
+<span id="cb38-14"><a href="#cb38-14" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">"Attribute"</span>)</span>
+<span id="cb38-15"><a href="#cb38-15" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">"Entropy"</span>)</span>
+<span id="cb38-16"><a href="#cb38-16" aria-hidden="true" tabindex="-1"></a>ax.set_xticks(x_pos, dat_entropyXs[<span class="st">"Feature"</span>])</span>
+<span id="cb38-17"><a href="#cb38-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-18"><a href="#cb38-18" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="App-Impurity_files/figure-html/cell-22-output-1.png" width="589" height="449" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="conde" class="level2" data-number="C.5">
+<h2 data-number="C.5" class="anchored" data-anchor-id="conde"><span class="header-section-number">C.5</span> Conditional Entropy</h2>
+<p><a href="https://en.wikipedia.org/wiki/Conditional_entropy">Conditional Entropy</a>, <span class="math inline">\(H(X|Y)\)</span>, measures the amount of information needed to describe the outcome of a random variable <span class="math inline">\(X\)</span> given that the value of another random variable <span class="math inline">\(Y\)</span>. It quantifies the remaining uncertainty in <span class="math inline">\(X\)</span> after <span class="math inline">\(Y\)</span> is known, as the entropy of <span class="math inline">\(X\)</span> conditioned on <span class="math inline">\(Y\)</span>.</p>
+<p>To calculate <span class="math inline">\(H(X|Y) = Pr(Y=F)\cdot H(X|Y=F) + Pr(Y=T)\cdot H(X|Y=T)\)</span>, two probabilities are needed:</p>
+<ul>
+<li>the marginal probability of <code>Y</code>, <span class="math inline">\(Pr(Y=a)\)</span>.</li>
+<li>the conditional probability of <code>X</code> given a value of <code>Y</code>, <span class="math inline">\(Pr(X|Y=a)\)</span> to calculate <span class="math inline">\(H(X|Y=T)\)</span>.</li>
+</ul>
+<section id="computation-1" class="level3" data-number="C.5.1">
+<h3 data-number="C.5.1" class="anchored" data-anchor-id="computation-1"><span class="header-section-number">C.5.1</span> Computation</h3>
+<section id="conditional-probability-prxya" class="level4" data-number="C.5.1.1">
+<h4 data-number="C.5.1.1" class="anchored" data-anchor-id="conditional-probability-prxya"><span class="header-section-number">C.5.1.1</span> Conditional probability <span class="math inline">\(Pr(X|Y=a)\)</span></h4>
+<p>The conditional probabilities, for example, of <code>X1</code> given a value of <code>Y</code> can be obtained by first subsetting the data based on <code>Y</code>’s values and then dividing the frequency of <code>X1</code> values by the total number of records in the subset. Two conditional probabilities can be calculated where <code>Y</code> can have two possible values, <code>True</code> and <code>False</code>:</p>
+<div id="7648dc5e" class="cell" data-execution_count="22">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Subset columns for convenience</span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>YX1 <span class="op">=</span> dat[[<span class="st">"Y"</span>, <span class="st">"X1"</span>]]</span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Conditional probabilities</span></span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a>X1_givenYisF <span class="op">=</span> YX1.loc[YX1[<span class="st">"Y"</span>] <span class="op">==</span> <span class="va">False</span>, <span class="st">"X1"</span>]</span>
+<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a>PrX1_givenYisF <span class="op">=</span> X1_givenYisF.value_counts(normalize<span class="op">=</span><span class="va">True</span>, sort<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-8"><a href="#cb39-8" aria-hidden="true" tabindex="-1"></a>X1_givenYisT <span class="op">=</span> YX1.loc[YX1[<span class="st">"Y"</span>] <span class="op">==</span> <span class="va">True</span>, <span class="st">"X1"</span>]</span>
+<span id="cb39-9"><a href="#cb39-9" aria-hidden="true" tabindex="-1"></a>PrX1_givenYisT <span class="op">=</span> X1_givenYisT.value_counts(normalize<span class="op">=</span><span class="va">True</span>, sort<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb39-10"><a href="#cb39-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-11"><a href="#cb39-11" aria-hidden="true" tabindex="-1"></a>PrX1_givenYisF, PrX1_givenYisT</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="22">
+<pre><code>(X1
+ A    0.000000
+ B    0.666667
+ C    0.333333
+ Name: proportion, dtype: float64,
+ X1
+ A    1.0
+ B    0.0
+ C    0.0
+ Name: proportion, dtype: float64)</code></pre>
+</div>
+</div>
+</section>
+<section id="marginal-probability-prya" class="level4" data-number="C.5.1.2">
+<h4 data-number="C.5.1.2" class="anchored" data-anchor-id="marginal-probability-prya"><span class="header-section-number">C.5.1.2</span> Marginal probability <span class="math inline">\(Pr(Y=a)\)</span></h4>
+<p>Similarly, two marginal probabilities can be obtained, considering the two possible values of Y:</p>
+<div id="10be2615" class="cell" data-execution_count="23">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>PrYisF <span class="op">=</span> (YX1[<span class="st">"Y"</span>] <span class="op">==</span> <span class="va">False</span>).mean()   <span class="co"># Pr(Y=F)</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>PrYisT <span class="op">=</span> (YX1[<span class="st">"Y"</span>] <span class="op">==</span> <span class="va">True</span>).mean()    <span class="co"># Pr(Y=T)</span></span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>PrY <span class="op">=</span> {<span class="st">"FALSE"</span>: PrYisF, <span class="st">"TRUE"</span>: PrYisT}</span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a>PrY</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="23">
+<pre><code>{'FALSE': np.float64(0.6), 'TRUE': np.float64(0.4)}</code></pre>
+</div>
+</div>
+</section>
+<section id="conditional-entropy-of-x-given-y" class="level4" data-number="C.5.1.3">
+<h4 data-number="C.5.1.3" class="anchored" data-anchor-id="conditional-entropy-of-x-given-y"><span class="header-section-number">C.5.1.3</span> Conditional entropy of <code>X</code> given <code>Y</code></h4>
+<p>Then, the conditional entropy can be calculated based on the formula with the conditional and marginal probabilities:</p>
+<div id="67955edd" class="cell" data-execution_count="24">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>cond_entropyX1_givenY <span class="op">=</span> (</span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>    PrYisF <span class="op">*</span> entropy_H(PrX1_givenYisF.values) <span class="op">+</span></span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>    PrYisT <span class="op">*</span> entropy_H(PrX1_givenYisT.values)</span>
+<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a>cond_entropyX1_givenY</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="24">
+<pre><code>np.float64(0.5509775004326937)</code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The joint probability of <code>X1</code> and <code>Y</code> can be obtained by using a cross-tabulation:</p>
+<div id="fc78b866" class="cell" data-execution_count="25">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Joint probability table of Y and X1</span></span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>PrYX1 <span class="op">=</span> pd.crosstab(YX1[<span class="st">"Y"</span>], YX1[<span class="st">"X1"</span>], normalize<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>PrYX1</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="25">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">X1</th>
+<th data-quarto-table-cell-role="th">A</th>
+<th data-quarto-table-cell-role="th">B</th>
+<th data-quarto-table-cell-role="th">C</th>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">Y</th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">False</th>
+<td>0.0</td>
+<td>0.4</td>
+<td>0.2</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">True</th>
+<td>0.4</td>
+<td>0.0</td>
+<td>0.0</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>Then, the probabilities used in the example above can be calculated with the joint probabilities:</p>
+<div id="724b3e79" class="cell" data-execution_count="26">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Marginal probabilities of Y (row sums)</span></span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>PrY <span class="op">=</span> PrYX1.<span class="bu">sum</span>(axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Conditional probabilities of X1 given Y</span></span>
+<span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a>PrX1_givenYisF <span class="op">=</span> PrYX1.loc[<span class="va">False</span>] <span class="op">/</span> PrY[<span class="va">False</span>]</span>
+<span id="cb46-6"><a href="#cb46-6" aria-hidden="true" tabindex="-1"></a>PrX1_givenYisT <span class="op">=</span> PrYX1.loc[<span class="va">True</span>]  <span class="op">/</span> PrY[<span class="va">True</span>]</span>
+<span id="cb46-7"><a href="#cb46-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-8"><a href="#cb46-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Or more compactly: divide each row by its row sum</span></span>
+<span id="cb46-9"><a href="#cb46-9" aria-hidden="true" tabindex="-1"></a>PrX1_givenY <span class="op">=</span> PrYX1.div(PrY, axis<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb46-10"><a href="#cb46-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-11"><a href="#cb46-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Conditional entropy H(X1|Y) using definition</span></span>
+<span id="cb46-12"><a href="#cb46-12" aria-hidden="true" tabindex="-1"></a>cond_entropyX1_givenY <span class="op">=</span> (</span>
+<span id="cb46-13"><a href="#cb46-13" aria-hidden="true" tabindex="-1"></a>    PrY[<span class="va">False</span>] <span class="op">*</span> entropy_H(PrX1_givenYisF.values) <span class="op">+</span></span>
+<span id="cb46-14"><a href="#cb46-14" aria-hidden="true" tabindex="-1"></a>    PrY[<span class="va">True</span>]  <span class="op">*</span> entropy_H(PrX1_givenYisT.values)</span>
+<span id="cb46-15"><a href="#cb46-15" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb46-16"><a href="#cb46-16" aria-hidden="true" tabindex="-1"></a>cond_entropyX1_givenY</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="26">
+<pre><code>np.float64(0.5509775004326938)</code></pre>
+</div>
+</div>
+<p>Alternatively, it can be computed directly from the joint distribution:</p>
+<div id="e3a39a2d" class="cell" data-execution_count="27">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb48"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Direct formula: H(X|Y) = -∑ P(X,Y) * log2( P(X|Y) )</span></span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>cond_entropy_direct <span class="op">=</span> <span class="op">-</span>(PrYX1 <span class="op">*</span> np.log2(PrX1_givenY)).<span class="bu">sum</span>().<span class="bu">sum</span>()</span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>cond_entropy_direct</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>C:\Users\saaan\anaconda3\envs\buda_py311\Lib\site-packages\pandas\core\internals\blocks.py:393: RuntimeWarning:
+
+divide by zero encountered in log2
+</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="27">
+<pre><code>np.float64(0.5509775004326938)</code></pre>
+</div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="mutui" class="level2" data-number="C.6">
+<h2 data-number="C.6" class="anchored" data-anchor-id="mutui"><span class="header-section-number">C.6</span> Information Gain</h2>
+<p><a href="https://en.wikipedia.org/wiki/Information_gain_(decision_tree)">Information Gain</a> (a.k.a. <a href="https://en.wikipedia.org/wiki/Mutual_information">Mutual Information</a>) measures the amount of information obtained about one attribute through another.</p>
+<p>The information gain of <code>X</code> and <code>Y</code>, <span class="math inline">\(IG(X;Y)\)</span> can be obtained based on any of the following formulas:</p>
+<ul>
+<li><span class="math inline">\(IG(X;Y) = H(X) - H(X|Y)\)</span></li>
+<li><span class="math inline">\(IG(X;Y) = H(Y) - H(Y|X)\)</span></li>
+<li><span class="math inline">\(IG(X;Y) = H(X) + H(Y) - H(X,Y)\)</span></li>
+<li><span class="math inline">\(IG(X;Y) = H(X,Y) - H(X|Y) - H(Y|X)\)</span></li>
+</ul>
+<section id="computation-2" class="level3" data-number="C.6.1">
+<h3 data-number="C.6.1" class="anchored" data-anchor-id="computation-2"><span class="header-section-number">C.6.1</span> Computation</h3>
+<p>Below, we first implement a small helper for <strong>conditional entropy from a joint table</strong>, then show two ways to compute (IG(X_1;Y)).</p>
+<div id="eb688fc6" class="cell" data-execution_count="28">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb51"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="co"># joint_prob: pandas DataFrame whose rows index Y values and columns index X values, entries sum to 1</span></span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> conditional_entropy_from_joint(joint_prob: pd.DataFrame) <span class="op">-&gt;</span> <span class="bu">float</span>:</span>
+<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># P(X|Y) = P(X,Y) / P(Y)</span></span>
+<span id="cb51-4"><a href="#cb51-4" aria-hidden="true" tabindex="-1"></a>    PrY <span class="op">=</span> joint_prob.<span class="bu">sum</span>(axis<span class="op">=</span><span class="dv">1</span>)                 <span class="co"># row sums (P(Y))</span></span>
+<span id="cb51-5"><a href="#cb51-5" aria-hidden="true" tabindex="-1"></a>    PrX_givenY <span class="op">=</span> joint_prob.div(PrY, axis<span class="op">=</span><span class="dv">0</span>)     <span class="co"># row-normalize -&gt; P(X|Y)</span></span>
+<span id="cb51-6"><a href="#cb51-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-7"><a href="#cb51-7" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Compute H(X|Y) = - sum_{y,x} P(x,y) * log2 P(x|y)</span></span>
+<span id="cb51-8"><a href="#cb51-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> np.errstate(divide<span class="op">=</span><span class="st">'ignore'</span>, invalid<span class="op">=</span><span class="st">'ignore'</span>):</span>
+<span id="cb51-9"><a href="#cb51-9" aria-hidden="true" tabindex="-1"></a>        log_term <span class="op">=</span> np.log2(PrX_givenY)</span>
+<span id="cb51-10"><a href="#cb51-10" aria-hidden="true" tabindex="-1"></a>        <span class="co"># mask -inf where prob is 0 so product becomes 0</span></span>
+<span id="cb51-11"><a href="#cb51-11" aria-hidden="true" tabindex="-1"></a>        log_term <span class="op">=</span> log_term.replace([<span class="op">-</span>np.inf, np.inf], np.nan)</span>
+<span id="cb51-12"><a href="#cb51-12" aria-hidden="true" tabindex="-1"></a>        H_X_given_Y <span class="op">=</span> <span class="op">-</span>(joint_prob <span class="op">*</span> log_term).<span class="bu">sum</span>().<span class="bu">sum</span>(skipna<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb51-13"><a href="#cb51-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">float</span>(H_X_given_Y)</span>
+<span id="cb51-14"><a href="#cb51-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-15"><a href="#cb51-15" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Helper: joint entropy from a joint probability table P(X,Y) ---</span></span>
+<span id="cb51-16"><a href="#cb51-16" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> joint_entropy_from_joint(joint_prob: pd.DataFrame) <span class="op">-&gt;</span> <span class="bu">float</span>:</span>
+<span id="cb51-17"><a href="#cb51-17" aria-hidden="true" tabindex="-1"></a>    p <span class="op">=</span> joint_prob.to_numpy(dtype<span class="op">=</span><span class="bu">float</span>)</span>
+<span id="cb51-18"><a href="#cb51-18" aria-hidden="true" tabindex="-1"></a>    p <span class="op">=</span> p[p <span class="op">&gt;</span> <span class="dv">0</span>]  <span class="co"># avoid log(0)</span></span>
+<span id="cb51-19"><a href="#cb51-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">float</span>(<span class="op">-</span>(p <span class="op">*</span> np.log2(p)).<span class="bu">sum</span>())</span>
+<span id="cb51-20"><a href="#cb51-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-21"><a href="#cb51-21" aria-hidden="true" tabindex="-1"></a><span class="co"># (from earlier) Entropy for a probability vector</span></span>
+<span id="cb51-22"><a href="#cb51-22" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> entropy_H(prob) <span class="op">-&gt;</span> <span class="bu">float</span>:</span>
+<span id="cb51-23"><a href="#cb51-23" aria-hidden="true" tabindex="-1"></a>    arr <span class="op">=</span> np.asarray(prob, dtype<span class="op">=</span><span class="bu">float</span>)</span>
+<span id="cb51-24"><a href="#cb51-24" aria-hidden="true" tabindex="-1"></a>    arr <span class="op">=</span> arr[arr <span class="op">&gt;</span> <span class="dv">0</span>]</span>
+<span id="cb51-25"><a href="#cb51-25" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">float</span>(<span class="op">-</span>(arr <span class="op">*</span> np.log2(arr)).<span class="bu">sum</span>())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="example-igx_1y-via-hx_1-hx_1y" class="level3" data-number="C.6.2">
+<h3 data-number="C.6.2" class="anchored" data-anchor-id="example-igx_1y-via-hx_1-hx_1y"><span class="header-section-number">C.6.2</span> Example: <span class="math inline">\(IG(X_{1};Y)\)</span> via <span class="math inline">\(H(X_1)-H(X_{1}|Y)\)</span></h3>
+<div id="192e1b7a" class="cell" data-execution_count="29">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb52"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Build joint probability table P(Y, X1)</span></span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>PrYX1 <span class="op">=</span> pd.crosstab(dat[<span class="st">"Y"</span>], dat[<span class="st">"X1"</span>], normalize<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-4"><a href="#cb52-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Marginal P(X1)</span></span>
+<span id="cb52-5"><a href="#cb52-5" aria-hidden="true" tabindex="-1"></a>PrX1 <span class="op">=</span> PrYX1.<span class="bu">sum</span>(axis<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb52-6"><a href="#cb52-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-7"><a href="#cb52-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute H(X1) and H(X1|Y)</span></span>
+<span id="cb52-8"><a href="#cb52-8" aria-hidden="true" tabindex="-1"></a>H_X1 <span class="op">=</span> entropy_H(PrX1.values)</span>
+<span id="cb52-9"><a href="#cb52-9" aria-hidden="true" tabindex="-1"></a>H_X1_givenY <span class="op">=</span> conditional_entropy_from_joint(PrYX1)</span>
+<span id="cb52-10"><a href="#cb52-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-11"><a href="#cb52-11" aria-hidden="true" tabindex="-1"></a>IG_X1Y_1 <span class="op">=</span> H_X1 <span class="op">-</span> H_X1_givenY</span>
+<span id="cb52-12"><a href="#cb52-12" aria-hidden="true" tabindex="-1"></a>IG_X1Y_1</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="29">
+<pre><code>0.9709505944546684</code></pre>
+</div>
+</div>
+</section>
+<section id="example-igx_1y-via-hx_1hy-hx_1y" class="level3" data-number="C.6.3">
+<h3 data-number="C.6.3" class="anchored" data-anchor-id="example-igx_1y-via-hx_1hy-hx_1y"><span class="header-section-number">C.6.3</span> Example: <span class="math inline">\(IG(X_{1};Y)\)</span> via <span class="math inline">\(H(X_1)+H(Y)-H(X_{1},Y)\)</span></h3>
+<div id="e866c5de" class="cell" data-execution_count="30">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb54"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Marginals from the same joint table</span></span>
+<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a>PrY <span class="op">=</span> PrYX1.<span class="bu">sum</span>(axis<span class="op">=</span><span class="dv">1</span>)   <span class="co"># P(Y)</span></span>
+<span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a>PrX1 <span class="op">=</span> PrYX1.<span class="bu">sum</span>(axis<span class="op">=</span><span class="dv">0</span>)  <span class="co"># P(X1)</span></span>
+<span id="cb54-4"><a href="#cb54-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb54-5"><a href="#cb54-5" aria-hidden="true" tabindex="-1"></a>H_Y  <span class="op">=</span> entropy_H(PrY.values)</span>
+<span id="cb54-6"><a href="#cb54-6" aria-hidden="true" tabindex="-1"></a>H_X1 <span class="op">=</span> entropy_H(PrX1.values)</span>
+<span id="cb54-7"><a href="#cb54-7" aria-hidden="true" tabindex="-1"></a>H_X1Y <span class="op">=</span> joint_entropy_from_joint(PrYX1)</span>
+<span id="cb54-8"><a href="#cb54-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb54-9"><a href="#cb54-9" aria-hidden="true" tabindex="-1"></a>IG_X1Y_3 <span class="op">=</span> H_X1 <span class="op">+</span> H_Y <span class="op">-</span> H_X1Y</span>
+<span id="cb54-10"><a href="#cb54-10" aria-hidden="true" tabindex="-1"></a>IG_X1Y_3</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="30">
+<pre><code>0.9709505944546686</code></pre>
+</div>
+</div>
+<p>You should see IG_X1Y_1 and IG_X1Y_3 match (up to tiny numerical tolerance).</p>
+</section>
+<section id="general-utility-igxy-from-a-joint-table" class="level3" data-number="C.6.4">
+<h3 data-number="C.6.4" class="anchored" data-anchor-id="general-utility-igxy-from-a-joint-table"><span class="header-section-number">C.6.4</span> General utility: <span class="math inline">\(IG(X;Y)\)</span> from a joint table</h3>
+<div id="43a8107e" class="cell" data-execution_count="31">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb56"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> info_gain_from_joint(joint_prob: pd.DataFrame) <span class="op">-&gt;</span> <span class="bu">float</span>:</span>
+<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Uses IG(X;Y) = H(X) + H(Y) - H(X,Y)</span></span>
+<span id="cb56-3"><a href="#cb56-3" aria-hidden="true" tabindex="-1"></a>    PrY <span class="op">=</span> joint_prob.<span class="bu">sum</span>(axis<span class="op">=</span><span class="dv">1</span>)   <span class="co"># rows</span></span>
+<span id="cb56-4"><a href="#cb56-4" aria-hidden="true" tabindex="-1"></a>    PrX <span class="op">=</span> joint_prob.<span class="bu">sum</span>(axis<span class="op">=</span><span class="dv">0</span>)   <span class="co"># cols</span></span>
+<span id="cb56-5"><a href="#cb56-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> entropy_H(PrX.values) <span class="op">+</span> entropy_H(PrY.values) <span class="op">-</span> joint_entropy_from_joint(joint_prob)</span>
+<span id="cb56-6"><a href="#cb56-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-7"><a href="#cb56-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Example reuse:</span></span>
+<span id="cb56-8"><a href="#cb56-8" aria-hidden="true" tabindex="-1"></a>info_gain_from_joint(PrYX1)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="31">
+<pre><code>0.9709505944546686</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="related-readingreference" class="level2" data-number="C.7">
+<h2 data-number="C.7" class="anchored" data-anchor-id="related-readingreference"><span class="header-section-number">C.7</span> Related Reading/Reference</h2>
+<ul>
+<li>Chapter 13.1, 13.2 in Business Analytics: communicating with Numbers, 2nd ed.&nbsp;(Jaggia et al., 2023)</li>
+<li>Chapter 3.1, 3.2, 3.3 in Introduction to Data Mining, 2nd ed.&nbsp;(Tan et al., 2019)</li>
+</ul>
+
+
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>In this code, <code>.values</code> is used just to take the raw array of values from the pandas object, without index labels.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // default icon
+            link.classList.add("external");
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../App/App-Proximity.html" class="pagination-link" aria-label="Proximity">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Proximity</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Written by <a href="https://jeongsubc.github.io/">Jeongsub Choi</a></p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>Documented with <a href="https://quarto.org/">Quarto</a></p>
+</div>
+  </div>
+</footer>
+
+
+
+
+<script src="../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>
