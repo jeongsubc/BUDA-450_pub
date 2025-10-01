@@ -477,6 +477,12 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Decision Trees</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../PD/PD-PerfMeasure.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Performance Measures</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -645,7 +651,7 @@ window.Quarto = {
 <section id="prep" class="level2" data-number="C.2">
 <h2 data-number="C.2" class="anchored" data-anchor-id="prep"><span class="header-section-number">C.2</span> Data Preparation</h2>
 <p>For the following examples, let’s consider a dataset <code>dat</code> that consists of four input attributes, <code>X1</code>, <code>X2</code> <code>X3</code>, <code>X4</code>, for the prediction of values of the target attribute <code>Y</code>:</p>
-<div id="250301aa" class="cell" data-execution_count="1">
+<div id="de4c8d9b" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -678,7 +684,7 @@ Tip
 </div>
 <div class="callout-body-container callout-body">
 <p><code>pd.Categorical()</code> is used to encode a vector, allowing you to specify possible values (categories) although some of the values don’t exist in the vector.</p>
-<div id="79dffc0f" class="cell" data-execution_count="2">
+<div id="a912f087" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>pd.Categorical([<span class="dv">1</span>,<span class="dv">2</span>], categories<span class="op">=</span>[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="2">
 <pre><code>[1, 2]
@@ -686,7 +692,7 @@ Categories (3, int64): [1, 2, 3]</code></pre>
 </div>
 </div>
 <p>Similarly, <code>pd.Series(..., dtype="category")</code> or <code>pd.Categorical(...)</code> without explicit categories uses only the values existing in the given input data object.</p>
-<div id="aac25a78" class="cell" data-execution_count="3">
+<div id="076b26fd" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>pd.Categorical([<span class="dv">1</span>,<span class="dv">2</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="3">
 <pre><code>[1, 2]
@@ -696,7 +702,7 @@ Categories (2, int64): [1, 2]</code></pre>
 </div>
 </div>
 <p>For the following examples, the <code>X1</code> data can be organized, considering unique classes <code>ClsX1</code>, the frequencies <code>FqX1</code>, and probability distribution <code>PrX1</code><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</p>
-<div id="8c7ca269" class="cell" data-execution_count="4">
+<div id="0fe84003" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>X1 <span class="op">=</span> dat[<span class="st">"X1"</span>]                      <span class="co"># Extract column</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>ClsX1 <span class="op">=</span> X1.unique()                 <span class="co"># Unique classes</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>FqX1 <span class="op">=</span> X1.value_counts(sort<span class="op">=</span><span class="va">False</span>)  <span class="co"># Frequencies (keep category order)</span></span>
@@ -721,7 +727,7 @@ Categories (2, int64): [1, 2]</code></pre>
 <section id="simple-data-visualizations---bar-chart" class="level3" data-number="C.2.1">
 <h3 data-number="C.2.1" class="anchored" data-anchor-id="simple-data-visualizations---bar-chart"><span class="header-section-number">C.2.1</span> Simple data visualizations - Bar chart</h3>
 <p>The frequency data <code>FqX1</code> can be visualized in a bar chart by using <strong>Matplotlib’s</strong> <code>bar()</code> function, which takes data vectors with additional optional arguments:</p>
-<div id="7522a957" class="cell" data-execution_count="5">
+<div id="36bac5a9" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Barplot</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -747,7 +753,7 @@ Categories (2, int64): [1, 2]</code></pre>
 </div>
 </div>
 <p>Also, bar charts can be created using the <code>Seaborn</code> package. The <code>sns.barplot()</code> function provides a high-level API for bar charts.</p>
-<div id="7c20cd6d" class="cell" data-execution_count="6">
+<div id="736cb1bd" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Barplot with Seaborn</span></span>
@@ -782,7 +788,7 @@ Categories (2, int64): [1, 2]</code></pre>
 <h2 data-number="C.3" class="anchored" data-anchor-id="gini"><span class="header-section-number">C.3</span> Gini Impurity</h2>
 <p>The <a href="https://en.wikipedia.org/wiki/Decision_tree_learning#Gini_impurity">Gini Impurity</a> (also known as the Gini’s diversity index) measures the inequality among values of a frequency distribution from a set of data. It ranges between 0 and 1, where 0 indicates perfect homogeneity of the data (all values are the same as <em>pure</em> data).</p>
 <p>Based on the formula <span class="math inline">\(Gini(X)=1-\sum_{k=1}^{C}{(P_{X}(k))^2}\)</span>, the Gini impurity can be calculated step-by-step:</p>
-<div id="39818f80" class="cell" data-execution_count="7">
+<div id="a3912abc" class="cell" data-execution_count="7">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Step-by-step Gini calculation</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>PrX1_sqr <span class="op">=</span> PrX1<span class="op">**</span><span class="dv">2</span>              <span class="co"># squared probability for each class k</span></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>PrX1_sqr_sum <span class="op">=</span> PrX1_sqr.<span class="bu">sum</span>()   <span class="co"># sum of squared probabilities</span></span>
@@ -793,7 +799,7 @@ Categories (2, int64): [1, 2]</code></pre>
 </div>
 </div>
 <p>The Gini impurity can also be calculated by wrapping the above into a custom function that takes a probability distribution vector:</p>
-<div id="cc01997a" class="cell" data-execution_count="8">
+<div id="d4ce4fca" class="cell" data-execution_count="8">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Gini impurity function</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> gini_imp(prob):</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">1</span> <span class="op">-</span> <span class="bu">sum</span>(prob<span class="op">**</span><span class="dv">2</span>)</span>
@@ -804,7 +810,7 @@ Categories (2, int64): [1, 2]</code></pre>
 </div>
 </div>
 <p>Alternatively, it can be computed directly with <code>scikit-learn</code> utilities. Using class labels:</p>
-<div id="ee3884e2" class="cell" data-execution_count="9">
+<div id="ff136d11" class="cell" data-execution_count="9">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> confusion_matrix</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> gini_from_labels(labels):</span>
@@ -818,7 +824,7 @@ Categories (2, int64): [1, 2]</code></pre>
 </div>
 </div>
 <p>Or, with a vector of class frequencies:</p>
-<div id="74c0d564" class="cell" data-execution_count="10">
+<div id="85daaf25" class="cell" data-execution_count="10">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example: frequencies for A, B, C</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>freqs <span class="op">=</span> np.array([FqX1.loc[<span class="st">'A'</span>], FqX1.loc[<span class="st">'B'</span>], FqX1.loc[<span class="st">'C'</span>]])</span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>probs <span class="op">=</span> freqs <span class="op">/</span> freqs.<span class="bu">sum</span>()</span>
@@ -840,7 +846,7 @@ Categories (2, int64): [1, 2]</code></pre>
 <div class="callout-body-container callout-body">
 <p>The Gini impurity can be computed for numerical data in the way described above, given a split rule. In other words, the Gini impurity can be obtained in the same way, after transforming the numerical data by discretization (or binarization).</p>
 <p>For example, let’s consider a split point for numeric data <code>Xnum</code> given as <code>5</code>, and transform the data:</p>
-<div id="5d4aba89" class="cell" data-execution_count="11">
+<div id="65d4ef46" class="cell" data-execution_count="11">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example numerical data</span></span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>Xnum <span class="op">=</span> np.array([<span class="op">-</span><span class="dv">2</span>, <span class="op">-</span><span class="fl">0.5</span>, <span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">7</span>, <span class="dv">10</span>])</span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -852,7 +858,7 @@ Categories (2, int64): [1, 2]</code></pre>
 </div>
 </div>
 <p>Then, the Gini impurity is calculated in the same way as for categorical data:</p>
-<div id="624eeade" class="cell" data-execution_count="12">
+<div id="56478d5d" class="cell" data-execution_count="12">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Frequency counts</span></span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>FqXnum <span class="op">=</span> pd.Series(Xnum_greater_than_5).value_counts()</span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -866,7 +872,7 @@ Categories (2, int64): [1, 2]</code></pre>
 </div>
 </div>
 <p>Alternatively, the same can be done directly from the split vector:</p>
-<div id="12494007" class="cell" data-execution_count="13">
+<div id="49c63be3" class="cell" data-execution_count="13">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>gini_from_labels(Xnum_greater_than_5)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="13">
 <pre><code>np.float64(0.4444444444444444)</code></pre>
@@ -877,7 +883,7 @@ Categories (2, int64): [1, 2]</code></pre>
 <section id="exercise-with-visualization---bar-plot" class="level3" data-number="C.3.1">
 <h3 data-number="C.3.1" class="anchored" data-anchor-id="exercise-with-visualization---bar-plot"><span class="header-section-number">C.3.1</span> Exercise with Visualization - Bar Plot</h3>
 <p>Let’s calculate the Gini impurity of all X attributes and visualize them in a bar plot[^gal1]:</p>
-<div id="14e36cf7" class="cell" data-execution_count="14">
+<div id="76f4660d" class="cell" data-execution_count="14">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute Gini impurity for each feature (X1–X4)</span></span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>GiniXs <span class="op">=</span> {</span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"X1"</span>: gini_from_labels(dat[<span class="st">"X1"</span>]),</span>
@@ -901,7 +907,7 @@ Categories (2, int64): [1, 2]</code></pre>
 </div>
 </div>
 <p>Now, visualize the impurities using a bar chart:</p>
-<div id="1661a65a" class="cell" data-execution_count="15">
+<div id="e0acfa08" class="cell" data-execution_count="15">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot with Matplotlib (OO interface)</span></span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots()</span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -933,7 +939,7 @@ Categories (2, int64): [1, 2]</code></pre>
 <section id="computation" class="level3" data-number="C.4.1">
 <h3 data-number="C.4.1" class="anchored" data-anchor-id="computation"><span class="header-section-number">C.4.1</span> Computation</h3>
 <p>Based on the formula <span class="math inline">\(H(X)=-\sum_{k=1}^{C}{P_{X}(k)\log_{2}(P_{X}(k))}\)</span>, the Entropy for the probability distribution <code>PrX1</code> of the previous example can be calculated step-by-step:</p>
-<div id="02404f62" class="cell" data-execution_count="16">
+<div id="3dbe58bf" class="cell" data-execution_count="16">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Step-by-step Entropy calculation</span></span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>log2_PrX1 <span class="op">=</span> np.log2(PrX1)                       <span class="co"># log2(prob) for each k</span></span>
 <span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>PrX1_log2_PrX1 <span class="op">=</span> PrX1 <span class="op">*</span> log2_PrX1               <span class="co"># prob * log2(prob)</span></span>
@@ -945,7 +951,7 @@ Categories (2, int64): [1, 2]</code></pre>
 </div>
 </div>
 <p>Or, define a custom function that takes a probability distribution vector:</p>
-<div id="092e5098" class="cell" data-execution_count="17">
+<div id="fe5c9cf1" class="cell" data-execution_count="17">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Entropy function</span></span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> entropy_H(prob):</span>
 <span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>    prob <span class="op">=</span> np.asarray(prob)</span>
@@ -958,7 +964,7 @@ Categories (2, int64): [1, 2]</code></pre>
 </div>
 </div>
 <p>Alternatively, you can obtain the entropy using <code>SciPy</code>, which provides <code>scipy.stats.entropy()</code>:</p>
-<div id="99837ecc" class="cell" data-execution_count="18">
+<div id="a9f70ab8" class="cell" data-execution_count="18">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> entropy</span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="co"># with probability vector (base=2 for log2)</span></span>
@@ -968,7 +974,7 @@ Categories (2, int64): [1, 2]</code></pre>
 </div>
 </div>
 <p>Or directly from the frequency vector:</p>
-<div id="5e4d0e3d" class="cell" data-execution_count="19">
+<div id="bada422f" class="cell" data-execution_count="19">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>entropy(FqX1, base<span class="op">=</span><span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="19">
 <pre><code>np.float64(1.5219280948873626)</code></pre>
@@ -978,7 +984,7 @@ Categories (2, int64): [1, 2]</code></pre>
 <section id="exercise-with-visualization---lollipop-plot" class="level3" data-number="C.4.2">
 <h3 data-number="C.4.2" class="anchored" data-anchor-id="exercise-with-visualization---lollipop-plot"><span class="header-section-number">C.4.2</span> Exercise with Visualization - Lollipop Plot</h3>
 <p>Let’s calculate the entropy of all <code>X</code> variables and visualize them in a lollipop plot[^gal2], using vertical line segments plus points:</p>
-<div id="8593a537" class="cell" data-execution_count="20">
+<div id="929e9930" class="cell" data-execution_count="20">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Helper: entropy function (base-2)</span></span>
 <span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> entropy_H(prob):</span>
 <span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>    prob <span class="op">=</span> np.asarray(prob, dtype<span class="op">=</span><span class="bu">float</span>)</span>
@@ -1006,7 +1012,7 @@ Categories (2, int64): [1, 2]</code></pre>
 3      X4 -0.000000</code></pre>
 </div>
 </div>
-<div id="1a591411" class="cell" data-execution_count="21">
+<div id="27fa0f6b" class="cell" data-execution_count="21">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Lollipop plot with Matplotlib (OO interface)</span></span>
 <span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots()</span>
 <span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1048,7 +1054,7 @@ Categories (2, int64): [1, 2]</code></pre>
 <section id="conditional-probability-prxya" class="level4" data-number="C.5.1.1">
 <h4 data-number="C.5.1.1" class="anchored" data-anchor-id="conditional-probability-prxya"><span class="header-section-number">C.5.1.1</span> Conditional probability <span class="math inline">\(Pr(X|Y=a)\)</span></h4>
 <p>The conditional probabilities, for example, of <code>X1</code> given a value of <code>Y</code> can be obtained by first subsetting the data based on <code>Y</code>’s values and then dividing the frequency of <code>X1</code> values by the total number of records in the subset. Two conditional probabilities can be calculated where <code>Y</code> can have two possible values, <code>True</code> and <code>False</code>:</p>
-<div id="7648dc5e" class="cell" data-execution_count="22">
+<div id="7fe9eb89" class="cell" data-execution_count="22">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Subset columns for convenience</span></span>
 <span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>YX1 <span class="op">=</span> dat[[<span class="st">"Y"</span>, <span class="st">"X1"</span>]]</span>
 <span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1077,7 +1083,7 @@ Categories (2, int64): [1, 2]</code></pre>
 <section id="marginal-probability-prya" class="level4" data-number="C.5.1.2">
 <h4 data-number="C.5.1.2" class="anchored" data-anchor-id="marginal-probability-prya"><span class="header-section-number">C.5.1.2</span> Marginal probability <span class="math inline">\(Pr(Y=a)\)</span></h4>
 <p>Similarly, two marginal probabilities can be obtained, considering the two possible values of Y:</p>
-<div id="10be2615" class="cell" data-execution_count="23">
+<div id="60f7628b" class="cell" data-execution_count="23">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>PrYisF <span class="op">=</span> (YX1[<span class="st">"Y"</span>] <span class="op">==</span> <span class="va">False</span>).mean()   <span class="co"># Pr(Y=F)</span></span>
 <span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>PrYisT <span class="op">=</span> (YX1[<span class="st">"Y"</span>] <span class="op">==</span> <span class="va">True</span>).mean()    <span class="co"># Pr(Y=T)</span></span>
 <span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1091,7 +1097,7 @@ Categories (2, int64): [1, 2]</code></pre>
 <section id="conditional-entropy-of-x-given-y" class="level4" data-number="C.5.1.3">
 <h4 data-number="C.5.1.3" class="anchored" data-anchor-id="conditional-entropy-of-x-given-y"><span class="header-section-number">C.5.1.3</span> Conditional entropy of <code>X</code> given <code>Y</code></h4>
 <p>Then, the conditional entropy can be calculated based on the formula with the conditional and marginal probabilities:</p>
-<div id="67955edd" class="cell" data-execution_count="24">
+<div id="269030a1" class="cell" data-execution_count="24">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>cond_entropyX1_givenY <span class="op">=</span> (</span>
 <span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>    PrYisF <span class="op">*</span> entropy_H(PrX1_givenYisF.values) <span class="op">+</span></span>
 <span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>    PrYisT <span class="op">*</span> entropy_H(PrX1_givenYisT.values)</span>
@@ -1112,7 +1118,7 @@ Note
 </div>
 <div class="callout-body-container callout-body">
 <p>The joint probability of <code>X1</code> and <code>Y</code> can be obtained by using a cross-tabulation:</p>
-<div id="fc78b866" class="cell" data-execution_count="25">
+<div id="c2e0ba1c" class="cell" data-execution_count="25">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Joint probability table of Y and X1</span></span>
 <span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>PrYX1 <span class="op">=</span> pd.crosstab(YX1[<span class="st">"Y"</span>], YX1[<span class="st">"X1"</span>], normalize<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>PrYX1</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -1155,7 +1161,7 @@ Note
 </div>
 </div>
 <p>Then, the probabilities used in the example above can be calculated with the joint probabilities:</p>
-<div id="724b3e79" class="cell" data-execution_count="26">
+<div id="a977ae12" class="cell" data-execution_count="26">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Marginal probabilities of Y (row sums)</span></span>
 <span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>PrY <span class="op">=</span> PrYX1.<span class="bu">sum</span>(axis<span class="op">=</span><span class="dv">1</span>)</span>
 <span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1177,7 +1183,7 @@ Note
 </div>
 </div>
 <p>Alternatively, it can be computed directly from the joint distribution:</p>
-<div id="e3a39a2d" class="cell" data-execution_count="27">
+<div id="e7b74eb2" class="cell" data-execution_count="27">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb48"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Direct formula: H(X|Y) = -∑ P(X,Y) * log2( P(X|Y) )</span></span>
 <span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>cond_entropy_direct <span class="op">=</span> <span class="op">-</span>(PrYX1 <span class="op">*</span> np.log2(PrX1_givenY)).<span class="bu">sum</span>().<span class="bu">sum</span>()</span>
 <span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>cond_entropy_direct</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -1209,7 +1215,7 @@ divide by zero encountered in log2
 <section id="computation-2" class="level3" data-number="C.6.1">
 <h3 data-number="C.6.1" class="anchored" data-anchor-id="computation-2"><span class="header-section-number">C.6.1</span> Computation</h3>
 <p>Below, we first implement a small helper for <strong>conditional entropy from a joint table</strong>, then show two ways to compute (IG(X_1;Y)).</p>
-<div id="eb688fc6" class="cell" data-execution_count="28">
+<div id="02b5429e" class="cell" data-execution_count="28">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb51"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="co"># joint_prob: pandas DataFrame whose rows index Y values and columns index X values, entries sum to 1</span></span>
 <span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> conditional_entropy_from_joint(joint_prob: pd.DataFrame) <span class="op">-&gt;</span> <span class="bu">float</span>:</span>
 <span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># P(X|Y) = P(X,Y) / P(Y)</span></span>
@@ -1239,7 +1245,7 @@ divide by zero encountered in log2
 </section>
 <section id="example-igx_1y-via-hx_1-hx_1y" class="level3" data-number="C.6.2">
 <h3 data-number="C.6.2" class="anchored" data-anchor-id="example-igx_1y-via-hx_1-hx_1y"><span class="header-section-number">C.6.2</span> Example: <span class="math inline">\(IG(X_{1};Y)\)</span> via <span class="math inline">\(H(X_1)-H(X_{1}|Y)\)</span></h3>
-<div id="192e1b7a" class="cell" data-execution_count="29">
+<div id="70fa0454" class="cell" data-execution_count="29">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb52"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Build joint probability table P(Y, X1)</span></span>
 <span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>PrYX1 <span class="op">=</span> pd.crosstab(dat[<span class="st">"Y"</span>], dat[<span class="st">"X1"</span>], normalize<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1259,7 +1265,7 @@ divide by zero encountered in log2
 </section>
 <section id="example-igx_1y-via-hx_1hy-hx_1y" class="level3" data-number="C.6.3">
 <h3 data-number="C.6.3" class="anchored" data-anchor-id="example-igx_1y-via-hx_1hy-hx_1y"><span class="header-section-number">C.6.3</span> Example: <span class="math inline">\(IG(X_{1};Y)\)</span> via <span class="math inline">\(H(X_1)+H(Y)-H(X_{1},Y)\)</span></h3>
-<div id="e866c5de" class="cell" data-execution_count="30">
+<div id="84bbf3d2" class="cell" data-execution_count="30">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb54"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Marginals from the same joint table</span></span>
 <span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a>PrY <span class="op">=</span> PrYX1.<span class="bu">sum</span>(axis<span class="op">=</span><span class="dv">1</span>)   <span class="co"># P(Y)</span></span>
 <span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a>PrX1 <span class="op">=</span> PrYX1.<span class="bu">sum</span>(axis<span class="op">=</span><span class="dv">0</span>)  <span class="co"># P(X1)</span></span>
@@ -1278,7 +1284,7 @@ divide by zero encountered in log2
 </section>
 <section id="general-utility-igxy-from-a-joint-table" class="level3" data-number="C.6.4">
 <h3 data-number="C.6.4" class="anchored" data-anchor-id="general-utility-igxy-from-a-joint-table"><span class="header-section-number">C.6.4</span> General utility: <span class="math inline">\(IG(X;Y)\)</span> from a joint table</h3>
-<div id="43a8107e" class="cell" data-execution_count="31">
+<div id="e194df85" class="cell" data-execution_count="31">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb56"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> info_gain_from_joint(joint_prob: pd.DataFrame) <span class="op">-&gt;</span> <span class="bu">float</span>:</span>
 <span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Uses IG(X;Y) = H(X) + H(Y) - H(X,Y)</span></span>
 <span id="cb56-3"><a href="#cb56-3" aria-hidden="true" tabindex="-1"></a>    PrY <span class="op">=</span> joint_prob.<span class="bu">sum</span>(axis<span class="op">=</span><span class="dv">1</span>)   <span class="co"># rows</span></span>
