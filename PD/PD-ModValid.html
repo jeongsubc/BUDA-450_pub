@@ -554,7 +554,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="data-preparation" class="level2" data-number="15.1">
 <h2 data-number="15.1" class="anchored" data-anchor-id="data-preparation"><span class="header-section-number">15.1</span> Data Preparation</h2>
 <p>We’ll use the <strong>Breast Cancer Wisconsin dataset</strong> from <code>sklearn.datasets</code>. It contains 569 samples with 30 numeric features, labeled as <strong>benign</strong> or <strong>malignant</strong>.</p>
-<div id="bf555869" class="cell" data-execution_count="1">
+<div id="91d54d77" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.datasets <span class="im">import</span> load_breast_cancer</span>
@@ -609,14 +609,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="data-partitioning" class="level3" data-number="15.3.1">
 <h3 data-number="15.3.1" class="anchored" data-anchor-id="data-partitioning"><span class="header-section-number">15.3.1</span> Data Partitioning</h3>
 <p>Let’s partition the dataset into three disjoint sets: <strong>60%</strong> for training, <strong>20%</strong> for validation, and <strong>20%</strong> for testing. The validation set is used for model/parameter selection; the test set is held back for a final, unbiased estimate.</p>
-<div id="79eded2d" class="cell" data-execution_count="2">
+<div id="0acaf972" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ratios</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>ratio_tr <span class="op">=</span> <span class="fl">0.60</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>ratio_va <span class="op">=</span> <span class="fl">0.20</span></span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>ratio_te <span class="op">=</span> <span class="dv">1</span> <span class="op">-</span> ratio_tr <span class="op">-</span> ratio_va</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>To get exact record counts for a simple implementation, let’s convert the ratios to integers (rounding) and ensure they sum to <code>n</code>:</p>
-<div id="054de596" class="cell" data-execution_count="3">
+<div id="9ca6ef8d" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert ratios to integer counts (round to nearest) and ensure they sum to n</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>n_tr <span class="op">=</span> <span class="bu">int</span>(<span class="bu">round</span>(n <span class="op">*</span> ratio_tr))</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>n_va <span class="op">=</span> <span class="bu">int</span>(<span class="bu">round</span>(n <span class="op">*</span> ratio_va))</span>
@@ -631,12 +631,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
 <p>To make the split <strong>reproducible</strong>, set a fixed random seed for NumPy’s <code>default_rng()</code>. Using the same seed regenerates the same permutation of row indices—and thus the same split—on every run.</p>
-<div id="f7e8b08c" class="cell" data-execution_count="4">
+<div id="1ead1296" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># For reproducibility across runs, fix the seed</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>rng <span class="op">=</span> np.random.default_rng(seed<span class="op">=</span><span class="dv">123456</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Then, generate a random permutation of row indices:</p>
-<div id="82854911" class="cell" data-execution_count="5">
+<div id="15d345d7" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Random indices of rows via a permutation of 0..n-1</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>idx_rand <span class="op">=</span> rng.permutation(n)</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(idx_rand[:<span class="dv">16</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -645,7 +645,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>Slice the permuted indices to allocate records to train, validation, and test:</p>
-<div id="2f42d71c" class="cell" data-execution_count="6">
+<div id="22889a84" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Index ranges for each set</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>idx_tr <span class="op">=</span> idx_rand[:n_tr]                               <span class="co"># first n_tr indices</span></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>idx_va <span class="op">=</span> idx_rand[n_tr:n_tr <span class="op">+</span> n_va]                    <span class="co"># next n_va indices</span></span>
@@ -657,7 +657,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>Based on the index sets, let’s select the corresponding rows for each set:</p>
-<div id="7c868ba0" class="cell" data-execution_count="7">
+<div id="1060cbdd" class="cell" data-execution_count="7">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Training set</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>X_tr <span class="op">=</span> X_full.iloc[idx_tr]</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>y_tr <span class="op">=</span> y_full.iloc[idx_tr]</span>
@@ -696,7 +696,7 @@ Name: count, dtype: int64</code></pre>
 <div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
 <p><code>train_test_split()</code> offers a compact, readable way to create data partitions, which can be used to create <strong>train</strong> / <strong>validation</strong> / <strong>test</strong> sets.</p>
 <p>Based on ratios above, let’s first hold out <strong>20%</strong> as the test set, then split the remaining <strong>80%</strong> into <strong>train</strong> and <strong>validation</strong> by taking <strong>25%</strong> of it for validation (so (0.25 = 0.20) overall).</p>
-<div id="6bfbbc0a" class="cell" data-execution_count="8">
+<div id="c5956ccd" class="cell" data-execution_count="8">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Random splits</span></span>
@@ -749,16 +749,16 @@ Name: count, dtype: int64</code></pre>
 <p>Many operations use randomness, so results change across runs <strong>unless</strong> you fix the seed.</p>
 <hr>
 <p><strong>NumPy seed (manual RNG control).</strong> A seed sets the <em>starting point</em> of a pseudo-random sequence. Re-creating a generator with the <strong>same</strong> seed reproduces the <strong>same</strong> sequence (and therefore the same split).</p>
-<div id="ce7066a4" class="cell" data-execution_count="9">
+<div id="69ac53fa" class="cell" data-execution_count="9">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Without fixing a seed: results vary between runs</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"No seed — 1st run:"</span>, np.random.permutation(<span class="dv">10</span>))</span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"No seed — 2nd run:"</span>, np.random.permutation(<span class="dv">10</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>No seed — 1st run: [1 3 7 5 0 8 4 6 9 2]
-No seed — 2nd run: [5 1 7 3 2 0 9 6 4 8]</code></pre>
+<pre><code>No seed — 1st run: [7 9 1 8 0 6 4 5 3 2]
+No seed — 2nd run: [8 1 0 9 4 5 7 6 2 3]</code></pre>
 </div>
 </div>
-<div id="8d3754cf" class="cell" data-execution_count="10">
+<div id="ce3e3abe" class="cell" data-execution_count="10">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># With a fixed seed using the Generator API: results are repeatable</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>rng1 <span class="op">=</span> np.random.default_rng(<span class="dv">123</span>)</span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Seeded — 1st run:"</span>, rng1.permutation(<span class="dv">10</span>))</span>
@@ -772,7 +772,7 @@ Seeded — 2nd run: [7 4 0 2 1 5 6 8 3 9]</code></pre>
 </div>
 <hr>
 <p><strong>scikit-learn random_state.</strong> Many <code>scikit-learn</code> functions have a <code>random_state</code> parameter that controls their internal shuffling/sampling. Pass a fixed integer to make those operations reproducible. Setting a NumPy seed alone does <em>not guarantee deterministic scikit-learn behavior</em> unless you also set random_state when available.</p>
-<div id="d33a445b" class="cell" data-execution_count="11">
+<div id="d497af86" class="cell" data-execution_count="11">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split</span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Different each run (no random_state)</span></span>
@@ -799,7 +799,7 @@ Seeded — 2nd run: [7 4 0 2 1 5 6 8 3 9]</code></pre>
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true" href="">Manual Procedure</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false" href="">with Custom function</a></li></ul>
 <div class="tab-content">
 <div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
-<div id="5d9405f0" class="cell" data-execution_count="13">
+<div id="432906bf" class="cell" data-execution_count="13">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># for k = 2</span></span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>k <span class="op">=</span> <span class="dv">2</span></span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="co"># model training </span></span>
@@ -842,7 +842,7 @@ Returning the number of logical cores instead. You can silence this warning by s
                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</code></pre>
 </div>
 </div>
-<div id="cbb0d8ae" class="cell" data-execution_count="14">
+<div id="e54767b4" class="cell" data-execution_count="14">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># for k = 5</span></span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>k <span class="op">=</span> <span class="dv">5</span></span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="co"># model training </span></span>
@@ -866,7 +866,7 @@ k=5, Confusion matrix:
  [ 3 63]]</code></pre>
 </div>
 </div>
-<div id="12b722a1" class="cell" data-execution_count="15">
+<div id="6613120a" class="cell" data-execution_count="15">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># for k = 10</span></span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>k <span class="op">=</span> <span class="dv">10</span></span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="co"># model training </span></span>
@@ -890,13 +890,13 @@ k=10, Confusion matrix:
  [ 3 63]]</code></pre>
 </div>
 </div>
-<div id="21f7687e" class="cell" data-execution_count="16">
+<div id="ca159141" class="cell" data-execution_count="16">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># gathering the results</span></span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>res_validation <span class="op">=</span> [ACC_k2, ACC_k5, ACC_k10]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 <div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
-<div id="aa49bff7" class="cell" data-execution_count="17">
+<div id="16c960e4" class="cell" data-execution_count="17">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># custom function for the training-predicting-evaluating task above</span></span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> fit_predict_acc_pipe(k, Xtr, ytr, Xev, yev):</span>
 <span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Train k-NN (no Pipeline), predict on eval, return (accuracy, confusion_matrix)."""</span></span>
@@ -924,7 +924,7 @@ k=10, Confusion matrix:
 </div>
 </div>
 <p>By comparing the resulted measurements, you can select the best model (the best parameter k).</p>
-<div id="f6b47212" class="cell" data-execution_count="18">
+<div id="d5bc984c" class="cell" data-execution_count="18">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># the results</span></span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>res_validation <span class="op">=</span> pd.Series(res_validation, index<span class="op">=</span>ks, name<span class="op">=</span><span class="st">"ACC_val"</span>)</span>
 <span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(res_validation) </span>
@@ -953,7 +953,7 @@ Best performance with k = 5     with accuracy 0.939</code></pre>
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true" href="">Manual Procedure</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false" href="">with Custom Function</a></li></ul>
 <div class="tab-content">
 <div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
-<div id="af9037e0" class="cell" data-execution_count="19">
+<div id="7f1abbf2" class="cell" data-execution_count="19">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># final evaluation on the test set with the best parameter</span></span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>knn_best <span class="op">=</span> KNeighborsClassifier(n_neighbors<span class="op">=</span>best_k)</span>
 <span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>knn_best.fit(X_tr, y_tr)</span>
@@ -977,7 +977,7 @@ Confusion matrix (test):
 </div>
 </div>
 <div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
-<div id="db62aa2e" class="cell" data-execution_count="20">
+<div id="f32959ea" class="cell" data-execution_count="20">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Reuse the helper that trains -&gt; predicts -&gt; returns (estimator, accuracy)</span></span>
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>knn_best, ACC_te <span class="op">=</span> fit_predict_acc_pipe(best_k, X_tr, y_tr, X_te, y_te)</span>
 <span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Test Accuracy (k=</span><span class="sc">{</span>best_k<span class="sc">}</span><span class="ss">): </span><span class="sc">{</span>ACC_te<span class="sc">:.3f}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -1002,7 +1002,7 @@ Confusion matrix (test):
 <li>take the first n_tr + n_va rows as train+validation,</li>
 <li>use the remaining rows as the test set.</li>
 </ul>
-<div id="99ac22cb" class="cell" data-execution_count="21">
+<div id="26a83580" class="cell" data-execution_count="21">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Reproducible random permutation of 0..n-1</span></span>
 <span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>rng <span class="op">=</span> np.random.default_rng(<span class="dv">2024</span>)</span>
 <span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>idx_rand <span class="op">=</span> rng.permutation(n)</span>
@@ -1025,7 +1025,7 @@ Confusion matrix (test):
 </div>
 </div>
 <p>For the Monte-Carlo cross-validation<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>, let’s use <code>scikit-learn</code>’s <code>ShuffleSplit()</code> that defines how to randomly split data for cross-validation inside the train+validation pool:</p>
-<div id="65d8459e" class="cell" data-execution_count="22">
+<div id="82309fe7" class="cell" data-execution_count="22">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> ShuffleSplit</span>
 <span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Same ratios/iterations as before</span></span>
@@ -1048,7 +1048,7 @@ Confusion matrix (test):
 <h3 data-number="15.4.2" class="anchored" data-anchor-id="model-selection-with-cross-validation-result"><span class="header-section-number">15.4.2</span> Model Selection with Cross-validation Result</h3>
 <p>Then, you can Use <code>GridSearchCV()</code> to <strong>evaluate multiple hyperparameters across repeated random splits</strong> (our Monte-Carlo / LGOCV setup via <code>cv = ShuffleSplit(...)</code>) and automatically select the best model.</p>
 <p>Here we search over (k {2,5,10}) for k-NN, using <strong>accuracy</strong> as the validation metric.</p>
-<div id="5ee186ed" class="cell" data-execution_count="23">
+<div id="2b325924" class="cell" data-execution_count="23">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> GridSearchCV</span>
 <span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Model</span></span>
@@ -1492,7 +1492,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </div>
 </div>
 <p>The cross-validation results returned by <code>GridSearchCV()</code> can be examined through attributed data in <code>grid.cv_results_</code>. Each row corresponds to one hyperparameter setting, with per-split scores (spliti_test_score), and aggregated columns (mean_test_score, std_test_score, rank_test_score).</p>
-<div id="8892f9a5" class="cell" data-execution_count="24">
+<div id="1dc0da15" class="cell" data-execution_count="24">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>df_cv_res <span class="op">=</span> pd.DataFrame(grid.cv_results_)</span>
 <span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df_cv_res.columns)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
@@ -1505,7 +1505,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
       dtype='object')</code></pre>
 </div>
 </div>
-<div id="98b051b1" class="cell" data-execution_count="25">
+<div id="b326617e" class="cell" data-execution_count="25">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Accuracy for different k in each split set</span></span>
 <span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>list_cols <span class="op">=</span> [</span>
 <span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"param_n_neighbors"</span>,  <span class="co"># k</span></span>
@@ -1521,7 +1521,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 2                 10           0.929825           0.903509           0.912281</code></pre>
 </div>
 </div>
-<div id="b8a654c4" class="cell" data-execution_count="26">
+<div id="73ecb150" class="cell" data-execution_count="26">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Overall accuracy for different k across splits</span></span>
 <span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>list_cols <span class="op">=</span> [</span>
 <span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"param_n_neighbors"</span>,  <span class="co"># k</span></span>
@@ -1538,7 +1538,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </div>
 </div>
 <p>The best model (chosen based on the <em>accuracy</em>) on the held-out test set can be found:</p>
-<div id="76d833b8" class="cell" data-execution_count="27">
+<div id="2182fb64" class="cell" data-execution_count="27">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>best_k <span class="op">=</span> grid.best_params_[<span class="st">"n_neighbors"</span>]</span>
 <span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>best_k</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="27">
@@ -1549,7 +1549,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <section id="performance-evaluation-1" class="level3" data-number="15.4.3">
 <h3 data-number="15.4.3" class="anchored" data-anchor-id="performance-evaluation-1"><span class="header-section-number">15.4.3</span> Performance Evaluation</h3>
 <p>Then, with the best parameter, you can evaluate the performance of your final model on the test set:</p>
-<div id="2e33aad9" class="cell" data-execution_count="28">
+<div id="a7e53da6" class="cell" data-execution_count="28">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb48"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>knn_best <span class="op">=</span> KNeighborsClassifier(n_neighbors<span class="op">=</span>best_k)</span>
 <span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>knn_best.fit(X_tr_va, y_tr_va)</span>
 <span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1573,7 +1573,7 @@ Confusion matrix (test):
 <p>In k-fold CV, the data are split into <strong>k</strong> equal folds. For each round, one fold acts as the <strong>validation</strong> set and the remaining <strong>k−1</strong> folds form the <strong>training</strong> set. Metrics are averaged across the <strong>k</strong> rounds. Compared with a single holdout, k-fold CV uses all samples for validation exactly once, often yielding a more stable estimate.</p>
 <p>For k-fold cross validation, the similar procedure and codes can be used.</p>
 <p>Below we keep the rest of the workflow identical to the previous sections, and only change the <strong>CV design</strong> to <code>KFold()</code> with <code>k</code>.</p>
-<div id="63a43b92" class="cell" data-execution_count="29">
+<div id="279dfe70" class="cell" data-execution_count="29">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb50"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="co"># k-fold cross-validation (k=5)</span></span>
 <span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> KFold</span>
 <span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1618,7 +1618,7 @@ Cross-validated accuracy (k-fold):
 0   2  0.909890  0.028991     3</code></pre>
 </div>
 </div>
-<p>For more details and other methods, check the <a href="https://scikit-learn.org/stable/modules/cross_validation.html">User guide</a>.</p>
+<p>For more details and other methods, check the <a href="https://scikit-learn.org/stable/modules/cross_validation.html" target="_blank">User guide</a>.</p>
 </section>
 <section id="readingreference" class="level2" data-number="15.6">
 <h2 data-number="15.6" class="anchored" data-anchor-id="readingreference"><span class="header-section-number">15.6</span> Reading/Reference</h2>

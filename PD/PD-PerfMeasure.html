@@ -484,6 +484,12 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Model Validation</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../PD/PD-LinRegress.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Linear Regression</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -579,7 +585,7 @@ window.Quarto = {
 <section id="binary-classification-performance" class="level2" data-number="14.1">
 <h2 data-number="14.1" class="anchored" data-anchor-id="binary-classification-performance"><span class="header-section-number">14.1</span> Binary Classification Performance</h2>
 <p>Let’s consider a target vector <code>y</code> of true labels (<code>1</code> for positive and <code>0</code> for negative cases) for 10 records, and a vector of predictions <code>yhat</code>:</p>
-<div id="0bd54f94" class="cell" data-execution_count="1">
+<div id="ae1a3e78" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd <span class="co"># for later</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -610,7 +616,7 @@ FN &amp; TP
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
 <p>You can compute the four entries of the confusion matrix directly:</p>
-<div id="a2d4eb72" class="cell" data-execution_count="2">
+<div id="f5f718aa" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># True Negatives: predicted 0 and actual 0</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>TN <span class="op">=</span> np.<span class="bu">sum</span>((yhat <span class="op">==</span> <span class="dv">0</span>) <span class="op">&amp;</span> (y <span class="op">==</span> <span class="dv">0</span>))</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -636,7 +642,7 @@ FN &amp; TP
 </div>
 <div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
 <p><code>crosstab()</code> performs a similar operation as it counts the same paired values:</p>
-<div id="dbf6d883" class="cell" data-execution_count="3">
+<div id="ae48fa2e" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>xtab <span class="op">=</span> pd.crosstab(pd.Series(y, name<span class="op">=</span><span class="st">"True"</span>), pd.Series(yhat, name<span class="op">=</span><span class="st">"Pred"</span>))</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>xtab <span class="op">=</span> xtab.reindex(index<span class="op">=</span>classes, columns<span class="op">=</span>classes, fill_value<span class="op">=</span><span class="dv">0</span>)</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(xtab)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -650,7 +656,7 @@ True
 </div>
 <div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
 <p>You can generate a confusion matrix using <code>confusion_matrix()</code>:</p>
-<div id="ddeeee76" class="cell" data-execution_count="4">
+<div id="fc2318aa" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> confusion_matrix</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate confusion matrix with labels fixed as [0,1]</span></span>
@@ -662,7 +668,7 @@ True
 </div>
 </div>
 <p>We can unpack the resulted confusion matrix into four values:</p>
-<div id="8deea41b" class="cell" data-execution_count="5">
+<div id="9e18ce0c" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># sklearn returns:</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co"># [[TN, FP],</span></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co">#  [FN, TP]]</span></span>
@@ -683,7 +689,7 @@ True
 </div>
 </div>
 <p>The confusion matrix <code>cm</code> can also be <strong>visualized as a heatmap</strong>, which makes it easier to interpret classification performance. In scikit-learn, this can be done with the <code>ConfusionMatrixDisplay</code> class, along with optional styling:</p>
-<div id="c664b7f5" class="cell" data-execution_count="6">
+<div id="4a3ec797" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> ConfusionMatrixDisplay</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -714,7 +720,7 @@ True
 <div class="tab-content">
 <div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
 <p>Using these four values in the confusion matrix, we calculate several metrics:</p>
-<div id="1c884694" class="cell" data-execution_count="7">
+<div id="12b7f5b4" class="cell" data-execution_count="7">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>TPR <span class="op">=</span> TP <span class="op">/</span> (TP <span class="op">+</span> FN)                   <span class="co"># true positive rate</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>FNR <span class="op">=</span> FN <span class="op">/</span> (TP <span class="op">+</span> FN)                   <span class="co"># false negative rate</span></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>FPR <span class="op">=</span> FP <span class="op">/</span> (FP <span class="op">+</span> TN)                   <span class="co"># false positive rate</span></span>
@@ -751,7 +757,7 @@ F1:         0.67</code></pre>
 <li><strong>F1 Score</strong>: harmonic mean of <strong>precision</strong> and <strong>recall</strong> (balances both).</li>
 </ul>
 <p>Due to a potential issue from zeros in denominator, it’s common to consider practical adjustment:</p>
-<div id="036a8fd4" class="cell" data-execution_count="8">
+<div id="f01adcda" class="cell" data-execution_count="8">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># small epsilon to avoid division by zero</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>eps <span class="op">=</span> <span class="fl">1e-12</span>  <span class="co"># small enough to be ignored in the main estimation</span></span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -767,7 +773,7 @@ F1:         0.67</code></pre>
 </div>
 <div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
 <p>Instead of computing each measure manually from <code>TP</code>, <code>FP</code>, <code>TN</code>, and <code>FN</code>, <code>scikit-learn</code> provides built-in functions for the same values.</p>
-<div id="04b3d4fc" class="cell" data-execution_count="9">
+<div id="c9073179" class="cell" data-execution_count="9">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> (</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>    accuracy_score, </span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>    precision_score, </span>
@@ -801,7 +807,7 @@ F1:         0.67</code></pre>
 <h3 data-number="14.1.3" class="anchored" data-anchor-id="thresholding-probabilistic-results"><span class="header-section-number">14.1.3</span> Thresholding Probabilistic Results</h3>
 <p>Given predicted probabilities, we can turn them into class labels using different cutoffs (thresholds) and then compare performance at each cutoff.</p>
 <p>For example, probabilities in <code>yprob</code> are the probabilities that the prediction for labels in <code>y</code> are be positive (class <code>1</code>):</p>
-<div id="0e44076b" class="cell" data-execution_count="10">
+<div id="a1c3bfb4" class="cell" data-execution_count="10">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Predicted probabilities for the positive class (same record order as y)</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>yprob <span class="op">=</span> np.array([<span class="fl">0.73</span>, <span class="fl">0.48</span>, <span class="fl">0.22</span>, <span class="fl">0.33</span>, <span class="fl">0.52</span>, <span class="fl">0.10</span>, <span class="fl">0.98</span>, <span class="fl">0.05</span>, <span class="fl">0.12</span>, <span class="fl">0.78</span>])</span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -828,7 +834,7 @@ F1:         0.67</code></pre>
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true" href="">Cutoff = 0.10</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false" href="">Cutoff = 0.50</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-3" role="tab" aria-controls="tabset-3-3" aria-selected="false" href="">Cutoff = 0.90</a></li></ul>
 <div class="tab-content">
 <div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
-<div id="3aa2a0c0" class="cell" data-execution_count="11">
+<div id="c57b0e24" class="cell" data-execution_count="11">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> <span class="fl">0.1</span>     <span class="co"># cutoff</span></span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>yhat_cut010 <span class="op">=</span> (res[<span class="st">"Prob"</span>] <span class="op">&gt;</span> c).astype(<span class="st">'int'</span>) <span class="co"># Comparison followed by conversion into `int` type</span></span>
@@ -856,7 +862,7 @@ Name: cut_0.10, dtype: int64
 </div>
 </div>
 <div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
-<div id="6e35974c" class="cell" data-execution_count="12">
+<div id="91c88eec" class="cell" data-execution_count="12">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> <span class="fl">0.50</span>    <span class="co"># cutoff</span></span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>yhat_cut050 <span class="op">=</span> (res[<span class="st">"Prob"</span>] <span class="op">&gt;</span> c).astype(<span class="st">'int'</span>) <span class="co"># Comparison followed by conversion into `int` type</span></span>
@@ -884,7 +890,7 @@ Name: cut_0.50, dtype: int64
 </div>
 </div>
 <div id="tabset-3-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-3-tab">
-<div id="5d056ff8" class="cell" data-execution_count="13">
+<div id="3e75523c" class="cell" data-execution_count="13">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> <span class="fl">0.9</span>     <span class="co"># cutoff</span></span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>yhat_cut090 <span class="op">=</span> (res[<span class="st">"Prob"</span>] <span class="op">&gt;</span> c).astype(<span class="st">'int'</span>)</span>
@@ -929,7 +935,7 @@ Name: cut_0.90, dtype: int64
 </li>
 <li>Put variables or expressions inside <code>{}</code>.</li>
 </ul>
-<div id="19572ae6" class="cell" data-execution_count="14">
+<div id="6b80134f" class="cell" data-execution_count="14">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>cutvalue <span class="op">=</span> <span class="fl">3.14</span></span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>f_str1 <span class="op">=</span> <span class="ss">f"cut_</span><span class="sc">{</span>cutvalue<span class="sc">}</span><span class="ss">"</span></span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"f-string example:"</span>, f_str1)</span>
@@ -940,7 +946,7 @@ Name: cut_0.90, dtype: int64
 </div>
 </div>
 <p>You can also control how numbers are displayed with the variable, followed by format specifiers and a colon inside <code>{}</code>:</p>
-<div id="d27f2ebd" class="cell" data-execution_count="15">
+<div id="5fdca30c" class="cell" data-execution_count="15">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>f_str2 <span class="op">=</span> <span class="ss">f"cut_</span><span class="sc">{</span>cutvalue<span class="sc">:.5f}</span><span class="ss">"</span></span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"f-string example in a selected format:"</span>, f_str2)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
@@ -953,7 +959,7 @@ Name: cut_0.90, dtype: int64
 <li>Use <code>{}</code> placeholders in the string and call <code>.format(...)</code> to fill them.</li>
 <li>Add format specifiers the same way, after a colon inside {}.</li>
 </ul>
-<div id="a0904a7f" class="cell" data-execution_count="16">
+<div id="76d656e0" class="cell" data-execution_count="16">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>format_method1 <span class="op">=</span> <span class="st">"cut_</span><span class="sc">{:.3f}</span><span class="st">"</span>.<span class="bu">format</span>(cutvalue)</span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"format method example:"</span>, format_method1)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
@@ -1047,7 +1053,7 @@ Note
 </tr>
 </tbody>
 </table>
-<div id="372d2a1d" class="cell" data-execution_count="17">
+<div id="64b48b3f" class="cell" data-execution_count="17">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># example</span></span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>num <span class="op">=</span> <span class="fl">1234.567</span></span>
 <span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1092,7 +1098,7 @@ Note
 </tr>
 </tbody>
 </table>
-<div id="ba69c7cf" class="cell" data-execution_count="18">
+<div id="69030191" class="cell" data-execution_count="18">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># example</span></span>
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>num <span class="op">=</span> <span class="fl">1234.567</span></span>
 <span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1151,7 +1157,7 @@ Note
 </tr>
 </tbody>
 </table>
-<div id="5d6b37db" class="cell" data-execution_count="19">
+<div id="336f4dfa" class="cell" data-execution_count="19">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># example</span></span>
 <span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>num <span class="op">=</span> <span class="fl">1234.567</span></span>
 <span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1172,7 +1178,7 @@ Note
 </div>
 </div>
 <p>The results across all various cutoffs can be summarized in a table.</p>
-<div id="4c942d3d" class="cell" data-execution_count="20">
+<div id="ca2d9c68" class="cell" data-execution_count="20">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the cutoffs we want to test</span></span>
 <span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>cuts <span class="op">=</span> [<span class="fl">0.15</span>, <span class="fl">0.25</span>, <span class="fl">0.50</span>, <span class="fl">0.75</span>, <span class="fl">0.85</span>]</span>
 <span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1208,7 +1214,7 @@ Note
 <div class="callout-body-container callout-body">
 <p>A <strong><code>for</code> loop</strong> in Python is used to repeat a block of code for each element in a sequence. At each iteration, the loop assigns one element of the sequence to a loop variable, then executes the indented code block.</p>
 <p>Generally, a <code>for</code> loop code contains five basic components:</p>
-<div id="e00486f9" class="cell" data-execution_count="21">
+<div id="713419f2" class="cell" data-execution_count="21">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> variable <span class="kw">in</span> sequence:</span>
 <span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># code that uses 'variable'</span></span>
 <span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(variable) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -1217,10 +1223,10 @@ Note
 <li><code>for</code> — the keyword that declares the start of the loop.</li>
 <li><code>variable</code> — a loop variable that takes on each element from the sequence in turn.</li>
 <li><code>in</code> — the keyword that connects the loop variable with the sequence.</li>
-<li><code>sequence</code> — an <a href="https://docs.python.org/3.11/glossary.html#term-iterable">iterable</a> object (such as a list, tuple, or range) that the loop will iterate over.</li>
+<li><code>sequence</code> — an <a href="https://docs.python.org/3.11/glossary.html#term-iterable" target="_blank">iterable</a> object (such as a list, tuple, or range) that the loop will iterate over.</li>
 </ul>
 <p>Here is another example that prints each item in the list <code>cuts</code>:</p>
-<div id="a3a1d8db" class="cell" data-execution_count="22">
+<div id="e5d91b65" class="cell" data-execution_count="22">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> c <span class="kw">in</span> cuts:</span>
 <span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Current cutoff:"</span>, c)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
@@ -1236,7 +1242,7 @@ Current cutoff: 0.85</code></pre>
 </section>
 <section id="roc-curve" class="level3" data-number="14.1.4">
 <h3 data-number="14.1.4" class="anchored" data-anchor-id="roc-curve"><span class="header-section-number">14.1.4</span> ROC curve</h3>
-<p>The <a href="https://en.wikipedia.org/wiki/Receiver_operating_characteristic">Receiver Operating Characteristic (ROC)</a> curve is a graphical tool for evaluating binary classification models.</p>
+<p>The <a href="https://en.wikipedia.org/wiki/Receiver_operating_characteristic" target="_blank">Receiver Operating Characteristic (ROC)</a> curve is a graphical tool for evaluating binary classification models.</p>
 <ul>
 <li>It shows the trade-off between <strong>True Positive Rate</strong> (TPR, or Recall/Sensitivity) and False Positive Rate (FPR, or 1 - Specificity).<br>
 </li>
@@ -1247,7 +1253,7 @@ Current cutoff: 0.85</code></pre>
 <li>The <strong>diagonal line</strong> represents random guessing (no discrimination ability).</li>
 </ul>
 <p>Values (necessary) for ROC curve can be obtained by using <code>roc_curve</code> in <code>scikit-learn</code>:</p>
-<div id="21ec5f69" class="cell" data-execution_count="23">
+<div id="81e6b0ce" class="cell" data-execution_count="23">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> roc_curve</span>
 <span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a><span class="co"># FPR, TPR, thresholds are calculated across all possible cutoffs</span></span>
@@ -1272,7 +1278,7 @@ Current cutoff: 0.85</code></pre>
 </div>
 </div>
 <p>The resulted ROC curve can be visualized:</p>
-<div id="b7f2c237" class="cell" data-execution_count="24">
+<div id="418b2ea9" class="cell" data-execution_count="24">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Create figure and axes</span></span>
@@ -1320,7 +1326,7 @@ Current cutoff: 0.85</code></pre>
 <div class="tab-content">
 <div id="tabset-5-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-5-1-tab">
 <p>AUC can be computed using <code>roc_auc_score()</code>, that directly computes the AUC given the true labels <code>y_true</code> and predicted probabilities <code>y_score</code>.</p>
-<div id="cc928547" class="cell" data-execution_count="25">
+<div id="5fb5f8d4" class="cell" data-execution_count="25">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> roc_auc_score</span>
 <span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a><span class="co"># AUC from scikit-learn built-in function</span></span>
@@ -1340,7 +1346,7 @@ Current cutoff: 0.85</code></pre>
 <li>Compute the height = average of consecutive TPR values.</li>
 <li>Sum all trapezoid areas.</li>
 </ul>
-<div id="2db2250c" class="cell" data-execution_count="26">
+<div id="2a89ee3a" class="cell" data-execution_count="26">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb47"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Manual trapezoid rule for AUC</span></span>
 <span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>height <span class="op">=</span> <span class="fl">0.5</span> <span class="op">*</span> (tpr[<span class="dv">1</span>:] <span class="op">+</span> tpr[:<span class="op">-</span><span class="dv">1</span>])     <span class="co"># average of consecutive TPRs</span></span>
 <span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a>width  <span class="op">=</span> np.diff(fpr)                   <span class="co"># change in FPR between consecutive points</span></span>
@@ -1359,7 +1365,7 @@ Current cutoff: 0.85</code></pre>
 <section id="multi-class-classification" class="level2" data-number="14.2">
 <h2 data-number="14.2" class="anchored" data-anchor-id="multi-class-classification"><span class="header-section-number">14.2</span> Multi-class Classification</h2>
 <p>Let’s consider a target vector <code>y</code> of actual (true) labels (three classes: <code>A</code>, <code>B</code>, <code>C</code>) for 10 records, and a vector of predictions <code>yhat</code>:</p>
-<div id="d8e68b48" class="cell" data-execution_count="27">
+<div id="1f91d90b" class="cell" data-execution_count="27">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb49"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a>y_mlt    <span class="op">=</span> np.array([<span class="st">"C"</span>,<span class="st">"C"</span>,<span class="st">"A"</span>,<span class="st">"B"</span>,<span class="st">"C"</span>,<span class="st">"A"</span>,<span class="st">"A"</span>,<span class="st">"C"</span>,<span class="st">"A"</span>,<span class="st">"C"</span>])</span>
@@ -1374,7 +1380,7 @@ Current cutoff: 0.85</code></pre>
 <div class="tab-content">
 <div id="tabset-6-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-6-1-tab">
 <p>The <code>confusion_matrix()</code> can be used for multi-class cases as well, where it returns an array of rows = true labels and columns = predicted labels.</p>
-<div id="28396975" class="cell" data-execution_count="28">
+<div id="39104cd2" class="cell" data-execution_count="28">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb50"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>cm_mlt <span class="op">=</span> confusion_matrix(y_mlt, yhat_mlt, labels<span class="op">=</span>classes)</span>
 <span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>cm_df <span class="op">=</span> pd.DataFrame(</span>
 <span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a>    cm_mlt, </span>
@@ -1392,7 +1398,7 @@ C     1  2  2</code></pre>
 </div>
 </div>
 <div id="tabset-6-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-6-2-tab">
-<div id="3e1d92c9" class="cell" data-execution_count="29">
+<div id="ff4e3c11" class="cell" data-execution_count="29">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb52"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>xtab <span class="op">=</span> pd.crosstab(pd.Series(y_mlt, name<span class="op">=</span><span class="st">"True"</span>), pd.Series(yhat_mlt, name<span class="op">=</span><span class="st">"Pred"</span>))</span>
 <span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>xtab <span class="op">=</span> xtab.reindex(index<span class="op">=</span>classes, columns<span class="op">=</span>classes, fill_value<span class="op">=</span><span class="dv">0</span>)</span>
 <span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(xtab)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -1408,7 +1414,7 @@ C     1  2  2</code></pre>
 </div>
 </div>
 <p>Using the counts in the confusion matrix, you can calculate the accuracy:</p>
-<div id="f6da2bbf" class="cell" data-execution_count="30">
+<div id="7ba37006" class="cell" data-execution_count="30">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb54"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Directly with the labels </span></span>
 <span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a>acc_skl <span class="op">=</span> accuracy_score(y_mlt, yhat_mlt)</span>
 <span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(acc_skl)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -1416,7 +1422,7 @@ C     1  2  2</code></pre>
 <pre><code>0.5</code></pre>
 </div>
 </div>
-<div id="4fc705e9" class="cell" data-execution_count="31">
+<div id="32c841a5" class="cell" data-execution_count="31">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb56"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="co"># From the confusion matrix</span></span>
 <span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a>acc_man <span class="op">=</span> np.trace(cm_df).<span class="bu">sum</span>() <span class="op">/</span> cm_df.<span class="bu">sum</span>().<span class="bu">sum</span>() </span>
 <span id="cb56-3"><a href="#cb56-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(acc_man)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -1429,7 +1435,7 @@ C     1  2  2</code></pre>
 <section id="per-class-measures" class="level3" data-number="14.2.2">
 <h3 data-number="14.2.2" class="anchored" data-anchor-id="per-class-measures"><span class="header-section-number">14.2.2</span> Per-class Measures</h3>
 <p>Per-class measure for each class (as positive) such as the recall (TPR), macro recall, weighted recall can be calculated by using the same methods for binary cases in <code>scikit-learn</code>:</p>
-<div id="a174e25d" class="cell" data-execution_count="32">
+<div id="d1e43bc6" class="cell" data-execution_count="32">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb58"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> recall_score, accuracy_score</span>
 <span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb58-3"><a href="#cb58-3" aria-hidden="true" tabindex="-1"></a>per_class_recall <span class="op">=</span> recall_score(</span>
@@ -1456,7 +1462,7 @@ weighted_recall: 0.500</code></pre>
 </div>
 </div>
 <p>The macro- and weighted-recall are computed as the averages of the recalls (=TPR):</p>
-<div id="432d0b82" class="cell" data-execution_count="33">
+<div id="5b920115" class="cell" data-execution_count="33">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb60"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="co"># macro-recall</span></span>
 <span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a>macro_recall <span class="op">=</span> per_class_recall.mean()</span>
 <span id="cb60-3"><a href="#cb60-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"macro_recall:</span><span class="ch">\t</span><span class="st">"</span>, <span class="ss">f"</span><span class="sc">{</span>macro_recall<span class="sc">:.3f}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -1464,7 +1470,7 @@ weighted_recall: 0.500</code></pre>
 <pre><code>macro_recall:    0.633</code></pre>
 </div>
 </div>
-<div id="67ffd6fe" class="cell" data-execution_count="34">
+<div id="9be5c716" class="cell" data-execution_count="34">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb62"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="co"># weighted-recall</span></span>
 <span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a>no_true_class   <span class="op">=</span> cm_df.<span class="bu">sum</span>(axis<span class="op">=</span><span class="dv">1</span>)                   <span class="co"># the number of each class's objects</span></span>
 <span id="cb62-3"><a href="#cb62-3" aria-hidden="true" tabindex="-1"></a>weights         <span class="op">=</span> no_true_class <span class="op">/</span> no_true_class.<span class="bu">sum</span>() <span class="co"># each class's proportion</span></span>
@@ -1489,7 +1495,7 @@ weighted_recall: 0.500</code></pre>
 <li><strong><em>Positive</em></strong> = the target class (here, <code>"A"</code>)</li>
 <li><strong><em>Negative</em></strong> = all other classes (here, <code>"B"</code> and <code>"C"</code>)</li>
 </ul>
-<div id="5a9ee109" class="cell" data-execution_count="35">
+<div id="364861de" class="cell" data-execution_count="35">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb64"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create binary labels: True for "A", False for not-"A"</span></span>
 <span id="cb64-2"><a href="#cb64-2" aria-hidden="true" tabindex="-1"></a>y_A    <span class="op">=</span> (y_mlt    <span class="op">==</span> <span class="st">"A"</span>)</span>
 <span id="cb64-3"><a href="#cb64-3" aria-hidden="true" tabindex="-1"></a>yhat_A <span class="op">=</span> (yhat_mlt <span class="op">==</span> <span class="st">"A"</span>)</span>
@@ -1509,7 +1515,7 @@ weighted_recall: 0.500</code></pre>
 <section id="general-method" class="level2" data-number="14.3">
 <h2 data-number="14.3" class="anchored" data-anchor-id="general-method"><span class="header-section-number">14.3</span> General Method</h2>
 <p>You can use <code>classification_report()</code> to output both the confusion matrix and a set of overall and class-specific metrics.</p>
-<div id="ab6698e3" class="cell" data-execution_count="36">
+<div id="88726c65" class="cell" data-execution_count="36">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb66"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> classification_report</span>
 <span id="cb66-2"><a href="#cb66-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb66-3"><a href="#cb66-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Classification report (precision, recall, F1, and and support per class)</span></span>
@@ -1531,7 +1537,7 @@ weighted avg       0.55      0.50      0.50        10
 </div>
 </div>
 <p>Each result element can be accessed with <code>output_dict=True</code>:</p>
-<div id="6432a089" class="cell" data-execution_count="37">
+<div id="2680d8d9" class="cell" data-execution_count="37">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb68"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Accessing summary values</span></span>
 <span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a>cls_report <span class="op">=</span>  classification_report(y_mlt, yhat_mlt, output_dict<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb68-3"><a href="#cb68-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1561,7 +1567,7 @@ Weighted averaged results: {'precision': 0.55, 'recall': 0.5, 'f1-score': 0.5007
 <section id="regression-performance" class="level2" data-number="14.4">
 <h2 data-number="14.4" class="anchored" data-anchor-id="regression-performance"><span class="header-section-number">14.4</span> Regression performance</h2>
 <p>Let’s consider the actual data <code>y</code> and the predictions <code>yhat</code> for <code>n</code> numerical observations:</p>
-<div id="61221ce0" class="cell" data-execution_count="38">
+<div id="84c914da" class="cell" data-execution_count="38">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb70"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb70-2"><a href="#cb70-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb70-3"><a href="#cb70-3" aria-hidden="true" tabindex="-1"></a>y_reg    <span class="op">=</span> np.array([ <span class="fl">2.1</span>,  <span class="fl">0.6</span>, <span class="op">-</span><span class="fl">0.5</span>, <span class="op">-</span><span class="fl">2.4</span>,  <span class="fl">1.4</span>,  <span class="fl">1.0</span>,  <span class="fl">3.4</span>, <span class="op">-</span><span class="fl">3.2</span>], dtype<span class="op">=</span><span class="bu">float</span>)</span>
@@ -1573,7 +1579,7 @@ Weighted averaged results: {'precision': 0.55, 'recall': 0.5, 'f1-score': 0.5007
 <div class="tab-content">
 <div id="tabset-7-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-7-1-tab">
 <p>The prediction errors for the <code>n</code> objects can be obtained simply by calculating their difference <code>err</code>:</p>
-<div id="08aaafc1" class="cell" data-execution_count="39">
+<div id="7e41d249" class="cell" data-execution_count="39">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb71"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a>err <span class="op">=</span> y_reg <span class="op">-</span> yhat_reg   <span class="co"># residuals</span></span>
 <span id="cb71-2"><a href="#cb71-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(err)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
@@ -1581,7 +1587,7 @@ Weighted averaged results: {'precision': 0.55, 'recall': 0.5, 'f1-score': 0.5007
 </div>
 </div>
 <p>The performance of the prediction of numerical data can be calculated by using a function of the errors based on the formulas:</p>
-<div id="458e06bc" class="cell" data-execution_count="40">
+<div id="196d066d" class="cell" data-execution_count="40">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb73"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a>MSE  <span class="op">=</span> np.<span class="bu">sum</span>(err<span class="op">**</span><span class="dv">2</span>) <span class="op">/</span> n                     <span class="co"># Mean Squared Error</span></span>
 <span id="cb73-2"><a href="#cb73-2" aria-hidden="true" tabindex="-1"></a>RMSE <span class="op">=</span> np.sqrt(MSE)                           <span class="co"># Root Mean Squared Error</span></span>
 <span id="cb73-3"><a href="#cb73-3" aria-hidden="true" tabindex="-1"></a>MAE  <span class="op">=</span> np.<span class="bu">sum</span>(np.<span class="bu">abs</span>(err)) <span class="op">/</span> n                <span class="co"># Mean Absolute Error</span></span>
@@ -1611,7 +1617,7 @@ Note
 </div>
 <div class="callout-body-container callout-body">
 <p>Because each formula averages values, you can write them more compactly with <code>mean()</code>:</p>
-<div id="eefa0678" class="cell" data-execution_count="41">
+<div id="b26877a8" class="cell" data-execution_count="41">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb75"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a>MSE_2  <span class="op">=</span> np.mean(err<span class="op">**</span><span class="dv">2</span>)</span>
 <span id="cb75-2"><a href="#cb75-2" aria-hidden="true" tabindex="-1"></a>RMSE_2 <span class="op">=</span> np.sqrt(MSE_2)                 <span class="co"># uses MSE_2 here (corrected)</span></span>
 <span id="cb75-3"><a href="#cb75-3" aria-hidden="true" tabindex="-1"></a>MAE_2  <span class="op">=</span> np.mean(np.<span class="bu">abs</span>(err))</span>
@@ -1635,7 +1641,7 @@ MAPE:    0.479</code></pre>
 </div>
 <div id="tabset-7-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-7-2-tab">
 <p>The functions for the calculations are available in <code>scikit-learn</code>:</p>
-<div id="395afe34" class="cell" data-execution_count="42">
+<div id="a54ab21d" class="cell" data-execution_count="42">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb77"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> (</span>
 <span id="cb77-2"><a href="#cb77-2" aria-hidden="true" tabindex="-1"></a>    mean_squared_error, </span>
 <span id="cb77-3"><a href="#cb77-3" aria-hidden="true" tabindex="-1"></a>    root_mean_squared_error, </span>

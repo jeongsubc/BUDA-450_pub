@@ -490,6 +490,12 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Model Validation</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../PD/PD-LinRegress.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Linear Regression</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -574,7 +580,7 @@ window.Quarto = {
 </header>
 
 
-<p>This section introduces <a href="https://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm">k-nearest neighbors</a> (kNN), a <strong>distance-based algorithm</strong> used in data mining tasks such as <strong>classification</strong> and <strong>regression</strong>.</p>
+<p>This section introduces <a href="https://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm" target="_blank">k-nearest neighbors</a>(kNN), a <strong>distance-based algorithm</strong> used in data mining tasks such as <strong>classification</strong> and <strong>regression</strong>.</p>
 <section id="what-is-knn" class="level2" data-number="12.1">
 <h2 data-number="12.1" class="anchored" data-anchor-id="what-is-knn"><span class="header-section-number">12.1</span> What is kNN?</h2>
 <p>kNN is a <strong>simple but powerful algorithm</strong>:</p>
@@ -631,7 +637,7 @@ window.Quarto = {
 <section id="packages" class="level3" data-number="12.2.1">
 <h3 data-number="12.2.1" class="anchored" data-anchor-id="packages"><span class="header-section-number">12.2.1</span> Packages</h3>
 <p>Let’s import general packages first.</p>
-<div id="5461f58d" class="cell" data-execution_count="1">
+<div id="e72983c0" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -641,7 +647,7 @@ window.Quarto = {
 <h3 data-number="12.2.2" class="anchored" data-anchor-id="data"><span class="header-section-number">12.2.2</span> Data</h3>
 <p>We can use <code>sklearn.datasets.make_blobs()</code> to generate a synthetic dataset with well-separated clusters. This is useful for demonstrating how k-NN works on simple 2D data.</p>
 <p>Let’s first create a simple data set of the input features <code>X_tr</code> and the class labels <code>Y_tr</code>, which will be used for the training:</p>
-<div id="ff1fef48" class="cell" data-execution_count="2">
+<div id="832b7885" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.datasets <span class="im">import</span> make_blobs</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the centers of the clusters (each corresponds to a class)</span></span>
@@ -739,7 +745,7 @@ window.Quarto = {
 </div>
 </div>
 <p>We can also generate a separate set of samples to use as <strong>new (test) data</strong> with the input features <code>X_new</code> and the class labels <code>Y_new</code>. These samples will be classified later using the kNN algorithm trained on the earlier dataset.</p>
-<div id="38fa6795" class="cell" data-execution_count="3">
+<div id="493c6146" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate new data (same cluster centers as training set)</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>X_new, y_new <span class="op">=</span> make_blobs(</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    n_samples<span class="op">=</span><span class="dv">5</span>,                <span class="co"># number of new data samples</span></span>
@@ -804,7 +810,7 @@ window.Quarto = {
 <section id="visualizing-the-training-and-new-data" class="level4" data-number="12.2.2.1">
 <h4 data-number="12.2.2.1" class="anchored" data-anchor-id="visualizing-the-training-and-new-data"><span class="header-section-number">12.2.2.1</span> Visualizing the Training and New Data</h4>
 <p>Before applying kNN, it is helpful to visualize the datasets to see how the training and new samples are distributed in feature space.</p>
-<div id="556bb325" class="cell" data-execution_count="4">
+<div id="583cd2c6" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a figure and axis</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">5</span>, <span class="dv">4</span>))</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -847,7 +853,7 @@ window.Quarto = {
 The <code>neighbors</code> module in <code>sklearn</code> provides efficient implementations of nearest-neighbor algorithms and supports both NumPy arrays and SciPy sparse matrices as input.</p>
 <section id="step-1-instantiate-the-kneighborsclassifier" class="level4" data-number="12.2.3.1">
 <h4 data-number="12.2.3.1" class="anchored" data-anchor-id="step-1-instantiate-the-kneighborsclassifier"><span class="header-section-number">12.2.3.1</span> Step 1: Instantiate the <code>KNeighborsClassifier</code></h4>
-<div id="f85698d3" class="cell" data-execution_count="5">
+<div id="f02e4ade" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.neighbors <span class="im">import</span> KNeighborsClassifier</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Instantiate with chosen parameters</span></span>
@@ -867,7 +873,7 @@ The <code>neighbors</code> module in <code>sklearn</code> provides efficient imp
 </section>
 <section id="step-2-fit-the-classifier-to-training-data" class="level4" data-number="12.2.3.2">
 <h4 data-number="12.2.3.2" class="anchored" data-anchor-id="step-2-fit-the-classifier-to-training-data"><span class="header-section-number">12.2.3.2</span> Step 2: Fit the Classifier to Training Data</h4>
-<div id="76d59002" class="cell" data-execution_count="6">
+<div id="3fbb4184" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Train kNN classifier</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>knn.fit(X_tr, y_tr)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="6">
@@ -1292,7 +1298,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </section>
 <section id="step-3-make-predictions-on-new-data" class="level4" data-number="12.2.3.3">
 <h4 data-number="12.2.3.3" class="anchored" data-anchor-id="step-3-make-predictions-on-new-data"><span class="header-section-number">12.2.3.3</span> Step 3: Make Predictions on New Data</h4>
-<div id="68083517" class="cell" data-execution_count="7">
+<div id="638134f7" class="cell" data-execution_count="7">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Predict labels for new data samples</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>predicted_labels <span class="op">=</span> knn.predict(X_new)</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1330,7 +1336,7 @@ Returning the number of logical cores instead. You can silence this warning by s
 <section id="step-1-calculate-distances" class="level4" data-number="12.2.4.1">
 <h4 data-number="12.2.4.1" class="anchored" data-anchor-id="step-1-calculate-distances"><span class="header-section-number">12.2.4.1</span> Step 1: Calculate Distances</h4>
 <p>First, compute the distances between each training point in <code>X_tr</code> and each new point in <code>X_new</code>.</p>
-<div id="129d5212" class="cell" data-execution_count="8">
+<div id="e274a800" class="cell" data-execution_count="8">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> pairwise_distances</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute Euclidean distance between all training samples and the new point</span></span>
@@ -1358,7 +1364,7 @@ Returning the number of logical cores instead. You can silence this warning by s
 <section id="step-2-identify-nearest-neighbors" class="level4" data-number="12.2.4.2">
 <h4 data-number="12.2.4.2" class="anchored" data-anchor-id="step-2-identify-nearest-neighbors"><span class="header-section-number">12.2.4.2</span> Step 2: Identify Nearest Neighbors</h4>
 <p>For simplicity, let’s focus on the classification of the 4th new point in <code>X_new</code> (i.e., <code>j = 3</code>). We extract the column of distances corresponding to that new point:</p>
-<div id="0fdfc999" class="cell" data-execution_count="9">
+<div id="d91a45ad" class="cell" data-execution_count="9">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>j <span class="op">=</span> <span class="dv">3</span>  <span class="co"># index of the 4th new point</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>distances_j <span class="op">=</span> distances[:, j]</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>distances_j</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -1368,7 +1374,7 @@ Returning the number of logical cores instead. You can silence this warning by s
 </div>
 </div>
 <p>Then, rank (sort) them based on the resulted distances, by using <code>np.argsort()</code> that returns the indexes:</p>
-<div id="e2d3c9b9" class="cell" data-execution_count="10">
+<div id="64298ac2" class="cell" data-execution_count="10">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Sort indices by distance (ascending order)</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>indices_sorted_by_distance <span class="op">=</span> np.argsort(distances_j)</span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>indices_sorted_by_distance</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -1377,7 +1383,7 @@ Returning the number of logical cores instead. You can silence this warning by s
 </div>
 </div>
 <p>Given a predetermined neighbor size <code>k</code> (as a user parameter), define a set for the neighbors of the <code>j</code>th point in <code>X_new</code> by taking the top (i.e., closest to the jth example) <code>k</code> samples in <code>X_tr</code>:</p>
-<div id="a6894e7c" class="cell" data-execution_count="11">
+<div id="f56c3705" class="cell" data-execution_count="11">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get indices of the k closest samples</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>k <span class="op">=</span> <span class="dv">3</span></span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>neighbor_indices <span class="op">=</span> indices_sorted_by_distance[:k]</span>
@@ -1390,7 +1396,7 @@ Returning the number of logical cores instead. You can silence this warning by s
 <section id="step-3-retrieve-neighbor-labels" class="level4" data-number="12.2.4.3">
 <h4 data-number="12.2.4.3" class="anchored" data-anchor-id="step-3-retrieve-neighbor-labels"><span class="header-section-number">12.2.4.3</span> Step 3: Retrieve Neighbor Labels</h4>
 <p>Retrieve the class labels for the nearest neighbors.</p>
-<div id="d2d57aa4" class="cell" data-execution_count="12">
+<div id="16dbaa9f" class="cell" data-execution_count="12">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>neighbor_labels <span class="op">=</span> y_tr[neighbor_indices]</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>neighbor_labels</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="12">
@@ -1401,7 +1407,7 @@ Returning the number of logical cores instead. You can silence this warning by s
 <section id="step-4-plurality-vote" class="level4" data-number="12.2.4.4">
 <h4 data-number="12.2.4.4" class="anchored" data-anchor-id="step-4-plurality-vote"><span class="header-section-number">12.2.4.4</span> Step 4: Plurality vote</h4>
 <p>Finally, assign the class label of the new point by majority vote (mode) of its neighbors’ labels:</p>
-<div id="5a77d69a" class="cell" data-execution_count="13">
+<div id="6681e8a1" class="cell" data-execution_count="13">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> collections <span class="im">import</span> Counter</span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Get the most frequent label (mode)</span></span>
@@ -1421,9 +1427,9 @@ Returning the number of logical cores instead. You can silence this warning by s
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>When (k = 1), the decision boundary of the kNN classifier corresponds to the borders of a <a href="https://en.wikipedia.org/wiki/Voronoi_diagram">Voronoi diagram</a>. Each region in the diagram contains all samples that are closest to a particular training sample.</p>
+<p>When (k = 1), the decision boundary of the kNN classifier corresponds to the borders of a <a href="https://en.wikipedia.org/wiki/Voronoi_diagram" target="_blank">Voronoi diagram</a>. Each region in the diagram contains all samples that are closest to a particular training sample.</p>
 <p>The visualization below shows how the training data divides the input space into such regions.</p>
-<div id="e2246e0a" class="cell" data-execution_count="14">
+<div id="31ed1275" class="cell" data-execution_count="14">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.spatial <span class="im">import</span> Voronoi, voronoi_plot_2d</span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1510,7 +1516,7 @@ Returning the number of logical cores instead. You can silence this warning by s
 </ul>
 <section id="example-with-scikit-learn" class="level3" data-number="12.3.1">
 <h3 data-number="12.3.1" class="anchored" data-anchor-id="example-with-scikit-learn"><span class="header-section-number">12.3.1</span> Example with Scikit-learn</h3>
-<div id="f44be299" class="cell" data-execution_count="15">
+<div id="f0cf5210" class="cell" data-execution_count="15">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.datasets <span class="im">import</span> make_regression</span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.neighbors <span class="im">import</span> KNeighborsRegressor</span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a></span>
